@@ -9,7 +9,7 @@ export const Route = createFileRoute("/elektronika")({
   component: Page,
 });
 
-const cats = [
+const cats: [string, string][] = [
   ["Laptopi", "Poslovni i gaming modeli, provjerene baterije i ekrani."],
   ["Računari", "Desktop konfiguracije za kancelariju, školu i igru."],
   ["Tableti", "Za učenje, posao i zabavu — povoljno."],
