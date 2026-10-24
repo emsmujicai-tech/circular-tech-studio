@@ -16,4 +16,4 @@
 - [x] Integrate drones into the service grid and add a generated repair gallery with mouse-responsive motion
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
 - [ ] Publish the site after an explicit publish request
-- [ ] Connect emsmujic.tech — awaiting user's paid invoice to confirm registrar; domain tools report unregistered/no nameservers, purchase declined
+- [ ] Connect emsmujic.tech — paid Domeneshop receipt received; domain tools report unregistered/no nameservers and registry returns 404; awaiting registrar domain status before connection
