@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Verify public company name and domain against the supplied invoice; do not publish private invoices or payment details
 - [ ] Replace combustion motorcycle icon with a clearly electric motorcycle without exhaust
 - [ ] Apply matching 3D icons to all similar service/category tiles across the site, preserving text, links and touch/reduced-motion behaviour
 - [x] Refresh AI/automation/branding page with six generated 3D icons, concise trilingual copy and a redesigned layout

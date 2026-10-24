@@ -9,7 +9,7 @@ import drone from "@/assets/icon-drone.png";
 import repair from "@/assets/icon-repair.png";
 import network from "@/assets/icon-network.png";
 import recycling from "@/assets/icon-recycling.png";
-import motorcycle from "@/assets/icon-motorcycle.png";
+import motorcycle from "@/assets/icon-electric-motorcycle.png";
 import retro from "@/assets/icon-retro.png";
 import community from "@/assets/icon-community.png";
 import chatbot from "@/assets/smart-chatbot.png";
