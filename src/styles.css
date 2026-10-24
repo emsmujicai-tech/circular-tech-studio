@@ -105,6 +105,8 @@
 @media (max-width: 640px) { .device-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .retro-cover { background: var(--scrim); opacity: .8; } .device-trigger { padding: 8px; } }
 @media (hover: none), (pointer: coarse) { .device-icon, .motion-surface, .service-icon { transform: none !important; transition: none !important; } .motion-surface::after { display: none; } }
 .service-icon { transition: transform 350ms; }
+.smart-tile { border-radius: 8px; }
+.smart-title { overflow-wrap: anywhere; }
 .motion-surface:hover .service-icon { transform: translateY(-4px) rotate(-8deg); }
 @media (prefers-reduced-motion: reduce) {
   .motion-surface, .repair-image, .service-icon, .device-icon { transform: none !important; transition: none !important; }

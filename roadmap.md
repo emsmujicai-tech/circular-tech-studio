@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Refresh AI/automation/branding page with six generated 3D icons, concise trilingual copy and a redesigned layout
 - [x] Keep every gallery icon visible in a symmetric grid without arrows and make the main menu fully accessible
 - [x] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
 - [x] Add AI service assistant accepting fault descriptions or photos and preparing a service enquiry through AI Gateway
@@ -15,6 +16,6 @@
 - [x] Add drone services: inspection and filming of hard-to-reach locations
 - [x] Integrate drones into the service grid and add a generated repair gallery with mouse-responsive motion
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
-- [ ] Publish the site after an explicit publish request
+- [ ] Publish the full website on emsmujic.tech after Domeneshop confirms registration and user completes domain connection confirmation; not a parked domain page
 - [ ] Connect emsmujic.tech — paid Domeneshop receipt received; domain tools report unregistered/no nameservers and registry returns 404; awaiting registrar domain status before connection
 - [ ] Obtain exact project-issued DNS values after registration confirmation; connect root and www through the domain connection card, preserve existing email records, then verify DNS and HTTPS. Do not guess IP addresses or verification tokens; no background monitoring is scheduled.
