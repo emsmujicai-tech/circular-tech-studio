@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Card, CTA, PageHead, meta } from "@/components/site";
 
 export const Route = createFileRoute("/elektronika")({
@@ -31,6 +31,15 @@ function Page() {
         {["Testirani uređaji", "Niske cijene", "Brz dogovor i preuzimanje"].map((x) => (
           <div key={x} className="rounded-xl bg-secondary p-5 font-semibold"><span className="text-primary">✓</span> {x}</div>
         ))}
+      </section>
+      <section className="mx-auto mt-12 max-w-6xl px-5">
+        <div className="rounded-2xl border border-primary/40 bg-secondary p-8">
+          <h2 className="text-2xl font-bold">Uređaj se kvari ili ne radi?</h2>
+          <p className="mt-2 text-muted-foreground">Radimo servis laptopa, računara, tableta i telefona te popravke električnih skutera, bicikala i motora.</p>
+          <Link to="/servis" className="mt-5 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
+            Pogledaj servis
+          </Link>
+        </div>
       </section>
       <CTA />
     </>

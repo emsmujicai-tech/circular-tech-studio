@@ -15,7 +15,7 @@ function Page() {
   return (
     <>
       <PageHead kicker="Kontakt" title="Razgovarajmo">
-        Kupovina, otkup ili novi projekt — javite se pozivom ili emailom.
+        Kupovina, servis, otkup ili novi projekt — javite se pozivom ili emailom.
       </PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">
         {items.map(([l, v, href]) => (

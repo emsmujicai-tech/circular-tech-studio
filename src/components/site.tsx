@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 const nav = [
   { to: "/", label: "Početna" },
   { to: "/elektronika", label: "Polovna elektronika" },
+  { to: "/servis", label: "Servis" },
   { to: "/e-otpad", label: "Otkup e-otpada" },
   { to: "/usluge", label: "AI & Dizajn" },
   { to: "/kontakt", label: "Kontakt" },
@@ -47,7 +48,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground sm:grid-cols-3">
         <div>
           <p className="font-display text-base font-bold text-foreground">EMS Mujić Smart Solutions</p>
-          <p className="mt-2">Polovna elektronika, e-mobilnost, reciklaža i AI rješenja.</p>
+          <p className="mt-2">Polovna elektronika, servis i popravke, e-mobilnost, reciklaža i AI rješenja.</p>
         </div>
         <div>
           <p>{CONTACT.phone}</p>
@@ -70,9 +71,9 @@ export function PageHead({ kicker, title, children }: { kicker: string; title: s
   );
 }
 
-export function Card({ title, children, tag }: { title: string; children: ReactNode; tag?: string }) {
+export function Card({ title, children, tag, className }: { title: string; children: ReactNode; tag?: string; className?: string }) {
   return (
-    <div className="rounded-xl border bg-card p-6 transition hover:border-primary/60">
+    <div className={["rounded-xl border bg-card p-6 transition hover:border-primary/60", className].filter(Boolean).join(" ")}>
       {tag && <span className="text-xs font-medium uppercase tracking-wider text-accent">{tag}</span>}
       <h3 className="mt-1 text-xl font-semibold">{title}</h3>
       <p className="mt-2 text-muted-foreground">{children}</p>

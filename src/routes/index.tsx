@@ -44,6 +44,10 @@ function Index() {
           <Card tag="AI" title="AI botovi i recepcionisti">Virtualni asistenti koji odgovaraju klijentima 24/7.</Card>
           <Card tag="Automatizacija" title="Poslovna automatizacija">Manje ručnog posla, više vremena za rast.</Card>
           <Card tag="Dizajn" title="Brending, logo, 3D i AI vizualizacija">Kompletan vizuelni identitet vašeg brenda.</Card>
+          <Card tag="Servis" title="Servis elektronike, e-skutera, bicikala i motora" className="md:col-span-3">
+            Kvar nije kraj — dijagnostika i popravka laptopa, računara, telefona, električnih skutera, bicikala i motora.{" "}
+            <Link to="/servis" className="font-semibold text-primary hover:underline">Pogledaj servis →</Link>
+          </Card>
         </div>
       </section>
       <CTA />
