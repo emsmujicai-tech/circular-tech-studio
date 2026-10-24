@@ -13,3 +13,5 @@
 
 - All user-visible copy lives in `src/lib/content.ts` as one dictionary per language, with `nb` (Norwegian) as the default; pages read their text from `useLang()` instead of hardcoding strings, and every new page adds its keys to all three languages so the content test keeps the dictionaries in sync.
 - Gallery and home service tiles share a browser-safe MotionSurface with pointer-driven CSS variables and reduced-motion support; this keeps interactive effects consistent without an animation dependency.
+- The electronics gallery uses a native scroll-snap track with timed advancement and pause/manual controls; this supports touch scrolling and reduced motion without a carousel dependency.
+- Retro club membership uses an encoded mailto link rather than account storage; membership is handled personally by email.
