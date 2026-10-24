@@ -20,7 +20,7 @@ function Page() {
   return (
     <>
       <PageHead kicker={s.kicker} title={s.title}>{s.lead}</PageHead>
-      <ServiceAssistant initialDevice={device} />
+      <ServiceAssistant initialDevice={device ?? ""} />
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-2 lg:grid-cols-3">
         {s.services.map(([title, desc]) => <Card key={title} title={title}>{desc}</Card>)}
       </section>
