@@ -40,6 +40,7 @@ export type SiteContent = {
     title: string;
     lead: string;
     services: Pair[];
+    howItWorks: string;
     steps: Pair[];
     buyout: { title: string; text: string; button: string };
   };
@@ -128,6 +129,7 @@ const nb: SiteContent = {
     kicker: "Service",
     title: "Service av elektronikk, elsykler, sparkesykler og motorsykler",
     lead: "En defekt enhet behøver ikke være slutten. Vi kontrollerer, feilsøker og reparerer – med et tydelig pristilbud før arbeidet startes.",
+    howItWorks: "Slik fungerer servicen",
     services: [
       ["Service av elektronikk", "Feilsøking og reparasjon av bærbare PC-er, stasjonære PC-er, nettbrett og mobiltelefoner – maskinvare og programvare."],
       ["Skjerm, batteri, ladekontakt", "Bytte av skjerm, batteri, tastatur, ladekontakter og andre deler."],
@@ -250,6 +252,7 @@ const en: SiteContent = {
     kicker: "Service",
     title: "Electronics, e-scooter, e-bike and motorcycle service",
     lead: "A broken device doesn't have to be the end. We inspect, diagnose and repair — with a clear quote before any work starts.",
+    howItWorks: "How the service works",
     services: [
       ["Electronics service", "Diagnosis and repair of laptops, desktops, tablets and phones — hardware and software."],
       ["Screen, battery, charging port", "Replacement of screens, batteries, keyboards, charging ports and other parts."],
@@ -372,6 +375,7 @@ const bs: SiteContent = {
     kicker: "Servis",
     title: "Servis elektronike, e-skutera, bicikala i motora",
     lead: "Neispravan uređaj ne mora biti kraj. Pregledamo, dijagnostikujemo i popravljamo — uz jasan predračun prije rada.",
+    howItWorks: "Kako radi servis",
     services: [
       ["Servis elektronike", "Dijagnostika i popravka laptopa, računara, tableta i telefona — hardver i softver."],
       ["Ekran, baterija, konektor", "Zamjena ekrana, baterija, tipkovnica, konektora punjenja i drugih dijelova."],

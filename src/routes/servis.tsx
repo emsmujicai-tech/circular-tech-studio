@@ -21,7 +21,7 @@ function Page() {
         {s.services.map(([title, desc]) => <Card key={title} title={title}>{desc}</Card>)}
       </section>
       <section className="mx-auto mt-16 max-w-6xl px-5">
-        <h2 className="text-3xl font-bold">{t.home.h2 === "Det vi gjør" ? "Slik fungerer servicen" : "Kako radi servis"}</h2>
+        <h2 className="text-3xl font-bold">{s.howItWorks}</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
           {s.steps.map(([title, desc], i) => (
             <div key={title} className="rounded-xl border bg-card p-6">
