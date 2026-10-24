@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Card, CTA, PageHead, meta } from "@/components/site";
+import { CTA, PageHead, meta } from "@/components/site";
+import { IconCard } from "@/components/icon-card";
+import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 import { ServiceAssistant } from "@/components/service-assistant";
 
@@ -12,6 +14,8 @@ export const Route = createFileRoute("/servis")({
   component: Page,
 });
 
+const icons: ServiceIconName[] = ["repair", "phone", "scooter", "ebike", "motorcycle", "desktop"];
+
 function Page() {
   const { t } = useLang();
   const s = t.servis;
@@ -22,14 +26,15 @@ function Page() {
       <PageHead kicker={s.kicker} title={s.title}>{s.lead}</PageHead>
       <ServiceAssistant initialDevice={device ?? ""} />
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-2 lg:grid-cols-3">
-        {s.services.map(([title, desc]) => <Card key={title} title={title}>{desc}</Card>)}
+        {s.services.map(([title, desc], index) => <IconCard key={title} title={title} icon={icons[index] ?? "repair"}>{desc}</IconCard>)}
       </section>
       <section className="mx-auto mt-16 max-w-6xl px-5">
         <h2 className="text-3xl font-bold">{s.howItWorks}</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
           {s.steps.map(([title, desc], i) => (
-            <div key={title} className="rounded-xl border bg-card p-6">
-              <span className="font-display text-4xl font-bold text-primary">0{i + 1}</span>
+            <div key={title} className="rounded-lg border bg-card p-6">
+              <span className="font-display text-sm font-bold text-accent">0{i + 1}</span>
+              <ServiceIcon compact name={(["phone", "repair", "receptionist", "repair"] as ServiceIconName[])[i] ?? "repair"} />
               <h3 className="mt-2 text-lg font-semibold">{title}</h3>
               <p className="mt-1 text-muted-foreground">{desc}</p>
             </div>

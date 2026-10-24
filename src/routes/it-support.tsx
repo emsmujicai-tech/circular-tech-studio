@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CTA, PageHead, meta } from "@/components/site";
+import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
+import { MotionSurface } from "@/components/motion-surface";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/it-support")({
@@ -10,6 +12,8 @@ export const Route = createFileRoute("/it-support")({
   component: Page,
 });
 
+const icons: ServiceIconName[] = ["receptionist", "desktop", "network"];
+
 function Page() {
   const { t } = useLang();
   const i = t.it;
@@ -18,8 +22,9 @@ function Page() {
     <>
       <PageHead kicker={i.kicker} title={i.title}>{i.lead}</PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">
-        {i.packages.map((p) => (
-          <div key={p.name} className="flex flex-col rounded-xl border bg-card p-6 transition hover:border-primary/60">
+        {i.packages.map((p, index) => (
+          <MotionSurface key={p.name} className="flex flex-col rounded-lg border bg-card p-6">
+            <ServiceIcon name={icons[index] ?? "network"} />
             <h3 className="text-xl font-semibold">{p.name}</h3>
             <p className="mt-1 text-sm text-accent">{p.tagline}</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -33,7 +38,7 @@ function Page() {
             <Link to="/kontakt" className="mt-6 inline-block self-start rounded-lg border px-4 py-2 text-sm font-semibold transition hover:bg-secondary">
               {p.cta}
             </Link>
-          </div>
+          </MotionSurface>
         ))}
       </section>
       <section className="mx-auto mt-16 max-w-6xl px-5">
