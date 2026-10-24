@@ -6,7 +6,7 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "bs", label: "Bosanski", short: "BS" },
 ];
 
-export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai" | "contact";
+export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai" | "drone" | "contact";
 
 type Pair = [string, string];
 
@@ -27,6 +27,7 @@ export type SiteContent = {
     cards: { tag: string; title: string; text: string }[];
     service: { tag: string; title: string; text: string; link: string };
     it: { tag: string; title: string; text: string; link: string };
+    drone: { tag: string; title: string; text: string; link: string };
   };
   elektronika: {
     kicker: string;
@@ -60,6 +61,14 @@ export type SiteContent = {
     lead: string;
     cards: { tag: string; title: string; text: string }[];
   };
+  drone: {
+    kicker: string;
+    title: string;
+    lead: string;
+    services: Pair[];
+    points: string[];
+    quote: { title: string; text: string; button: string };
+  };
   kontakt: {
     kicker: string;
     title: string;
@@ -76,6 +85,7 @@ const nb: SiteContent = {
     it: "IT-drift",
     ewaste: "Oppkjøp av elektronavfall",
     ai: "AI & design",
+    drone: "Drone",
     contact: "Kontakt",
   },
   footer: {
@@ -260,6 +270,7 @@ const en: SiteContent = {
     it: "IT support",
     ewaste: "E-waste buyback",
     ai: "AI & design",
+    drone: "Drone",
     contact: "Contact",
   },
   footer: {
@@ -444,6 +455,7 @@ const bs: SiteContent = {
     it: "IT podrška",
     ewaste: "Otkup e-otpada",
     ai: "AI & Dizajn",
+    drone: "Drone",
     contact: "Kontakt",
   },
   footer: {
