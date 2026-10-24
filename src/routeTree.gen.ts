@@ -15,6 +15,7 @@ import { Route as EOtpadRouteImport } from './routes/e-otpad'
 import { Route as ElektronikaRouteImport } from './routes/elektronika'
 import { Route as ItSupportRouteImport } from './routes/it-support'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk'
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
 
@@ -48,6 +49,11 @@ const KontaktRoute = KontaktRouteImport.update({
   path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RetroElektronikkRoute = RetroElektronikkRouteImport.update({
+  id: '/retro-elektronikk',
+  path: '/retro-elektronikk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServisRoute = ServisRouteImport.update({
   id: '/servis',
   path: '/servis',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   ElektronikaRoute: typeof ElektronikaRoute
   ItSupportRoute: typeof ItSupportRoute
   KontaktRoute: typeof KontaktRoute
+  RetroElektronikkRoute: typeof RetroElektronikkRoute
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/retro-elektronikk': {
+      id: '/retro-elektronikk'
+      path: '/retro-elektronikk'
+      fullPath: '/retro-elektronikk'
+      preLoaderRoute: typeof RetroElektronikkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/servis': {
       id: '/servis'
       path: '/servis'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   ElektronikaRoute: ElektronikaRoute,
   ItSupportRoute: ItSupportRoute,
   KontaktRoute: KontaktRoute,
+  RetroElektronikkRoute: RetroElektronikkRoute,
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
 }
