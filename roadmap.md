@@ -6,6 +6,6 @@
 - [x] Add IT support for companies as packages — PC and network maintenance, everything remote too
 - [x] Set the company locations to Bergen and Stord, Norway (contact page + footer)
 - [x] Set the contact details to phone +47 973 88 326 and email ems.mujic@gmail.com
-- [ ] Write the company name as "Mujic" (no ć) everywhere it appears
+- [x] Write the company name as "Mujic" (no ć) everywhere it appears
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
 - [ ] Publish the site and connect the emsmujic.tech domain
