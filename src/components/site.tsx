@@ -15,9 +15,8 @@ const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" |
 ];
 
 export const CONTACT = {
-  // Placeholder number — a real Norwegian number still needs to be supplied.
-  phone: "+387 61 000 000",
-  email: "info@emsmujic.tech",
+  phone: "+47 973 88 326",
+  email: "ems.mujic@gmail.com",
 };
 
 export function Header() {
