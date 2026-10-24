@@ -6,7 +6,7 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "bs", label: "Bosanski", short: "BS" },
 ];
 
-export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai" | "drone" | "contact";
+export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai" | "drone" | "retro" | "contact";
 
 type Pair = [string, string];
 
@@ -28,7 +28,7 @@ export type SiteContent = {
     service: { tag: string; title: string; text: string; link: string };
     it: { tag: string; title: string; text: string; link: string };
     drone: { tag: string; title: string; text: string; link: string };
-    gallery: { kicker: string; title: string; note: string; open: string; close: string; previous: string; next: string; items: { title: string; text: string; alt: string }[] };
+    gallery: { kicker: string; title: string; note: string; open: string; close: string; previous: string; next: string; pause: string; play: string; items: { title: string; text: string; alt: string }[] };
   };
   elektronika: {
     kicker: string;
@@ -70,6 +70,7 @@ export type SiteContent = {
     points: string[];
     quote: { title: string; text: string; button: string };
   };
+  retro: { kicker: string; title: string; lead: string; alt: string; note: string; join: string; subject: string; emailBody: string; introTitle: string; intro: string; topics: Pair[]; membership: string; teaser: string; explore: string };
   kontakt: {
     kicker: string;
     title: string;
@@ -87,6 +88,7 @@ const nb: SiteContent = {
     ewaste: "Oppkjøp av elektronavfall",
     ai: "AI & design",
     drone: "Drone",
+    retro: "Retro elektronikk",
     contact: "Kontakt",
   },
   footer: {
@@ -116,12 +118,16 @@ const nb: SiteContent = {
       kicker: "Service & reparasjon",
       title: "Verdt å ta vare på.",
       note: "AI-genererte illustrasjoner av reparasjoner — ikke bilder av utførte kundeoppdrag.",
-      open: "Åpne bilde", close: "Lukk", previous: "Forrige bilde", next: "Neste bilde",
+      open: "Åpne bilde", close: "Lukk", previous: "Forrige bilde", next: "Neste bilde", pause: "Pause lysbildefremvisning", play: "Start lysbildefremvisning",
       items: [
-        { title: "PlayStation 5", text: "Konsoller & gaming", alt: "AI-illustrasjon av en åpnet PS5 under reparasjon" },
-        { title: "Elektriske sparkesykler", text: "Batteri · motor · elektronikk", alt: "AI-illustrasjon av feilsøking på en elektrisk sparkesykkel" },
-        { title: "Gaming & bærbare PC-er", text: "Kjøling · maskinvare · oppgradering", alt: "AI-illustrasjon av reparasjon av en gaming-PC" },
-        { title: "Elektriske sykler", text: "Drivverk · batteri · vedlikehold", alt: "AI-illustrasjon av service på motoren til en elsykkel" },
+        { title: "Bærbare PC-er", text: "Kjøling · maskinvare", alt: "Bærbar PC under reparasjon" },
+        { title: "Nettbrett", text: "Skjerm · batteri", alt: "Nettbrett på en arbeidsbenk" },
+        { title: "Smarttelefoner", text: "Batteri · ladekontakt", alt: "Åpnet smarttelefon under reparasjon" },
+        { title: "TV-er", text: "Skjerm · elektronikk", alt: "TV med åpnet bakside" },
+        { title: "Stasjonære PC-er", text: "Oppgradering · komponenter", alt: "Stasjonær PC med åpent kabinett" },
+        { title: "Elektriske sparkesykler", text: "Batteri · motor", alt: "Service på elektrisk sparkesykkel" },
+        { title: "Elektriske sykler", text: "Drivverk · vedlikehold", alt: "Service på elsykkelmotor" },
+        { title: "Lyd & annen elektronikk", text: "Hi-fi · hodetelefoner", alt: "Forsterker og hodetelefoner på arbeidsbenk" },
       ],
     },
     cards: [
@@ -296,6 +302,35 @@ const nb: SiteContent = {
       button: "Be om tilbud",
     },
   },
+  retro: {
+    "kicker": "EMS Mujic · Bergen og Stord",
+    "title": "Retro elektronikk",
+    "lead": "En klubb for deg som elsker gammel elektronikk. Del lidenskapen, historiene og kunnskapen — fra den første PC-en til favorittanlegget.",
+    "alt": "Samling av retrodatamaskin, receiver, kassettspiller og kassetter",
+    "note": "AI-generert illustrasjon av retroelektronikk.",
+    "join": "Bli med i klubben",
+    "subject": "Medlemskap i Retro elektronikk",
+    "emailBody": "Hei EMS Mujic!\n\nJeg vil gjerne bli med i Retro elektronikk-klubben.\n\nNavn:\nSted:\nMin favoritt blant gamle elektroniske enheter:\nDet jeg ønsker å dele med klubben:\n",
+    "introTitle": "Gammel teknologi. Felles lidenskap.",
+    "intro": "For samlere, reparatører og nysgjerrige — enten du har en hel samling eller én enhet med en god historie.",
+    "topics": [
+        [
+            "Del samlingen din",
+            "Bilder, historier og minner fra elektronikken du har tatt vare på."
+        ],
+        [
+            "Utveksle kunnskap",
+            "Restaurering, feilsøking, deler og erfaringer som holder gamle enheter i live."
+        ],
+        [
+            "Finn likesinnede",
+            "Kom i kontakt med andre som deler interessen for retro-PC-er, radio, hi-fi, TV og spillutstyr."
+        ]
+    ],
+    "membership": "Medlemskap avtales via e-post med EMS Mujic. Fortell hvem du er og hva du er interessert i — vi følger opp personlig.",
+    "teaser": "Ikke alt gammelt er avfall. Møt andre som ser verdien i gammel elektronikk.",
+    "explore": "Utforsk retroklubben"
+} ,
   kontakt: {
     kicker: "Kontakt",
     title: "La oss ta en prat",
@@ -313,6 +348,7 @@ const en: SiteContent = {
     ewaste: "E-waste buyback",
     ai: "AI & design",
     drone: "Drone",
+    retro: "Retro electronics",
     contact: "Contact",
   },
   footer: {
@@ -342,12 +378,16 @@ const en: SiteContent = {
       kicker: "Service & repair",
       title: "Worth keeping.",
       note: "AI-generated repair illustrations — not photographs of completed customer jobs.",
-      open: "Open image", close: "Close", previous: "Previous image", next: "Next image",
+      open: "Open image", close: "Close", previous: "Previous image", next: "Next image", pause: "Pause slideshow", play: "Play slideshow",
       items: [
-        { title: "PlayStation 5", text: "Consoles & gaming", alt: "AI illustration of an opened PS5 undergoing repair" },
-        { title: "Electric scooters", text: "Battery · motor · electronics", alt: "AI illustration of electric scooter diagnostics" },
-        { title: "Gaming & laptops", text: "Cooling · hardware · upgrades", alt: "AI illustration of gaming laptop repair" },
-        { title: "Electric bikes", text: "Drive system · battery · maintenance", alt: "AI illustration of electric bike motor servicing" },
+        { title: "Laptops", text: "Cooling · hardware", alt: "Laptop undergoing repair" },
+        { title: "Tablets", text: "Screen · battery", alt: "Tablet on a workbench" },
+        { title: "Smartphones", text: "Battery · charging port", alt: "Opened smartphone undergoing repair" },
+        { title: "Televisions", text: "Screen · electronics", alt: "Television with its back panel removed" },
+        { title: "Desktop computers", text: "Upgrades · components", alt: "Desktop PC with an open case" },
+        { title: "Electric scooters", text: "Battery · motor", alt: "Electric scooter servicing" },
+        { title: "Electric bikes", text: "Drive system · maintenance", alt: "Electric bike motor servicing" },
+        { title: "Audio & other electronics", text: "Hi-fi · headphones", alt: "Amplifier and headphones on a workbench" },
       ],
     },
     cards: [
@@ -522,6 +562,35 @@ const en: SiteContent = {
       button: "Ask for a quote",
     },
   },
+  retro: {
+    "kicker": "EMS Mujic · Bergen and Stord",
+    "title": "Retro electronics",
+    "lead": "A club for people who love old electronics. Share the passion, stories and knowledge — from your first computer to your favourite hi-fi.",
+    "alt": "Collection of a vintage computer, receiver, cassette deck and tapes",
+    "note": "AI-generated illustration of retro electronics.",
+    "join": "Join the club",
+    "subject": "Retro electronics club membership",
+    "emailBody": "Hello EMS Mujic!\n\nI would like to join the Retro electronics club.\n\nName:\nLocation:\nMy favourite old electronic device:\nWhat I would like to share with the club:\n",
+    "introTitle": "Old technology. Shared passion.",
+    "intro": "For collectors, repair enthusiasts and the curious — whether you have a full collection or one device with a great story.",
+    "topics": [
+        [
+            "Share your collection",
+            "Photos, stories and memories of the electronics you have preserved."
+        ],
+        [
+            "Exchange knowledge",
+            "Restoration, diagnostics, parts and experiences that keep old devices alive."
+        ],
+        [
+            "Meet like-minded people",
+            "Connect with others interested in retro computers, radios, hi-fi, TVs and gaming equipment."
+        ]
+    ],
+    "membership": "Membership is arranged by email with EMS Mujic. Tell us who you are and what interests you — we follow up personally.",
+    "teaser": "Not everything old is waste. Meet others who see the value in old electronics.",
+    "explore": "Explore the retro club"
+} ,
   kontakt: {
     kicker: "Contact",
     title: "Let's talk",
@@ -539,6 +608,7 @@ const bs: SiteContent = {
     ewaste: "Otkup e-otpada",
     ai: "AI & Dizajn",
     drone: "Drone",
+    retro: "Retro elektronika",
     contact: "Kontakt",
   },
   footer: {
@@ -568,12 +638,16 @@ const bs: SiteContent = {
       kicker: "Servis & popravke",
       title: "Vrijedi sačuvati.",
       note: "AI-generisane ilustracije popravki — nisu fotografije završenih radova za klijente.",
-      open: "Otvori sliku", close: "Zatvori", previous: "Prethodna slika", next: "Sljedeća slika",
+      open: "Otvori sliku", close: "Zatvori", previous: "Prethodna slika", next: "Sljedeća slika", pause: "Pauziraj slajdove", play: "Pokreni slajdove",
       items: [
-        { title: "PlayStation 5", text: "Konzole & gaming", alt: "AI ilustracija otvorene PS5 konzole tokom popravke" },
-        { title: "Električni skuteri", text: "Baterija · motor · elektronika", alt: "AI ilustracija dijagnostike električnog skutera" },
-        { title: "Gaming & laptopi", text: "Hlađenje · hardver · nadogradnje", alt: "AI ilustracija popravke gaming laptopa" },
-        { title: "Električna bicikla", text: "Pogon · baterija · održavanje", alt: "AI ilustracija servisa motora električnog bicikla" },
+        { title: "Laptopi", text: "Hlađenje · hardver", alt: "Laptop tokom popravke" },
+        { title: "Tableti", text: "Ekran · baterija", alt: "Tablet na radnom stolu" },
+        { title: "Smart telefoni", text: "Baterija · konektor", alt: "Otvoren telefon tokom popravke" },
+        { title: "Televizori", text: "Ekran · elektronika", alt: "TV s otvorenom zadnjom stranom" },
+        { title: "Desktop računari", text: "Nadogradnje · komponente", alt: "Desktop računar s otvorenim kućištem" },
+        { title: "Električni skuteri", text: "Baterija · motor", alt: "Servis električnog skutera" },
+        { title: "Električna bicikla", text: "Pogon · održavanje", alt: "Servis motora električnog bicikla" },
+        { title: "Audio & ostala elektronika", text: "Hi-fi · slušalice", alt: "Pojačalo i slušalice na radnom stolu" },
       ],
     },
     cards: [
@@ -748,6 +822,35 @@ const bs: SiteContent = {
       button: "Traži ponudu",
     },
   },
+  retro: {
+    "kicker": "EMS Mujic · Bergen i Stord",
+    "title": "Retro elektronika",
+    "lead": "Klub za sve koji vole staru elektroniku. Podijelite strast, priče i znanje — od prvog računara do omiljenog hi-fi uređaja.",
+    "alt": "Kolekcija starog računara, receivera, kasetofona i kaseta",
+    "note": "AI-generisana ilustracija retro elektronike.",
+    "join": "Učlani se u klub",
+    "subject": "Članstvo u Retro elektronika klubu",
+    "emailBody": "Zdravo EMS Mujic!\n\nŽelim se učlaniti u Retro elektronika klub.\n\nIme:\nMjesto:\nMoj omiljeni stari elektronski uređaj:\nŠta želim podijeliti s klubom:\n",
+    "introTitle": "Stara tehnologija. Zajednička strast.",
+    "intro": "Za kolekcionare, ljubitelje popravki i radoznale — bilo da imate cijelu kolekciju ili jedan uređaj s dobrom pričom.",
+    "topics": [
+        [
+            "Podijeli svoju kolekciju",
+            "Fotografije, priče i uspomene na elektroniku koju ste sačuvali."
+        ],
+        [
+            "Razmijeni znanje",
+            "Restauracija, dijagnostika, dijelovi i iskustva koja održavaju stare uređaje u životu."
+        ],
+        [
+            "Pronađi istomišljenike",
+            "Poveži se s ljubiteljima retro računara, radija, hi-fi opreme, televizora i gaming uređaja."
+        ]
+    ],
+    "membership": "Članstvo se dogovara emailom s EMS Mujic. Napišite ko ste i šta vas zanima — javit ćemo se lično.",
+    "teaser": "Nije sve staro otpad. Upoznaj ljude koji vide vrijednost u staroj elektronici.",
+    "explore": "Istraži retro klub"
+} ,
   kontakt: {
     kicker: "Kontakt",
     title: "Razgovarajmo",
