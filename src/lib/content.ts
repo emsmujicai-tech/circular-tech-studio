@@ -168,7 +168,7 @@ const nb: SiteContent = {
   },
   it: {
     kicker: "IT-drift for bedrifter",
-    title: "IT-support som fast paket — PC-er, nettverk og oppfølging på avstand",
+    title: "IT-support som fast pakke — PC-er, nettverk og oppfølging på avstand",
     lead: "Vi tar oss av datamaskinene, serverne og nettverket ditt, slik at du kan holde på driften. Alt som lar seg gjøre fra kontoret, gjør vi remote — raskere og rimeligere for deg.",
     packages: [
       {
@@ -176,7 +176,7 @@ const nb: SiteContent = {
         tagline: "Hjelp når noe stopper opp",
         points: [
           "Support per e-post, telefon og Teams",
-          "Spori eller neisprave PC-er, printere og e-postproblemer",
+          "Treg eller defekt PC, printer og e-post",
           "Vi følger hver sak til den er løst",
         ],
         cta: "Be om tilbud",
