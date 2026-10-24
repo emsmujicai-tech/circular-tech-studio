@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
 - [ ] Add AI service assistant accepting fault descriptions or photos and preparing a service enquiry through AI Gateway
 - [ ] Add Retro elektronikk club with email membership, check first-club claim, and replace PS5 gallery with smaller left/right electronics slides
 - [ ] Replace small gallery photographs with unique 3D device icons opening a dropdown of related services
