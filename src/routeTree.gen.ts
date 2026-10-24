@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EOtpadRouteImport } from './routes/e-otpad'
 import { Route as ElektronikaRouteImport } from './routes/elektronika'
+import { Route as ItSupportRouteImport } from './routes/it-support'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
@@ -29,6 +30,11 @@ const EOtpadRoute = EOtpadRouteImport.update({
 const ElektronikaRoute = ElektronikaRouteImport.update({
   id: '/elektronika',
   path: '/elektronika',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItSupportRoute = ItSupportRouteImport.update({
+  id: '/it-support',
+  path: '/it-support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
+  '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
+  '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
+  '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
@@ -75,14 +84,28 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/e-otpad' | '/elektronika' | '/kontakt' | '/servis' | '/usluge'
+    | '/'
+    | '/e-otpad'
+    | '/elektronika'
+    | '/it-support'
+    | '/kontakt'
+    | '/servis'
+    | '/usluge'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/e-otpad' | '/elektronika' | '/kontakt' | '/servis' | '/usluge'
+  to:
+    | '/'
+    | '/e-otpad'
+    | '/elektronika'
+    | '/it-support'
+    | '/kontakt'
+    | '/servis'
+    | '/usluge'
   id:
     | '__root__'
     | '/'
     | '/e-otpad'
     | '/elektronika'
+    | '/it-support'
     | '/kontakt'
     | '/servis'
     | '/usluge'
@@ -92,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EOtpadRoute: typeof EOtpadRoute
   ElektronikaRoute: typeof ElektronikaRoute
+  ItSupportRoute: typeof ItSupportRoute
   KontaktRoute: typeof KontaktRoute
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
@@ -118,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/elektronika'
       fullPath: '/elektronika'
       preLoaderRoute: typeof ElektronikaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/it-support': {
+      id: '/it-support'
+      path: '/it-support'
+      fullPath: '/it-support'
+      preLoaderRoute: typeof ItSupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -148,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EOtpadRoute: EOtpadRoute,
   ElektronikaRoute: ElektronikaRoute,
+  ItSupportRoute: ItSupportRoute,
   KontaktRoute: KontaktRoute,
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
