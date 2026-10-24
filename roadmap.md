@@ -5,6 +5,8 @@
 - [x] Add a language menu in the header corner: Norsk / English / Bosanski, remembered between visits
 - [x] Add IT support for companies as packages — PC and network maintenance, everything remote too
 - [x] Set the company locations to Bergen and Stord, Norway (contact page + footer)
-- [ ] Replace placeholder phone +387 61 000 000 with a real Norwegian number (needs the number from Elvir)
-- [ ] Get real package prices from Elvir (pages currently say "Be om tilbud" instead of showing a price)
-- [ ] Confirm the email address info@emsmujic.tech is the one he really uses
+- [x] Set the contact details to phone +47 973 88 326 and email ems.mujic@gmail.com
+- [x] Write the company name as "Mujic" (no ć) everywhere it appears
+- [x] Add drone services: inspection and filming of hard-to-reach locations
+- [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
+- [ ] Publish the site and connect the emsmujic.tech domain

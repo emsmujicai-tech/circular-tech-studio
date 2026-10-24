@@ -4,8 +4,8 @@ import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => meta(
-    "Kontakt — EMS Mujić Smart Solutions",
-    "Kontakt EMS Mujić i Bergen og Stord for kjøp av brukt elektronikk, service, oppkjøp av elektronavfall eller AI- og designløsninger.",
+    "Kontakt — EMS Mujic Smart Solutions",
+    "Kontakt EMS Mujic i Bergen og Stord for kjøp av brukt elektronikk, service, oppkjøp av elektronavfall eller AI- og designløsninger.",
   ),
   component: Page,
 });

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DroneRouteImport } from './routes/drone'
 import { Route as EOtpadRouteImport } from './routes/e-otpad'
 import { Route as ElektronikaRouteImport } from './routes/elektronika'
 import { Route as ItSupportRouteImport } from './routes/it-support'
@@ -20,6 +21,11 @@ import { Route as UslugeRouteImport } from './routes/usluge'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DroneRoute = DroneRouteImport.update({
+  id: '/drone',
+  path: '/drone',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EOtpadRoute = EOtpadRouteImport.update({
@@ -55,6 +61,7 @@ const UslugeRoute = UslugeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/drone': typeof DroneRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/drone': typeof DroneRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/drone': typeof DroneRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/drone'
     | '/e-otpad'
     | '/elektronika'
     | '/it-support'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/drone'
     | '/e-otpad'
     | '/elektronika'
     | '/it-support'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/drone'
     | '/e-otpad'
     | '/elektronika'
     | '/it-support'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DroneRoute: typeof DroneRoute
   EOtpadRoute: typeof EOtpadRoute
   ElektronikaRoute: typeof ElektronikaRoute
   ItSupportRoute: typeof ItSupportRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drone': {
+      id: '/drone'
+      path: '/drone'
+      fullPath: '/drone'
+      preLoaderRoute: typeof DroneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/e-otpad': {
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DroneRoute: DroneRoute,
   EOtpadRoute: EOtpadRoute,
   ElektronikaRoute: ElektronikaRoute,
   ItSupportRoute: ItSupportRoute,

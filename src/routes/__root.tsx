@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EMS Mujić Smart Solutions" },
+      { title: "EMS Mujic Smart Solutions" },
       { name: "description", content: "Brukt elektronikk, service og reparasjoner, e-mobilitet, resirkulering av elektronavfall og AI-løsninger. Bergen og Stord, Norge." },
     ],
     links: [

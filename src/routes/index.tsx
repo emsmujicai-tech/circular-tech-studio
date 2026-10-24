@@ -5,7 +5,7 @@ import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => meta(
-    "EMS Mujić Smart Solutions — brukt elektronikk, service og AI-løsninger",
+    "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
     "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
   ),
   component: Index,
@@ -49,6 +49,10 @@ function Index() {
           <Card tag={h.it.tag} title={h.it.title} className="md:col-span-3">
             {h.it.text}{" "}
             <Link to="/it-support" className="font-semibold text-primary hover:underline">{h.it.link} →</Link>
+          </Card>
+          <Card tag={h.drone.tag} title={h.drone.title} className="md:col-span-6">
+            {h.drone.text}{" "}
+            <Link to="/drone" className="font-semibold text-primary hover:underline">{h.drone.link} →</Link>
           </Card>
         </div>
       </section>

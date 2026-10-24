@@ -4,20 +4,20 @@ import { LangSwitcher } from "@/components/lang-switcher";
 import { useLang } from "@/lib/i18n";
 import type { NavKey } from "@/lib/content";
 
-const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/kontakt"; key: NavKey }[] = [
+const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/kontakt"; key: NavKey }[] = [
   { to: "/", key: "home" },
   { to: "/elektronika", key: "electronics" },
   { to: "/servis", key: "service" },
   { to: "/it-support", key: "it" },
   { to: "/e-otpad", key: "ewaste" },
   { to: "/usluge", key: "ai" },
+  { to: "/drone", key: "drone" },
   { to: "/kontakt", key: "contact" },
 ];
 
 export const CONTACT = {
-  // Placeholder number — a real Norwegian number still needs to be supplied.
-  phone: "+387 61 000 000",
-  email: "info@emsmujic.tech",
+  phone: "+47 973 88 326",
+  email: "ems.mujic@gmail.com",
 };
 
 export function Header() {
@@ -26,7 +26,7 @@ export function Header() {
     <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4">
         <Link to="/" className="font-display text-lg font-bold">
-          EMS <span className="text-primary">Mujić</span>
+          EMS <span className="text-primary">Mujic</span>
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
@@ -56,7 +56,7 @@ export function Footer() {
     <footer className="mt-24 border-t">
       <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground sm:grid-cols-3">
         <div>
-          <p className="font-display text-base font-bold text-foreground">EMS Mujić Smart Solutions</p>
+          <p className="font-display text-base font-bold text-foreground">EMS Mujic Smart Solutions</p>
           <p className="mt-2">{t.footer.tagline}</p>
         </div>
         <div>

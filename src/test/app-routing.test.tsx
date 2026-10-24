@@ -30,4 +30,12 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("matches a page for /drone instead of falling back to not found", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    const matches = router.matchRoutes("/drone");
+
+    expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
 });

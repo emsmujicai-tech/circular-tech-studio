@@ -4,7 +4,7 @@ import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/usluge")({
   head: () => meta(
-    "AI, automatisering og branding — EMS Mujić",
+    "AI, automatisering og branding — EMS Mujic",
     "AI-botter, AI-resepsjonister, forretningsautomatisering, logo, 3D-design og AI-visualisering.",
   ),
   component: Page,
