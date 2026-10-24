@@ -1,21 +1,27 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { LangSwitcher } from "@/components/lang-switcher";
+import { useLang } from "@/lib/i18n";
+import type { NavKey } from "@/lib/content";
 
-const nav = [
-  { to: "/", label: "Početna" },
-  { to: "/elektronika", label: "Polovna elektronika" },
-  { to: "/e-otpad", label: "Otkup e-otpada" },
-  { to: "/usluge", label: "AI & Dizajn" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/kontakt"; key: NavKey }[] = [
+  { to: "/", key: "home" },
+  { to: "/elektronika", key: "electronics" },
+  { to: "/servis", key: "service" },
+  { to: "/it-support", key: "it" },
+  { to: "/e-otpad", key: "ewaste" },
+  { to: "/usluge", key: "ai" },
+  { to: "/kontakt", key: "contact" },
+];
 
 export const CONTACT = {
+  // Placeholder number — a real Norwegian number still needs to be supplied.
   phone: "+387 61 000 000",
   email: "info@emsmujic.tech",
-  city: "Bosna i Hercegovina",
 };
 
 export function Header() {
+  const { t } = useLang();
   return (
     <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4">
@@ -23,36 +29,40 @@ export function Header() {
           EMS <span className="text-primary">Mujić</span>
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>
         </Link>
-        <nav className="flex flex-wrap gap-1 text-sm">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: true }}
-              className="rounded-md px-3 py-1.5 text-muted-foreground transition hover:text-foreground"
-              activeProps={{ className: "bg-secondary text-foreground" }}
-            >
-              {n.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex flex-wrap items-center gap-2">
+          <nav className="flex flex-wrap gap-1 text-sm">
+            {nav.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: true }}
+                className="rounded-md px-3 py-1.5 text-muted-foreground transition hover:text-foreground"
+                activeProps={{ className: "bg-secondary text-foreground" }}
+              >
+                {t.nav[n.key]}
+              </Link>
+            ))}
+          </nav>
+          <LangSwitcher />
+        </div>
       </div>
     </header>
   );
 }
 
 export function Footer() {
+  const { t } = useLang();
   return (
     <footer className="mt-24 border-t">
       <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground sm:grid-cols-3">
         <div>
           <p className="font-display text-base font-bold text-foreground">EMS Mujić Smart Solutions</p>
-          <p className="mt-2">Polovna elektronika, e-mobilnost, reciklaža i AI rješenja.</p>
+          <p className="mt-2">{t.footer.tagline}</p>
         </div>
         <div>
           <p>{CONTACT.phone}</p>
           <p>{CONTACT.email}</p>
-          <p>{CONTACT.city}</p>
+          <p>{t.footer.locations}</p>
         </div>
         <p className="sm:text-right">© {new Date().getFullYear()} emsmujic.tech</p>
       </div>
@@ -70,9 +80,9 @@ export function PageHead({ kicker, title, children }: { kicker: string; title: s
   );
 }
 
-export function Card({ title, children, tag }: { title: string; children: ReactNode; tag?: string }) {
+export function Card({ title, children, tag, className }: { title: string; children: ReactNode; tag?: string; className?: string }) {
   return (
-    <div className="rounded-xl border bg-card p-6 transition hover:border-primary/60">
+    <div className={["rounded-xl border bg-card p-6 transition hover:border-primary/60", className].filter(Boolean).join(" ")}>
       {tag && <span className="text-xs font-medium uppercase tracking-wider text-accent">{tag}</span>}
       <h3 className="mt-1 text-xl font-semibold">{title}</h3>
       <p className="mt-2 text-muted-foreground">{children}</p>
@@ -81,15 +91,16 @@ export function Card({ title, children, tag }: { title: string; children: ReactN
 }
 
 export function CTA() {
+  const { t } = useLang();
   return (
     <section className="mx-auto mt-16 max-w-6xl px-5">
       <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-primary/40 bg-secondary p-8 sm:flex-row sm:items-center">
         <div>
-          <h2 className="text-2xl font-bold">Imate pitanje ili uređaj za prodaju?</h2>
-          <p className="text-muted-foreground">Javite se — odgovaramo brzo.</p>
+          <h2 className="text-2xl font-bold">{t.cta.title}</h2>
+          <p className="text-muted-foreground">{t.cta.text}</p>
         </div>
         <Link to="/kontakt" className="rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
-          Kontaktirajte nas
+          {t.cta.button}
         </Link>
       </div>
     </section>

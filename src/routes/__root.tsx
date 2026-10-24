@@ -13,22 +13,22 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "../components/site";
+import { LangProvider, useLang } from "../lib/i18n";
 
 function NotFoundComponent() {
+  const { t } = useLang();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{t.notFound.title}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{t.notFound.text}</p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            {t.notFound.button}
           </Link>
         </div>
       </div>
@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "EMS Mujić Smart Solutions" },
-      { name: "description", content: "Polovna elektronika, e-mobilnost, reciklaža e-otpada i AI rješenja." },
+      { name: "description", content: "Brukt elektronikk, service og reparasjoner, e-mobilitet, resirkulering av elektronavfall og AI-løsninger. Bergen og Stord, Norge." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="bs">
+    <html lang="nb">
       <head>
         <HeadContent />
       </head>
@@ -114,11 +114,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
+      <LangProvider>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </LangProvider>
     </QueryClientProvider>
   );
 }
