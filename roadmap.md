@@ -1,9 +1,9 @@
 # Roadmap
-- [ ] Keep every gallery icon visible in a symmetric grid without arrows and make the main menu fully accessible
-- [ ] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
-- [ ] Add AI service assistant accepting fault descriptions or photos and preparing a service enquiry through AI Gateway
-- [ ] Add Retro elektronikk club with email membership, check first-club claim, and replace PS5 gallery with smaller left/right electronics slides
-- [ ] Replace small gallery photographs with unique 3D device icons opening a dropdown of related services
+- [x] Keep every gallery icon visible in a symmetric grid without arrows and make the main menu fully accessible
+- [x] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
+- [x] Add AI service assistant accepting fault descriptions or photos and preparing a service enquiry through AI Gateway
+- [x] Add Retro elektronikk club with email membership; existing clubs found, so no first-club claim
+- [x] Replace PS5 and gallery photographs with unique 3D device icons opening a dropdown of related services
 
 - [x] Add service/repair page (servis) — electronics, e-scooters, e-bikes, motorcycles
 - [x] Translate the whole site to Norwegian (Norwegian is the default language)
@@ -15,4 +15,5 @@
 - [x] Add drone services: inspection and filming of hard-to-reach locations
 - [x] Integrate drones into the service grid and add a generated repair gallery with mouse-responsive motion
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
-- [ ] Publish the site and connect the emsmujic.tech domain
+- [ ] Publish the site after an explicit publish request
+- [ ] Connect emsmujic.tech — awaiting user's paid invoice to confirm registrar; domain tools report unregistered/no nameservers, purchase declined
