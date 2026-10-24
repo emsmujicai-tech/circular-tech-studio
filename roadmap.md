@@ -17,3 +17,4 @@
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
 - [ ] Publish the site after an explicit publish request
 - [ ] Connect emsmujic.tech — paid Domeneshop receipt received; domain tools report unregistered/no nameservers and registry returns 404; awaiting registrar domain status before connection
+- [ ] Obtain exact project-issued DNS values after registration confirmation; connect root and www through the domain connection card, preserve existing email records, then verify DNS and HTTPS. Do not guess IP addresses or verification tokens; no background monitoring is scheduled.
