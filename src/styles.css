@@ -30,6 +30,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-scrim: var(--scrim);
 }
 
 :root {
@@ -53,6 +54,10 @@
   --border: oklch(0.3 0.015 160);
   --input: oklch(0.3 0.015 160);
   --ring: oklch(0.86 0.2 145);
+  --scrim: oklch(0.08 0.005 160 / 0.88);
+  --surface-light: color-mix(in oklch, var(--accent) 18%, transparent);
+  --surface-shadow: 0 22px 55px oklch(0.05 0.01 160 / 0.45);
+  --photo-shade: linear-gradient(to top, var(--scrim), transparent 65%);
 }
 
 @layer base {
@@ -62,5 +67,39 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
+}
+
+.motion-surface {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  position: relative;
+  min-width: 0;
+  transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 220ms ease-out, border-color 220ms, box-shadow 220ms;
+  isolation: isolate;
+}
+.motion-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(500px circle at var(--pointer-x) var(--pointer-y), var(--surface-light), transparent 70%);
+  opacity: 0;
+  transition: opacity 250ms;
+}
+.motion-surface:hover, .motion-surface:focus-within { border-color: var(--accent); box-shadow: var(--surface-shadow); z-index: 2; }
+.motion-surface:hover::after { opacity: 1; }
+.repair-tile { overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
+.repair-image { transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
+.repair-tile:hover .repair-image, .repair-tile:focus-within .repair-image { transform: scale(1.075); }
+.repair-caption { background: var(--photo-shade); }
+.service-icon { transition: transform 350ms; }
+.motion-surface:hover .service-icon { transform: translateY(-4px) rotate(-8deg); }
+@media (prefers-reduced-motion: reduce) {
+  .motion-surface, .repair-image, .service-icon { transform: none !important; transition: none !important; }
+  .motion-surface::after { transition: none; }
 }
