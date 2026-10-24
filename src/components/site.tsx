@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { LangSwitcher } from "@/components/lang-switcher";
 import { useLang } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { NavKey } from "@/lib/content";
 
 const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/retro-elektronikk" | "/kontakt"; key: NavKey }[] = [
@@ -23,6 +25,8 @@ export const CONTACT = {
 
 export function Header() {
   const { t } = useLang();
+  const navRef = useRef<HTMLElement>(null);
+  const moveNav = (direction: number) => navRef.current?.scrollBy({ left: direction * 240, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   return (
     <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
@@ -30,21 +34,25 @@ export function Header() {
           EMS <span className="text-primary">Mujic</span>
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>
         </Link>
-        <div className="flex flex-wrap items-center gap-2">
-          <nav className="flex flex-wrap gap-1 text-sm">
+        <LangSwitcher />
+        <div className="w-full min-w-0 border-t pt-3">
+          <div className="flex items-center gap-1">
+          <Button variant="ghost" size="icon" className="shrink-0 md:hidden" aria-label={t.assistant.previousNav} onClick={() => moveNav(-1)}><ChevronLeft /></Button>
+          <nav ref={navRef} className="flex min-w-0 flex-1 gap-1 overflow-x-auto text-sm md:justify-center">
             {nav.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 activeOptions={{ exact: true }}
-                className="rounded-md px-3 py-1.5 text-muted-foreground transition hover:text-foreground"
+                className="shrink-0 whitespace-nowrap rounded-md px-3 py-2 text-muted-foreground transition hover:text-foreground"
                 activeProps={{ className: "bg-secondary text-foreground" }}
               >
                 {t.nav[n.key]}
               </Link>
             ))}
           </nav>
-          <LangSwitcher />
+          <Button variant="ghost" size="icon" className="shrink-0 md:hidden" aria-label={t.assistant.nextNav} onClick={() => moveNav(1)}><ChevronRight /></Button>
+          </div>
         </div>
       </div>
     </header>
