@@ -28,7 +28,7 @@ export type SiteContent = {
     service: { tag: string; title: string; text: string; link: string };
     it: { tag: string; title: string; text: string; link: string };
     drone: { tag: string; title: string; text: string; link: string };
-    gallery: { kicker: string; title: string; note: string; open: string; close: string; previous: string; next: string; pause: string; play: string; items: { title: string; text: string; alt: string }[] };
+    gallery: { kicker: string; title: string; note: string; open: string; close: string; previous: string; next: string; pause: string; play: string; repair: string; buy: string; sell: string; quote: string; items: { title: string; text: string; alt: string }[] };
   };
   elektronika: {
     kicker: string;
@@ -118,7 +118,7 @@ const nb: SiteContent = {
       kicker: "Service & reparasjon",
       title: "Verdt å ta vare på.",
       note: "AI-genererte illustrasjoner av reparasjoner — ikke bilder av utførte kundeoppdrag.",
-      open: "Åpne bilde", close: "Lukk", previous: "Forrige bilde", next: "Neste bilde", pause: "Pause lysbildefremvisning", play: "Start lysbildefremvisning",
+      open: "Se tjenester", close: "Lukk", previous: "Forrige bilde", next: "Neste bilde", pause: "Pause lysbildefremvisning", play: "Start lysbildefremvisning", repair: "Feilsøking og reparasjon", buy: "Kjøp brukt — spør om lagerstatus", sell: "Selg eller resirkuler enheten", quote: "Be om tilbud",
       items: [
         { title: "Bærbare PC-er", text: "Kjøling · maskinvare", alt: "Bærbar PC under reparasjon" },
         { title: "Nettbrett", text: "Skjerm · batteri", alt: "Nettbrett på en arbeidsbenk" },
@@ -378,7 +378,7 @@ const en: SiteContent = {
       kicker: "Service & repair",
       title: "Worth keeping.",
       note: "AI-generated repair illustrations — not photographs of completed customer jobs.",
-      open: "Open image", close: "Close", previous: "Previous image", next: "Next image", pause: "Pause slideshow", play: "Play slideshow",
+      open: "View services", close: "Close", previous: "Previous image", next: "Next image", pause: "Pause slideshow", play: "Play slideshow", repair: "Diagnostics and repairs", buy: "Buy used — ask about stock", sell: "Sell or recycle your device", quote: "Ask for a quote",
       items: [
         { title: "Laptops", text: "Cooling · hardware", alt: "Laptop undergoing repair" },
         { title: "Tablets", text: "Screen · battery", alt: "Tablet on a workbench" },
@@ -638,7 +638,7 @@ const bs: SiteContent = {
       kicker: "Servis & popravke",
       title: "Vrijedi sačuvati.",
       note: "AI-generisane ilustracije popravki — nisu fotografije završenih radova za klijente.",
-      open: "Otvori sliku", close: "Zatvori", previous: "Prethodna slika", next: "Sljedeća slika", pause: "Pauziraj slajdove", play: "Pokreni slajdove",
+      open: "Pogledaj usluge", close: "Zatvori", previous: "Prethodna slika", next: "Sljedeća slika", pause: "Pauziraj slajdove", play: "Pokreni slajdove", repair: "Dijagnostika i popravke", buy: "Kupi polovno — provjeri dostupnost", sell: "Prodaj ili recikliraj uređaj", quote: "Traži ponudu",
       items: [
         { title: "Laptopi", text: "Hlađenje · hardver", alt: "Laptop tokom popravke" },
         { title: "Tableti", text: "Ekran · baterija", alt: "Tablet na radnom stolu" },
