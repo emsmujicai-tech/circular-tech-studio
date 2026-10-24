@@ -12,12 +12,14 @@ import ebike from "@/assets/icon-ebike.png";
 import { Button } from "@/components/ui/button";
 import { MotionSurface } from "@/components/motion-surface";
 import { useLang } from "@/lib/i18n";
+import { useState } from "react";
 
 const images = [laptop, tablet, phone, tv, desktop, scooter, ebike, audio];
 
 export function RepairGallery() {
   const { t } = useLang();
   const g = t.home.gallery;
+  const [openDevice, setOpenDevice] = useState<number | null>(null);
 
   return (
     <section className="mx-auto mt-16 max-w-6xl px-5" aria-labelledby="repair-gallery-title">
@@ -34,10 +36,18 @@ export function RepairGallery() {
       <div className="device-grid">
         {g.items.map((item, index) => (
           <MotionSurface key={item.title} className="flex h-full flex-col rounded-lg border bg-card group">
-            <DropdownMenu>
+            <DropdownMenu modal={false} open={openDevice === index} onOpenChange={(open) => setOpenDevice(open ? index : null)}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="device-trigger group relative flex h-auto w-full flex-col whitespace-normal rounded-lg px-4 pb-5 pt-3 text-center hover:bg-transparent hover:text-foreground" aria-label={`${g.open}: ${item.title}`}>
-                  <img src={images[index]} alt="" width={816} height={816} loading="lazy" className="device-icon aspect-square w-full object-contain" />
+                <Button variant="ghost" className="device-trigger group relative flex h-auto w-full flex-col whitespace-normal rounded-lg px-4 pb-5 pt-3 text-center hover:bg-transparent hover:text-foreground" aria-label={`${g.open}: ${item.title}`}
+                  onPointerDown={(event) => {
+                    // Radix opens on pointer-down by default, before a touch swipe can begin.
+                    if (event.pointerType === "touch") event.preventDefault();
+                  }}
+                  onPointerUp={(event) => {
+                    // Native scrolling cancels the pointer, so only a completed tap opens the menu.
+                    if (event.pointerType === "touch") setOpenDevice((current) => current === index ? null : index);
+                  }}>
+                  <img src={images[index]} alt="" width={816} height={816} loading="lazy" draggable={false} className="device-icon aspect-square w-full object-contain" />
                   <span className="mt-2 flex min-h-12 items-center justify-center gap-2 font-display text-lg font-semibold">{item.title}<ChevronDown className="shrink-0 text-accent" /></span>
                   <span className="mt-1 min-h-8 text-xs font-normal text-muted-foreground">{item.text}</span>
                 </Button>
