@@ -50,6 +50,10 @@ function Index() {
             {h.it.text}{" "}
             <Link to="/it-support" className="font-semibold text-primary hover:underline">{h.it.link} →</Link>
           </Card>
+          <Card tag={h.drone.tag} title={h.drone.title} className="md:col-span-6">
+            {h.drone.text}{" "}
+            <Link to="/drone" className="font-semibold text-primary hover:underline">{h.drone.link} →</Link>
+          </Card>
         </div>
       </section>
       <CTA />

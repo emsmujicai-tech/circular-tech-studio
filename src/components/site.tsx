@@ -4,13 +4,14 @@ import { LangSwitcher } from "@/components/lang-switcher";
 import { useLang } from "@/lib/i18n";
 import type { NavKey } from "@/lib/content";
 
-const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/kontakt"; key: NavKey }[] = [
+const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/kontakt"; key: NavKey }[] = [
   { to: "/", key: "home" },
   { to: "/elektronika", key: "electronics" },
   { to: "/servis", key: "service" },
   { to: "/it-support", key: "it" },
   { to: "/e-otpad", key: "ewaste" },
   { to: "/usluge", key: "ai" },
+  { to: "/drone", key: "drone" },
   { to: "/kontakt", key: "contact" },
 ];
 
