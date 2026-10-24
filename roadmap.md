@@ -1,5 +1,6 @@
 # Roadmap
 - [ ] Add Retro elektronikk club with email membership, check first-club claim, and replace PS5 gallery with smaller left/right electronics slides
+- [ ] Replace small gallery photographs with unique 3D device icons opening a dropdown of related services
 
 - [x] Add service/repair page (servis) — electronics, e-scooters, e-bikes, motorcycles
 - [x] Translate the whole site to Norwegian (Norwegian is the default language)
