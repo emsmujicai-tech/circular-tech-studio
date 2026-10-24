@@ -96,7 +96,7 @@ const nb: SiteContent = {
     kicker: "Elektronikk · E-mobilitet · AI",
     h1a: "Teknologi med en ny sjanse,",
     h1b: "til riktig pris.",
-    lead: "Vi selger kontrollert brukte elektroniske enheter og elektriske kjøretøy til svært gunstige priser, kjøper opp elektronavfall og bygger smarte AI-løsninger for bedriften din.",
+    lead: "Vi selger kontrollerte, brukte elektroniske enheter og elektriske kjøretøy til svært gunstige priser, kjøper opp elektronavfall og bygger smarte AI-løsninger for bedriften din.",
     primary: "Se tilbudet",
     secondary: "Selg oss en enhet",
     heroAlt: "En brukt bærbar PC, telefon og nettbrett",
