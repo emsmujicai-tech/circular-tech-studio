@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Fix mobile gallery swipes opening service menus and locking page scroll; verify taps and device enquiries still work
 - [x] Verify public company name and domain against the supplied invoice; do not publish private invoices or payment details
 - [x] Replace combustion motorcycle icon with a clearly electric motorcycle without exhaust
 - [x] Apply matching 3D icons to all similar service/category tiles across the site, preserving text, links and touch/reduced-motion behaviour

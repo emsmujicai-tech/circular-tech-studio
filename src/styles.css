@@ -101,6 +101,7 @@
 .retro-cover { background: var(--retro-shade); }
 .device-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .device-icon { transition: transform 450ms cubic-bezier(.2,.7,.2,1); }
+.device-trigger { touch-action: pan-y pinch-zoom; }
 .device-trigger:hover .device-icon, .device-trigger[data-state="open"] .device-icon { transform: translateY(-8px) rotate(-5deg) scale(1.05); }
 @media (max-width: 640px) { .device-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .retro-cover { background: var(--scrim); opacity: .8; } .device-trigger { padding: 8px; } }
 @media (hover: none), (pointer: coarse) { .device-icon, .motion-surface, .service-icon { transform: none !important; transition: none !important; } .motion-surface::after { display: none; } }
