@@ -131,6 +131,12 @@ const nb: SiteContent = {
       text: "Fast vedlikehold av datamaskiner og servere, nettverk og sikkerhet. Det meste løses remote, uten at du venter på oppmøte.",
       link: "Se pakkene",
     },
+    drone: {
+      tag: "Drone",
+      title: "Drone-inspeksjon og filming av utilgjengelige steder",
+      text: "Vi flyger dit det er vanskelig eller farlig å komme – tak, fasader, sjakter og høye bygg – og du får bilder, video og en vurdering.",
+      link: "Se drone-tjenestene",
+    },
   },
   elektronika: {
     kicker: "Vår hovedvirksomhet",
@@ -254,6 +260,29 @@ const nb: SiteContent = {
       { tag: "AI", title: "AI-visualisering", text: "Realistiske visualiseringer av produkter, interiør og kampanjer med AI." },
     ],
   },
+  drone: {
+    kicker: "Drone-tjenester",
+    title: "Drone-inspeksjon og filming av utilgjengelige steder",
+    lead: "Vi flyger dit det er vanskelig, farlig eller dyrt å komme – og du får bildene, videoen og vurderingen vi henter der.",
+    services: [
+      ["Inspeksjon av tak og fasader", "Bilder og video av tak, takrenn, fasader og konstruksjoner – uten stillas eller mannskap i høyden."],
+      ["Utilgjengelige steder", "Sjakter, tanker, skråninger, høye bygg og andre steder det er farlig eller umulig å komme til."],
+      ["Filming og fotografering fra luften", "Luftopptak til eiendom, prosjekter, arrangement og markedsføring."],
+      ["Dokumentasjon til rapport og forsikring", "Bildemateriale du kan bruke i rapport, saksgang eller forsikringssak."],
+      ["Vurdering før kjøp eller reparasjon", "Vi ser på stedet før du kjøper, bygger eller reparerer – da vet du hva du møter."],
+    ],
+    points: [
+      "Bilder og video fra luften",
+      "Materiale levert raskt",
+      "Flyging avtales på forhånd",
+      "Tilbud før vi flyr",
+    ],
+    quote: {
+      title: "Trenger du opptak fra et sted du ikke kan gå inn i?",
+      text: "Fortell oss hva som skal inspiseres eller filmes, så gir vi deg et pristilbud.",
+      button: "Be om tilbud",
+    },
+  },
   kontakt: {
     kicker: "Kontakt",
     title: "La oss ta en prat",
@@ -315,6 +344,12 @@ const en: SiteContent = {
       title: "IT support for companies — PCs, networks and remote help",
       text: "Fixed maintenance of computers and servers, networks and security. Most of it is solved remotely, with no waiting for a visit.",
       link: "See the packages",
+    },
+    drone: {
+      tag: "Drone",
+      title: "Drone inspection and filming of hard-to-reach places",
+      text: "We fly where it is difficult or dangerous to go — roofs, facades, shafts and tall buildings — and you get photos, video and an assessment.",
+      link: "See the drone services",
     },
   },
   elektronika: {
@@ -439,6 +474,29 @@ const en: SiteContent = {
       { tag: "AI", title: "AI visualisation", text: "Realistic AI visuals of products, interiors and campaigns." },
     ],
   },
+  drone: {
+    kicker: "Drone services",
+    title: "Drone inspection and filming of hard-to-reach places",
+    lead: "We fly where it is difficult, dangerous or expensive to get to — and you get the photos, video and assessment we bring back.",
+    services: [
+      ["Roof and facade inspection", "Photos and video of roofs, gutters, facades and structures — no scaffolding, no crew at height."],
+      ["Hard-to-reach places", "Shafts, tanks, slopes, tall buildings and other places that are dangerous or impossible to enter."],
+      ["Aerial filming and photography", "Aerial footage for property, projects, events and marketing."],
+      ["Documentation for reports and insurance", "Imagery you can use in a report, a case or an insurance claim."],
+      ["Assessment before you buy or repair", "We look at the site before you buy, build or repair — so you know what you are facing."],
+    ],
+    points: [
+      "Photos and video from the air",
+      "Material delivered fast",
+      "Flights agreed in advance",
+      "Quote before we fly",
+    ],
+    quote: {
+      title: "Need footage from a place you can't walk into?",
+      text: "Tell us what needs inspecting or filming and we'll give you a quote.",
+      button: "Ask for a quote",
+    },
+  },
   kontakt: {
     kicker: "Contact",
     title: "Let's talk",
@@ -500,6 +558,12 @@ const bs: SiteContent = {
       title: "IT support za firme — računari, mreže i daljinska podrška",
       text: "Fiksno održavanje računara i servera, mreža i sigurnosti. Većina se riješi daljinski, bez čekanja da neko izađe.",
       link: "Pogledaj pakete",
+    },
+    drone: {
+      tag: "Drone",
+      title: "Drone inspekcije i snimanje nedostupnih lokacija",
+      text: "Letimo tamo gdje je teško ili opasno doći — krovovi, fasade, šahtovi i visoke zgrade — a vi dobijate fotografije, snimak i ocjenu.",
+      link: "Pogledaj drone usluge",
     },
   },
   elektronika: {
@@ -623,6 +687,29 @@ const bs: SiteContent = {
       { tag: "3D", title: "3D dizajn", text: "3D modeli i prikazi proizvoda i prostora." },
       { tag: "AI", title: "AI vizualizacija", text: "Realistični vizuali proizvoda, enterijera i kampanja uz pomoć AI." },
     ],
+  },
+  drone: {
+    kicker: "Drone usluge",
+    title: "Drone inspekcije i snimanje nedostupnih lokacija",
+    lead: "Letimo tamo gdje je teško, opasno ili skupo doći — a vi dobijate fotografije, snimak i ocjenu koje donesemo odatle.",
+    services: [
+      ["Inspekcija krovova i fasada", "Fotografije i snimak krovova, sljemenova, fasada i konstrukcija — bez skele i bez ljudi na visini."],
+      ["Nedostupne lokacije", "Šahtovi, rezervoari, obronci, visoke zgrade i druga mjesta na koja je opasno ili nemoguće ući."],
+      ["Snimanje i fotografiranje iz vazduha", "Zračni snimci za nekretnine, projekte, dešavanja i marketing."],
+      ["Dokumentacija za izvještaj i osiguranje", "Vizuelni materijal koji možete koristiti u izvještaju, predmetu ili osiguranju."],
+      ["Ocjena prije kupovine ili popravke", "Pogledamo mjesto prije nego kupite, gradite ili popravljate — da znate šta vas čeka."],
+    ],
+    points: [
+      "Fotografije i snimak iz vazduha",
+      "Materijal isporučen brzo",
+      "Let se dogovara unaprijed",
+      "Ponuda prije leta",
+    ],
+    quote: {
+      title: "Treba vam snimak s mjesta u koje ne možete ući?",
+      text: "Recite nam šta treba inspicirati ili snimiti i dajemo vam ponudu.",
+      button: "Traži ponudu",
+    },
   },
   kontakt: {
     kicker: "Kontakt",
