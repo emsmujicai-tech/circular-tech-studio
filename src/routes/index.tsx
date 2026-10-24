@@ -38,13 +38,17 @@ function Index() {
 
       <section className="mx-auto mt-20 max-w-6xl px-5">
         <h2 className="text-3xl font-bold">{h.h2}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:grid-cols-6">
           {h.cards.map((c) => (
-            <Card key={c.title} tag={c.tag} title={c.title}>{c.text}</Card>
+            <Card key={c.title} tag={c.tag} title={c.title} className="md:col-span-2">{c.text}</Card>
           ))}
           <Card tag={h.service.tag} title={h.service.title} className="md:col-span-3">
             {h.service.text}{" "}
             <Link to="/servis" className="font-semibold text-primary hover:underline">{h.service.link} →</Link>
+          </Card>
+          <Card tag={h.it.tag} title={h.it.title} className="md:col-span-3">
+            {h.it.text}{" "}
+            <Link to="/it-support" className="font-semibold text-primary hover:underline">{h.it.link} →</Link>
           </Card>
         </div>
       </section>

@@ -6,7 +6,7 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "bs", label: "Bosanski", short: "BS" },
 ];
 
-export type NavKey = "home" | "electronics" | "service" | "ewaste" | "ai" | "contact";
+export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai" | "contact";
 
 type Pair = [string, string];
 
@@ -26,6 +26,7 @@ export type SiteContent = {
     h2: string;
     cards: { tag: string; title: string; text: string }[];
     service: { tag: string; title: string; text: string; link: string };
+    it: { tag: string; title: string; text: string; link: string };
   };
   elektronika: {
     kicker: string;
@@ -39,10 +40,18 @@ export type SiteContent = {
     kicker: string;
     title: string;
     lead: string;
-    services: Pair[];
     howItWorks: string;
+    services: Pair[];
     steps: Pair[];
     buyout: { title: string; text: string; button: string };
+  };
+  it: {
+    kicker: string;
+    title: string;
+    lead: string;
+    packages: { name: string; tagline: string; points: string[]; cta: string }[];
+    remote: { title: string; text: string; points: string[] };
+    quote: { title: string; text: string; button: string };
   };
   eotpad: { kicker: string; title: string; lead: string; steps: Pair[] };
   usluge: {
@@ -64,6 +73,7 @@ const nb: SiteContent = {
     home: "Hjem",
     electronics: "Brukt elektronikk",
     service: "Service",
+    it: "IT-drift",
     ewaste: "Oppkjøp av elektronavfall",
     ai: "AI & design",
     contact: "Kontakt",
@@ -104,6 +114,12 @@ const nb: SiteContent = {
       title: "Service av elektronikk, elsykler, sparkesykler og motorsykler",
       text: "En feil er ikke slutten – vi feilsøker og reparerer bærbare PC-er, stasjonære PC-er, mobiltelefoner, elektriske sparkesykler, sykler og motorsykler.",
       link: "Se service",
+    },
+    it: {
+      tag: "IT-drift",
+      title: "IT-support for bedrifter — PC-er, nettverk og fjernsupport",
+      text: "Fast vedlikehold av datamaskiner og servere, nettverk og sikkerhet. Det meste løses remote, uten at du venter på oppmøte.",
+      link: "Se pakkene",
     },
   },
   elektronika: {
@@ -150,6 +166,60 @@ const nb: SiteContent = {
       button: "Selg oss enheten",
     },
   },
+  it: {
+    kicker: "IT-drift for bedrifter",
+    title: "IT-support som fast paket — PC-er, nettverk og oppfølging på avstand",
+    lead: "Vi tar oss av datamaskinene, serverne og nettverket ditt, slik at du kan holde på driften. Alt som lar seg gjøre fra kontoret, gjør vi remote — raskere og rimeligere for deg.",
+    packages: [
+      {
+        name: "Fjernsupport",
+        tagline: "Hjelp når noe stopper opp",
+        points: [
+          "Support per e-post, telefon og Teams",
+          "Spori eller neisprave PC-er, printere og e-postproblemer",
+          "Vi følger hver sak til den er løst",
+        ],
+        cta: "Be om tilbud",
+      },
+      {
+        name: "Tilsyn",
+        tagline: "Fast månedlig vedlikehold",
+        points: [
+          "Oppdateringer av styresystem og sikkerhetsprogrammer",
+          "Sjekk av PC-er, server og backup",
+          "Rengjøring og justering av maskiner",
+        ],
+        cta: "Be om tilbud",
+      },
+      {
+        name: "Nettverk + oppmøte",
+        tagline: "Alt i Tilsyn, pluss fysisk oppmøte",
+        points: [
+          "Router, switch, Wi-Fi og kabeltrekk",
+          "Brannmur og tilgangsstyring",
+          "Oppmøte i Bergen og Stord når det trengs",
+        ],
+        cta: "Be om tilbud",
+      },
+    ],
+    remote: {
+      title: "Det meste løses uten oppmøte",
+      text: "Vi kobler oss på maskinen eller nettverket ditt over en sikker forbindelse. Du slipper å vente på at noen skal komme — og du betaler for arbeidet, ikke for kjøringen.",
+      points: [
+        "Datamaskiner og servere",
+        "Rutere, switcher og Wi-Fi",
+        "E-post og Microsoft 365 / Google Workspace",
+        "Backup og gjenoppretting",
+        "Brannmur og sikkerhet",
+        "Overvåking og varsling",
+      ],
+    },
+    quote: {
+      title: "Hva koster det?",
+      text: "Pakkene tilpasses størrelsen på bedriften din og antall maskiner. Fortell oss hva dere har i dag, så gir vi deg en fast månedspris.",
+      button: "Ta kontakt",
+    },
+  },
   eotpad: {
     kicker: "Elektronavfall",
     title: "Oppkjøp, sortering og resirkulering av elektronavfall",
@@ -177,7 +247,7 @@ const nb: SiteContent = {
   kontakt: {
     kicker: "Kontakt",
     title: "La oss ta en prat",
-    lead: "Kjøp, service, oppkjøp eller nytt prosjekt – ta kontakt på telefon eller e-post.",
+    lead: "Kjøp, service, IT-drift, oppkjøp eller nytt prosjekt – ta kontakt på telefon eller e-post.",
     labels: { phone: "Telefon", email: "E-post", location: "Sted" },
   },
 };
@@ -187,6 +257,7 @@ const en: SiteContent = {
     home: "Home",
     electronics: "Used electronics",
     service: "Service",
+    it: "IT support",
     ewaste: "E-waste buyback",
     ai: "AI & design",
     contact: "Contact",
@@ -227,6 +298,12 @@ const en: SiteContent = {
       title: "Electronics, e-scooter, e-bike and motorcycle service",
       text: "A breakdown isn't the end — we diagnose and repair laptops, desktops, phones, electric scooters, bikes and motorcycles.",
       link: "See service",
+    },
+    it: {
+      tag: "IT support",
+      title: "IT support for companies — PCs, networks and remote help",
+      text: "Fixed maintenance of computers and servers, networks and security. Most of it is solved remotely, with no waiting for a visit.",
+      link: "See the packages",
     },
   },
   elektronika: {
@@ -273,6 +350,60 @@ const en: SiteContent = {
       button: "Sell us the device",
     },
   },
+  it: {
+    kicker: "IT support for companies",
+    title: "IT support as a fixed package — PCs, networks and remote care",
+    lead: "We take care of your computers, servers and network so you can focus on running the business. Anything that can be done remotely, we do remotely — faster and cheaper for you.",
+    packages: [
+      {
+        name: "Remote support",
+        tagline: "Help when something stops",
+        points: [
+          "Support by email, phone and Teams",
+          "Slow or broken PCs, printers and email issues",
+          "We follow each case until it is solved",
+        ],
+        cta: "Ask for a quote",
+      },
+      {
+        name: "Maintenance",
+        tagline: "Fixed monthly upkeep",
+        points: [
+          "Operating system and security updates",
+          "Checks on PCs, server and backups",
+          "Cleaning and tuning of machines",
+        ],
+        cta: "Ask for a quote",
+      },
+      {
+        name: "Network + on-site",
+        tagline: "Everything in Maintenance, plus visits",
+        points: [
+          "Routers, switches, Wi-Fi and cabling",
+          "Firewall and access control",
+          "On-site visits in Bergen and Stord when needed",
+        ],
+        cta: "Ask for a quote",
+      },
+    ],
+    remote: {
+      title: "Most of it is solved without a visit",
+      text: "We connect to your machine or network over a secure link. You don't have to wait for someone to show up — and you pay for the work, not the travel.",
+      points: [
+        "Computers and servers",
+        "Routers, switches and Wi-Fi",
+        "Email and Microsoft 365 / Google Workspace",
+        "Backup and recovery",
+        "Firewall and security",
+        "Monitoring and alerts",
+      ],
+    },
+    quote: {
+      title: "What does it cost?",
+      text: "The packages are sized to your company and the number of machines. Tell us what you have today and we'll give you a fixed monthly price.",
+      button: "Get in touch",
+    },
+  },
   eotpad: {
     kicker: "E-waste",
     title: "E-waste buyback, sorting and recycling",
@@ -300,7 +431,7 @@ const en: SiteContent = {
   kontakt: {
     kicker: "Contact",
     title: "Let's talk",
-    lead: "Buying, service, buyback or a new project — reach us by phone or email.",
+    lead: "Buying, service, IT support, buyback or a new project — reach us by phone or email.",
     labels: { phone: "Phone", email: "Email", location: "Location" },
   },
 };
@@ -310,6 +441,7 @@ const bs: SiteContent = {
     home: "Početna",
     electronics: "Polovna elektronika",
     service: "Servis",
+    it: "IT podrška",
     ewaste: "Otkup e-otpada",
     ai: "AI & Dizajn",
     contact: "Kontakt",
@@ -350,6 +482,12 @@ const bs: SiteContent = {
       title: "Servis elektronike, e-skutera, bicikala i motora",
       text: "Kvar nije kraj — dijagnostika i popravka laptopa, računara, telefona, električnih skutera, bicikala i motora.",
       link: "Pogledaj servis",
+    },
+    it: {
+      tag: "IT podrška",
+      title: "IT support za firme — računari, mreže i daljinska podrška",
+      text: "Fiksno održavanje računara i servera, mreža i sigurnosti. Većina se riješi daljinski, bez čekanja da neko izađe.",
+      link: "Pogledaj pakete",
     },
   },
   elektronika: {
@@ -396,6 +534,60 @@ const bs: SiteContent = {
       button: "Prodaj nam uređaj",
     },
   },
+  it: {
+    kicker: "IT podrška za firme",
+    title: "IT support u fiksnom paketu — računari, mreže i daljinska podrška",
+    lead: "Preuzimamo brigu o vašim računarima, serverima i mreži da biste se vi bavili poslom. Sve što može da se obavi na daljinu, radimo daljinski — brže i povoljnije za vas.",
+    packages: [
+      {
+        name: "Daljinska podrška",
+        tagline: "Pomoć kad nešto stane",
+        points: [
+          "Podrška putem emaila, telefona i Teams-a",
+          "Spori ili neispravni računari, štampači i email problemi",
+          "Pratimo svaki slučaj dok se ne riješi",
+        ],
+        cta: "Traži ponudu",
+      },
+      {
+        name: "Održavanje",
+        tagline: "Fiksno mjesečno održavanje",
+        points: [
+          "Ažuriranje sistema i sigurnosnih programa",
+          "Kontrola računara, servera i backupa",
+          "Čišćenje i podešavanje mašina",
+        ],
+        cta: "Traži ponudu",
+      },
+      {
+        name: "Mreže + izlazak",
+        tagline: "Sve iz Održavanja, plus izlazak na teren",
+        points: [
+          "Ruteri, switchevi, Wi-Fi i kablovi",
+          "Vatrobran i upravljanje pristupom",
+          "Izlazak u Bergen i Stord kad zatreba",
+        ],
+        cta: "Traži ponudu",
+      },
+    ],
+    remote: {
+      title: "Većina se riješi bez izlaska",
+      text: "Povezujemo se na vašu mašinu ili mrežu preko sigurne veze. Ne čekate da neko dođe — i plaćate posao, ne prevoz.",
+      points: [
+        "Računari i serveri",
+        "Ruteri, switchevi i Wi-Fi",
+        "Email i Microsoft 365 / Google Workspace",
+        "Backup i oporavak",
+        "Vatrobran i sigurnost",
+        "Nadzor i upozorenja",
+      ],
+    },
+    quote: {
+      title: "Koliko košta?",
+      text: "Paketi se prilagođavaju veličini firme i broju mašina. Recite nam šta imate danas i dajemo vam fiksnu mjesečnu cijenu.",
+      button: "Javite se",
+    },
+  },
   eotpad: {
     kicker: "E-waste",
     title: "Otkup, sortiranje i reciklaža e-otpada",
@@ -423,7 +615,7 @@ const bs: SiteContent = {
   kontakt: {
     kicker: "Kontakt",
     title: "Razgovarajmo",
-    lead: "Kupovina, servis, otkup ili novi projekt — javite se pozivom ili emailom.",
+    lead: "Kupovina, servis, IT podrška, otkup ili novi projekt — javite se pozivom ili emailom.",
     labels: { phone: "Telefon", email: "Email", location: "Lokacija" },
   },
 };
