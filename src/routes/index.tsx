@@ -5,7 +5,8 @@ import { RepairGallery } from "@/components/repair-gallery";
 import { RetroTeaser } from "@/components/retro-teaser";
 import { MotionSurface } from "@/components/motion-surface";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Laptop, Bike, Recycle, Bot, Workflow, PenTool, Wrench, ScanLine, Network } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -20,15 +21,15 @@ function Index() {
   const { t } = useLang();
   const h = t.home;
   const tiles = [
-    { ...h.cards[0], to: "/elektronika" as const, icon: Laptop },
-    { ...h.cards[1], to: "/elektronika" as const, icon: Bike },
-    { ...h.service, to: "/servis" as const, icon: Wrench },
-    { ...h.cards[2], to: "/e-otpad" as const, icon: Recycle },
-    { ...h.it, to: "/it-support" as const, icon: Network },
-    { ...h.drone, to: "/drone" as const, icon: ScanLine },
-    { ...h.cards[3], to: "/usluge" as const, icon: Bot },
-    { ...h.cards[4], to: "/usluge" as const, icon: Workflow },
-    { ...h.cards[5], to: "/usluge" as const, icon: PenTool },
+    { ...h.cards[0], to: "/elektronika" as const, icon: "laptop" as ServiceIconName },
+    { ...h.cards[1], to: "/elektronika" as const, icon: "scooter" as ServiceIconName },
+    { ...h.service, to: "/servis" as const, icon: "repair" as ServiceIconName },
+    { ...h.cards[2], to: "/e-otpad" as const, icon: "recycling" as ServiceIconName },
+    { ...h.it, to: "/it-support" as const, icon: "network" as ServiceIconName },
+    { ...h.drone, to: "/drone" as const, icon: "drone" as ServiceIconName },
+    { ...h.cards[3], to: "/usluge" as const, icon: "chatbot" as ServiceIconName },
+    { ...h.cards[4], to: "/usluge" as const, icon: "automation" as ServiceIconName },
+    { ...h.cards[5], to: "/usluge" as const, icon: "branding" as ServiceIconName },
   ];
 
   return (
@@ -61,8 +62,8 @@ function Index() {
             <MotionSurface key={tile.title} className="rounded-lg border bg-card">
               <Button asChild variant="ghost" className="block h-full min-h-64 whitespace-normal rounded-lg p-6 text-left hover:bg-transparent hover:text-foreground">
                 <Link to={tile.to}>
-                  <span className="mb-6 flex items-center justify-between"><tile.icon className="service-icon size-7 text-primary" /><ArrowUpRight className="size-4 text-muted-foreground" /></span>
-                  <span className="block text-xs font-medium uppercase tracking-wider text-accent">{tile.tag}</span>
+                  <span className="mb-6 flex items-center justify-between"><span className="text-xs font-medium uppercase tracking-wider text-accent">{tile.tag}</span><ArrowUpRight className="size-4 text-muted-foreground" /></span>
+                  <ServiceIcon name={tile.icon} />
                   <h3 className="mt-2 text-xl font-semibold">{tile.title}</h3>
                   <p className="mt-3 text-sm font-normal leading-relaxed text-muted-foreground">{tile.text}</p>
                 </Link>

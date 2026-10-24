@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Card, CTA, PageHead, meta } from "@/components/site";
+import { CTA, PageHead, meta } from "@/components/site";
+import { IconCard } from "@/components/icon-card";
+import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/elektronika")({
@@ -10,6 +12,8 @@ export const Route = createFileRoute("/elektronika")({
   component: Page,
 });
 
+const icons: ServiceIconName[] = ["laptop", "desktop", "tablet", "phone", "scooter", "ebike"];
+
 function Page() {
   const { t } = useLang();
   const e = t.elektronika;
@@ -18,7 +22,7 @@ function Page() {
     <>
       <PageHead kicker={e.kicker} title={e.title}>{e.lead}</PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">
-        {e.cats.map(([cat, desc]) => <Card key={cat} title={cat}>{desc}</Card>)}
+        {e.cats.map(([cat, desc], index) => <IconCard key={cat} title={cat} icon={icons[index] ?? "laptop"}>{desc}</IconCard>)}
       </section>
       <section className="mx-auto mt-12 grid max-w-6xl gap-4 px-5 sm:grid-cols-3">
         {e.checks.map((x) => (

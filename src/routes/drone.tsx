@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CTA, PageHead, meta } from "@/components/site";
+import { IconCard } from "@/components/icon-card";
+import type { ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/drone")({
@@ -10,6 +12,8 @@ export const Route = createFileRoute("/drone")({
   component: Page,
 });
 
+const icons: ServiceIconName[] = ["drone", "drone", "visualisation", "tablet", "repair"];
+
 function Page() {
   const { t } = useLang();
   const d = t.drone;
@@ -17,12 +21,9 @@ function Page() {
   return (
     <>
       <PageHead kicker={d.kicker} title={d.title}>{d.lead}</PageHead>
-      <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-2">
-        {d.services.map(([title, text]) => (
-          <div key={title} className="rounded-xl border bg-card p-6 transition hover:border-primary/60">
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="mt-2 text-muted-foreground">{text}</p>
-          </div>
+      <section className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-3">
+        {d.services.map(([title, text], index) => (
+          <IconCard key={title} title={title} icon={icons[index] ?? "drone"}>{text}</IconCard>
         ))}
       </section>
       <section className="mx-auto mt-16 max-w-6xl px-5">

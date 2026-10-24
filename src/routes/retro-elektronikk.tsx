@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Radio, Monitor, Users } from "lucide-react";
+import { Mail } from "lucide-react";
 import retro from "@/assets/retro-club.jpg";
 import { CONTACT, meta } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { MotionSurface } from "@/components/motion-surface";
 import { useLang } from "@/lib/i18n";
+import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { content } from "@/lib/content";
 
 export const Route = createFileRoute("/retro-elektronikk")({
@@ -16,7 +17,7 @@ function RetroClub() {
   const { t } = useLang();
   const r = t.retro;
   const mailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(r.subject)}&body=${encodeURIComponent(r.emailBody)}`;
-  const icons = [Monitor, Radio, Users];
+  const icons: ServiceIconName[] = ["retro", "repair", "community"];
   return <>
     <section className="relative min-h-[520px] overflow-hidden border-b">
       <img src={retro} alt={r.alt} width={1536} height={1024} className="absolute inset-0 h-full w-full object-cover object-right" />
@@ -34,8 +35,7 @@ function RetroClub() {
       <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{r.intro}</p>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {r.topics.map(([title, text], index) => {
-          const Icon = icons[index] ?? Radio;
-          return <MotionSurface key={title} className="rounded-lg border bg-card p-6"><Icon className="mb-5 size-7 text-accent" /><h3 className="text-xl font-semibold">{title}</h3><p className="mt-3 text-muted-foreground">{text}</p></MotionSurface>;
+          return <MotionSurface key={title} className="rounded-lg border bg-card p-6"><ServiceIcon name={icons[index] ?? "retro"} /><h3 className="text-xl font-semibold">{title}</h3><p className="mt-3 text-muted-foreground">{text}</p></MotionSurface>;
         })}
       </div>
       <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t pt-8">
