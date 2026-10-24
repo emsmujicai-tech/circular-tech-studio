@@ -4,7 +4,7 @@ import { LangSwitcher } from "@/components/lang-switcher";
 import { useLang } from "@/lib/i18n";
 import type { NavKey } from "@/lib/content";
 
-const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/kontakt"; key: NavKey }[] = [
+const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/retro-elektronikk" | "/kontakt"; key: NavKey }[] = [
   { to: "/", key: "home" },
   { to: "/elektronika", key: "electronics" },
   { to: "/servis", key: "service" },
@@ -12,6 +12,7 @@ const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" |
   { to: "/e-otpad", key: "ewaste" },
   { to: "/usluge", key: "ai" },
   { to: "/drone", key: "drone" },
+  { to: "/retro-elektronikk", key: "retro" },
   { to: "/kontakt", key: "contact" },
 ];
 
@@ -24,7 +25,7 @@ export function Header() {
   const { t } = useLang();
   return (
     <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
         <Link to="/" className="font-display text-lg font-bold">
           EMS <span className="text-primary">Mujic</span>
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>

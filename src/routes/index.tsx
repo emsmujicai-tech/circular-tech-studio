@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import { CTA, meta } from "@/components/site";
 import { RepairGallery } from "@/components/repair-gallery";
+import { RetroTeaser } from "@/components/retro-teaser";
 import { MotionSurface } from "@/components/motion-surface";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Laptop, Bike, Recycle, Bot, Workflow, PenTool, Wrench, ScanLine, Network } from "lucide-react";
@@ -70,6 +71,7 @@ function Index() {
           ))}
         </div>
       </section>
+      <RetroTeaser />
       <CTA />
     </>
   );

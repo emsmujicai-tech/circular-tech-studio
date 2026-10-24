@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CTA, PageHead, meta } from "@/components/site";
 import { useLang } from "@/lib/i18n";
+import { RetroTeaser } from "@/components/retro-teaser";
 
 export const Route = createFileRoute("/e-otpad")({
   head: () => meta(
@@ -26,6 +27,7 @@ function Page() {
           </div>
         ))}
       </section>
+      <RetroTeaser />
       <CTA />
     </>
   );
