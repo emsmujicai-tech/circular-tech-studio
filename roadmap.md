@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Apply matching 3D icons to all similar service/category tiles across the site, preserving text, links and touch/reduced-motion behaviour
 - [x] Refresh AI/automation/branding page with six generated 3D icons, concise trilingual copy and a redesigned layout
 - [x] Keep every gallery icon visible in a symmetric grid without arrows and make the main menu fully accessible
 - [x] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
