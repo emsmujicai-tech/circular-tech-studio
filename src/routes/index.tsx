@@ -5,7 +5,7 @@ import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => meta(
-    "EMS Mujić Smart Solutions — brukt elektronikk, service og AI-løsninger",
+    "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
     "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
   ),
   component: Index,

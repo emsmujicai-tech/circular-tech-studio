@@ -4,7 +4,7 @@ import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/e-otpad")({
   head: () => meta(
-    "Oppkjøp og resirkulering av elektronavfall — EMS Mujić",
+    "Oppkjøp og resirkulering av elektronavfall — EMS Mujic",
     "Vi kjøper opp gammel og defekt elektronikk, sorterer den og resirkulerer den ansvarlig.",
   ),
   component: Page,
