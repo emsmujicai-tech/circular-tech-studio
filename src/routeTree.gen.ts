@@ -19,6 +19,8 @@ import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
 import { Route as ApiPublicServiceAssistantRouteImport } from './routes/api/public/service-assistant'
+import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
+import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -71,6 +73,16 @@ const ApiPublicServiceAssistantRoute =
     path: '/api/public/service-assistant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
+  id: '/lovable/email/auth/preview',
+  path: '/lovable/email/auth/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
+  id: '/lovable/email/auth/webhook',
+  path: '/lovable/email/auth/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -83,6 +95,8 @@ export interface FileRoutesByFullPath {
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -95,6 +109,8 @@ export interface FileRoutesByTo {
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -108,6 +124,8 @@ export interface FileRoutesById {
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -122,6 +140,8 @@ export interface FileRouteTypes {
     | '/servis'
     | '/usluge'
     | '/api/public/service-assistant'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -134,6 +154,8 @@ export interface FileRouteTypes {
     | '/servis'
     | '/usluge'
     | '/api/public/service-assistant'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
   id:
     | '__root__'
     | '/'
@@ -146,6 +168,8 @@ export interface FileRouteTypes {
     | '/servis'
     | '/usluge'
     | '/api/public/service-assistant'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -159,6 +183,8 @@ export interface RootRouteChildren {
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
   ApiPublicServiceAssistantRoute: typeof ApiPublicServiceAssistantRoute
+  LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
+  LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -233,6 +259,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicServiceAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/auth/preview': {
+      id: '/lovable/email/auth/preview'
+      path: '/lovable/email/auth/preview'
+      fullPath: '/lovable/email/auth/preview'
+      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/auth/webhook': {
+      id: '/lovable/email/auth/webhook'
+      path: '/lovable/email/auth/webhook'
+      fullPath: '/lovable/email/auth/webhook'
+      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -247,6 +287,8 @@ const rootRouteChildren: RootRouteChildren = {
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
   ApiPublicServiceAssistantRoute: ApiPublicServiceAssistantRoute,
+  LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
+  LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,4 +1,6 @@
 # Roadmap
+- [ ] Set up branded authentication email templates; sending waits for sender-domain verification
+- [ ] Add a service, repair and pricing chatbot and publish on emsmujic.tech; conversation preferences and domain connection required
 - [x] Fix mobile gallery swipes opening service menus and locking page scroll; verify taps and device enquiries still work
 - [x] Verify device reduced-motion settings disable 3D animation, including changes made while the page is open
 - [x] Verify public company name and domain against the supplied invoice; do not publish private invoices or payment details
