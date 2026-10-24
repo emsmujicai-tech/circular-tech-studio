@@ -18,6 +18,7 @@ import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk'
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
+import { Route as ApiPublicServiceAssistantRouteImport } from './routes/api/public/service-assistant'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,12 @@ const UslugeRoute = UslugeRouteImport.update({
   path: '/usluge',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicServiceAssistantRoute =
+  ApiPublicServiceAssistantRouteImport.update({
+    id: '/api/public/service-assistant',
+    path: '/api/public/service-assistant',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +107,7 @@ export interface FileRoutesById {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/service-assistant'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +133,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/service-assistant'
   id:
     | '__root__'
     | '/'
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/service-assistant'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +158,7 @@ export interface RootRouteChildren {
   RetroElektronikkRoute: typeof RetroElektronikkRoute
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
+  ApiPublicServiceAssistantRoute: typeof ApiPublicServiceAssistantRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UslugeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/service-assistant': {
+      id: '/api/public/service-assistant'
+      path: '/api/public/service-assistant'
+      fullPath: '/api/public/service-assistant'
+      preLoaderRoute: typeof ApiPublicServiceAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +246,7 @@ const rootRouteChildren: RootRouteChildren = {
   RetroElektronikkRoute: RetroElektronikkRoute,
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
+  ApiPublicServiceAssistantRoute: ApiPublicServiceAssistantRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
