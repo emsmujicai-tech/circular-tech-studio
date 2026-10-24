@@ -4,7 +4,7 @@ import { useLang } from "@/lib/i18n";
 import { ServiceAssistant } from "@/components/service-assistant";
 
 export const Route = createFileRoute("/servis")({
-  validateSearch: (search: Record<string, unknown>) => ({ device: typeof search.device === "string" ? search.device.slice(0, 100) : "" }),
+  validateSearch: (search: Record<string, unknown>): { device?: string } => ({ device: typeof search['device'] === "string" ? search['device'].slice(0, 100) : "" }),
   head: () => meta(
     "Service av elektronikk, elsykler, sparkesykler og motorsykler — EMS Mujic",
     "Feilsøking og reparasjon av bærbare PC-er, stasjonære PC-er, nettbrett og mobiltelefoner, samt service av elektriske sparkesykler, sykler og motorsykler.",
