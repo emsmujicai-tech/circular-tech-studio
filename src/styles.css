@@ -58,6 +58,7 @@
   --surface-light: color-mix(in oklch, var(--accent) 18%, transparent);
   --surface-shadow: 0 22px 55px oklch(0.05 0.01 160 / 0.45);
   --photo-shade: linear-gradient(to top, var(--scrim), transparent 65%);
+  --retro-shade: linear-gradient(90deg, var(--scrim), color-mix(in oklch, var(--scrim) 80%, transparent) 38%, transparent 100%);
 }
 
 @layer base {
@@ -97,9 +98,15 @@
 .repair-image { transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
 .repair-tile:hover .repair-image, .repair-tile:focus-within .repair-image { transform: scale(1.075); }
 .repair-caption { background: var(--photo-shade); }
+.retro-cover { background: var(--retro-shade); }
+.device-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.device-icon { transition: transform 450ms cubic-bezier(.2,.7,.2,1); }
+.device-trigger:hover .device-icon, .device-trigger[data-state="open"] .device-icon { transform: translateY(-8px) rotate(-5deg) scale(1.05); }
+@media (max-width: 640px) { .device-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .retro-cover { background: var(--scrim); opacity: .8; } .device-trigger { padding: 8px; } }
+@media (hover: none), (pointer: coarse) { .device-icon, .motion-surface, .service-icon { transform: none !important; transition: none !important; } .motion-surface::after { display: none; } }
 .service-icon { transition: transform 350ms; }
 .motion-surface:hover .service-icon { transform: translateY(-4px) rotate(-8deg); }
 @media (prefers-reduced-motion: reduce) {
-  .motion-surface, .repair-image, .service-icon { transform: none !important; transition: none !important; }
+  .motion-surface, .repair-image, .service-icon, .device-icon { transform: none !important; transition: none !important; }
   .motion-surface::after { transition: none; }
 }

@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Card, CTA, PageHead, meta } from "@/components/site";
 import { useLang } from "@/lib/i18n";
+import { ServiceAssistant } from "@/components/service-assistant";
 
 export const Route = createFileRoute("/servis")({
+  validateSearch: (search: Record<string, unknown>): { device?: string } => ({ device: typeof search['device'] === "string" ? search['device'].slice(0, 100) : "" }),
   head: () => meta(
     "Service av elektronikk, elsykler, sparkesykler og motorsykler — EMS Mujic",
     "Feilsøking og reparasjon av bærbare PC-er, stasjonære PC-er, nettbrett og mobiltelefoner, samt service av elektriske sparkesykler, sykler og motorsykler.",
@@ -13,10 +15,12 @@ export const Route = createFileRoute("/servis")({
 function Page() {
   const { t } = useLang();
   const s = t.servis;
+  const { device } = Route.useSearch();
 
   return (
     <>
       <PageHead kicker={s.kicker} title={s.title}>{s.lead}</PageHead>
+      <ServiceAssistant initialDevice={device ?? ""} />
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-2 lg:grid-cols-3">
         {s.services.map(([title, desc]) => <Card key={title} title={title}>{desc}</Card>)}
       </section>
