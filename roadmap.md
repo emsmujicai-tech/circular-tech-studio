@@ -8,5 +8,6 @@
 - [x] Set the contact details to phone +47 973 88 326 and email ems.mujic@gmail.com
 - [x] Write the company name as "Mujic" (no ć) everywhere it appears
 - [x] Add drone services: inspection and filming of hard-to-reach locations
+- [x] Integrate drones into the service grid and add a generated repair gallery with mouse-responsive motion
 - [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
 - [ ] Publish the site and connect the emsmujic.tech domain

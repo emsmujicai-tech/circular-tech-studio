@@ -1,6 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
-import { Card, CTA, meta } from "@/components/site";
+import { CTA, meta } from "@/components/site";
+import { RepairGallery } from "@/components/repair-gallery";
+import { MotionSurface } from "@/components/motion-surface";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Laptop, Bike, Recycle, Bot, Workflow, PenTool, Wrench, ScanLine, Network } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -14,6 +18,17 @@ export const Route = createFileRoute("/")({
 function Index() {
   const { t } = useLang();
   const h = t.home;
+  const tiles = [
+    { ...h.cards[0], to: "/elektronika" as const, icon: Laptop },
+    { ...h.cards[1], to: "/elektronika" as const, icon: Bike },
+    { ...h.service, to: "/servis" as const, icon: Wrench },
+    { ...h.cards[2], to: "/e-otpad" as const, icon: Recycle },
+    { ...h.it, to: "/it-support" as const, icon: Network },
+    { ...h.drone, to: "/drone" as const, icon: ScanLine },
+    { ...h.cards[3], to: "/usluge" as const, icon: Bot },
+    { ...h.cards[4], to: "/usluge" as const, icon: Workflow },
+    { ...h.cards[5], to: "/usluge" as const, icon: PenTool },
+  ];
 
   return (
     <>
@@ -36,24 +51,23 @@ function Index() {
         <img src={hero} alt={h.heroAlt} className="aspect-[16/10] w-full rounded-2xl border object-cover" width={1600} height={1000} />
       </section>
 
+      <RepairGallery />
+
       <section className="mx-auto mt-20 max-w-6xl px-5">
         <h2 className="text-3xl font-bold">{h.h2}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-6">
-          {h.cards.map((c) => (
-            <Card key={c.title} tag={c.tag} title={c.title} className="md:col-span-2">{c.text}</Card>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tiles.map((tile) => (
+            <MotionSurface key={tile.title} className="rounded-lg border bg-card">
+              <Button asChild variant="ghost" className="block h-full min-h-64 whitespace-normal rounded-lg p-6 text-left hover:bg-transparent hover:text-foreground">
+                <Link to={tile.to}>
+                  <span className="mb-6 flex items-center justify-between"><tile.icon className="service-icon size-7 text-primary" /><ArrowUpRight className="size-4 text-muted-foreground" /></span>
+                  <span className="block text-xs font-medium uppercase tracking-wider text-accent">{tile.tag}</span>
+                  <h3 className="mt-2 text-xl font-semibold">{tile.title}</h3>
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-muted-foreground">{tile.text}</p>
+                </Link>
+              </Button>
+            </MotionSurface>
           ))}
-          <Card tag={h.service.tag} title={h.service.title} className="md:col-span-3">
-            {h.service.text}{" "}
-            <Link to="/servis" className="font-semibold text-primary hover:underline">{h.service.link} →</Link>
-          </Card>
-          <Card tag={h.it.tag} title={h.it.title} className="md:col-span-3">
-            {h.it.text}{" "}
-            <Link to="/it-support" className="font-semibold text-primary hover:underline">{h.it.link} →</Link>
-          </Card>
-          <Card tag={h.drone.tag} title={h.drone.title} className="md:col-span-6">
-            {h.drone.text}{" "}
-            <Link to="/drone" className="font-semibold text-primary hover:underline">{h.drone.link} →</Link>
-          </Card>
         </div>
       </section>
       <CTA />

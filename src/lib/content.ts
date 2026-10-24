@@ -28,6 +28,7 @@ export type SiteContent = {
     service: { tag: string; title: string; text: string; link: string };
     it: { tag: string; title: string; text: string; link: string };
     drone: { tag: string; title: string; text: string; link: string };
+    gallery: { kicker: string; title: string; note: string; open: string; close: string; previous: string; next: string; items: { title: string; text: string; alt: string }[] };
   };
   elektronika: {
     kicker: string;
@@ -111,6 +112,18 @@ const nb: SiteContent = {
     secondary: "Selg oss en enhet",
     heroAlt: "En brukt bærbar PC, telefon og nettbrett",
     h2: "Det vi gjør",
+    gallery: {
+      kicker: "Service & reparasjon",
+      title: "Verdt å ta vare på.",
+      note: "AI-genererte illustrasjoner av reparasjoner — ikke bilder av utførte kundeoppdrag.",
+      open: "Åpne bilde", close: "Lukk", previous: "Forrige bilde", next: "Neste bilde",
+      items: [
+        { title: "PlayStation 5", text: "Konsoller & gaming", alt: "AI-illustrasjon av en åpnet PS5 under reparasjon" },
+        { title: "Elektriske sparkesykler", text: "Batteri · motor · elektronikk", alt: "AI-illustrasjon av feilsøking på en elektrisk sparkesykkel" },
+        { title: "Gaming & bærbare PC-er", text: "Kjøling · maskinvare · oppgradering", alt: "AI-illustrasjon av reparasjon av en gaming-PC" },
+        { title: "Elektriske sykler", text: "Drivverk · batteri · vedlikehold", alt: "AI-illustrasjon av service på motoren til en elsykkel" },
+      ],
+    },
     cards: [
       { tag: "Primært", title: "Brukt elektronikk", text: "Bærbare PC-er, stasjonære PC-er, nettbrett og mobiltelefoner – testet og klare til bruk." },
       { tag: "E-mobilitet", title: "Elektriske sparkesykler og sykler", text: "Rimlig overgang til elektrisk kjøring i byen." },
@@ -325,6 +338,18 @@ const en: SiteContent = {
     secondary: "Sell us a device",
     heroAlt: "A used laptop, phone and tablet",
     h2: "What we do",
+    gallery: {
+      kicker: "Service & repair",
+      title: "Worth keeping.",
+      note: "AI-generated repair illustrations — not photographs of completed customer jobs.",
+      open: "Open image", close: "Close", previous: "Previous image", next: "Next image",
+      items: [
+        { title: "PlayStation 5", text: "Consoles & gaming", alt: "AI illustration of an opened PS5 undergoing repair" },
+        { title: "Electric scooters", text: "Battery · motor · electronics", alt: "AI illustration of electric scooter diagnostics" },
+        { title: "Gaming & laptops", text: "Cooling · hardware · upgrades", alt: "AI illustration of gaming laptop repair" },
+        { title: "Electric bikes", text: "Drive system · battery · maintenance", alt: "AI illustration of electric bike motor servicing" },
+      ],
+    },
     cards: [
       { tag: "Primary", title: "Used electronics", text: "Laptops, desktops, tablets and phones — tested and ready to use." },
       { tag: "E-mobility", title: "Electric scooters and bikes", text: "An affordable switch to electric riding around town." },
@@ -539,6 +564,18 @@ const bs: SiteContent = {
     secondary: "Prodaj nam uređaj",
     heroAlt: "Polovni laptop, telefon i tablet",
     h2: "Šta radimo",
+    gallery: {
+      kicker: "Servis & popravke",
+      title: "Vrijedi sačuvati.",
+      note: "AI-generisane ilustracije popravki — nisu fotografije završenih radova za klijente.",
+      open: "Otvori sliku", close: "Zatvori", previous: "Prethodna slika", next: "Sljedeća slika",
+      items: [
+        { title: "PlayStation 5", text: "Konzole & gaming", alt: "AI ilustracija otvorene PS5 konzole tokom popravke" },
+        { title: "Električni skuteri", text: "Baterija · motor · elektronika", alt: "AI ilustracija dijagnostike električnog skutera" },
+        { title: "Gaming & laptopi", text: "Hlađenje · hardver · nadogradnje", alt: "AI ilustracija popravke gaming laptopa" },
+        { title: "Električna bicikla", text: "Pogon · baterija · održavanje", alt: "AI ilustracija servisa motora električnog bicikla" },
+      ],
+    },
     cards: [
       { tag: "Primarno", title: "Polovna elektronika", text: "Laptopi, računari, tableti i telefoni — testirani i spremni za upotrebu." },
       { tag: "E-mobilnost", title: "Električni skuteri i bicikla", text: "Povoljan prelazak na električnu vožnju po gradu." },

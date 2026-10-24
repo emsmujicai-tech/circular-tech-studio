@@ -12,3 +12,4 @@
 ## Rules
 
 - All user-visible copy lives in `src/lib/content.ts` as one dictionary per language, with `nb` (Norwegian) as the default; pages read their text from `useLang()` instead of hardcoding strings, and every new page adds its keys to all three languages so the content test keeps the dictionaries in sync.
+- Gallery and home service tiles share a browser-safe MotionSurface with pointer-driven CSS variables and reduced-motion support; this keeps interactive effects consistent without an animation dependency.
