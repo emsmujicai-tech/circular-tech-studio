@@ -1,58 +1,8 @@
-import * as React from 'react'
-
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Preview,
-  Text,
-} from '@react-email/components'
-
-interface ReauthenticationEmailProps {
-  token: string
-}
-
-export const ReauthenticationEmail = ({ token }: ReauthenticationEmailProps) => (
-  <Html lang="en" dir="ltr">
-    <Head />
-    <Preview>Your verification code</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>Confirm reauthentication</Heading>
-        <Text style={text}>Use the code below to confirm your identity:</Text>
-        <Text style={codeStyle}>{token}</Text>
-        <Text style={footer}>
-          This code will expire shortly. If you didn't request this, you can
-          safely ignore this email.
-        </Text>
-      </Container>
-    </Body>
-  </Html>
-)
-
-export default ReauthenticationEmail
-
-const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
-const container = { padding: '20px 25px' }
-const h1 = {
-  fontSize: '22px',
-  fontWeight: 'bold' as const,
-  color: '#000000',
-  margin: '0 0 20px',
-}
-const text = {
-  fontSize: '14px',
-  color: '#55575d',
-  lineHeight: '1.5',
-  margin: '0 0 25px',
-}
-const codeStyle = {
-  fontFamily: 'Courier, monospace',
-  fontSize: '22px',
-  fontWeight: 'bold' as const,
-  color: '#000000',
-  margin: '0 0 30px',
-}
-const footer = { fontSize: '12px', color: '#999999', margin: '30px 0 0' }
+import * as React from 'react';
+import { Body, Button, Container, Head, Heading, Html, Link, Preview, Text } from '@react-email/components';
+import { content } from '@/lib/content';
+import { emailStyles as s } from './styles';
+interface Props { token: string }
+const a = content.nb.authEmail;
+export const ReauthenticationEmail = (p: Props) => <Html lang="nb" dir="ltr"><Head /><Preview>{a.codeTitle} · EMS Mujic Smart Solutions</Preview><Body style={s.main}><Container style={s.container}><Text style={s.brand}>EMS Mujic Smart Solutions</Text><Heading style={s.h1}>{a.codeTitle}</Heading><Text style={s.text}>{a.codeIntro}</Text><Text style={s.codeStyle}>{p.token}</Text><Text style={s.footer}>{a.ignore}</Text></Container></Body></Html>;
+export default ReauthenticationEmail;

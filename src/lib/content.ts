@@ -11,6 +11,8 @@ export type NavKey = "home" | "electronics" | "service" | "it" | "ewaste" | "ai"
 type Pair = [string, string];
 
 export type SiteContent = {
+  authEmail: Record<"signupTitle" | "signupIntro" | "signupPrompt" | "signupButton" | "signupFooter" | "inviteTitle" | "inviteIntro" | "inviteButton" | "ignore" | "loginTitle" | "loginIntro" | "loginButton" | "recoveryTitle" | "recoveryIntro" | "recoveryButton" | "recoveryFooter" | "changeTitle" | "changeIntro" | "from" | "to" | "changeButton" | "changeFooter" | "codeTitle" | "codeIntro", string>;
+  chat: Record<"title" | "open" | "close" | "placeholder" | "greeting" | "loading" | "send" | "stop" | "reasoning" | "privacy" | "error" | "contact" | "services" | "pricing" | "repair", string>;
   nav: Record<NavKey, string>;
   footer: { tagline: string; locations: string };
   cta: { title: string; text: string; button: string };
@@ -81,6 +83,49 @@ export type SiteContent = {
 };
 
 const nb: SiteContent = {
+  authEmail: {
+    "signupTitle": "Bekreft e-postadressen",
+    "signupIntro": "Takk for at du opprettet en konto hos",
+    "signupPrompt": "Bekreft e-postadressen din:",
+    "signupButton": "Bekreft e-post",
+    "signupFooter": "Hvis du ikke opprettet en konto, kan du se bort fra denne e-posten.",
+    "inviteTitle": "Du er invitert",
+    "inviteIntro": "Du er invitert til å opprette en konto hos",
+    "inviteButton": "Godta invitasjonen",
+    "ignore": "Hvis du ikke ba om dette, kan du se bort fra e-posten.",
+    "loginTitle": "Din innloggingslenke",
+    "loginIntro": "Bruk lenken for å logge inn hos",
+    "loginButton": "Logg inn",
+    "recoveryTitle": "Tilbakestill passordet",
+    "recoveryIntro": "Vi har mottatt en forespørsel om å tilbakestille passordet ditt hos",
+    "recoveryButton": "Velg nytt passord",
+    "recoveryFooter": "Hvis du ikke ba om dette, kan du se bort fra e-posten. Passordet ditt blir ikke endret.",
+    "changeTitle": "Bekreft ny e-postadresse",
+    "changeIntro": "Du ba om å endre e-postadressen hos",
+    "from": "Fra",
+    "to": "Til",
+    "changeButton": "Bekreft endringen",
+    "changeFooter": "Hvis du ikke ba om endringen, bør du sikre kontoen din umiddelbart.",
+    "codeTitle": "Bekreft identiteten din",
+    "codeIntro": "Bruk denne koden for å bekrefte identiteten din."
+},
+  chat: {
+    "title": "EMS Mujic · Kundehjelp",
+    "open": "Spør EMS Mujic",
+    "close": "Lukk samtalen",
+    "placeholder": "Hva lurer du på?",
+    "greeting": "Hei! Hva trenger du hjelp med?",
+    "loading": "Ser på spørsmålet…",
+    "send": "Send",
+    "stop": "Stopp",
+    "reasoning": "Vurdering",
+    "privacy": "Samtalen sendes til AI og lagres ikke av nettstedet. Unngå sensitive opplysninger.",
+    "error": "Kundehjelpen er ikke tilgjengelig. Kontakt oss på e-post eller telefon.",
+    "contact": "Kontakt oss",
+    "services": "Hvilke tjenester tilbyr dere?",
+    "pricing": "Hva koster service og IT-pakkene?",
+    "repair": "Sparkesykkelen min lader ikke. Kan dere hjelpe?"
+},
   nav: {
     home: "Hjem",
     electronics: "Brukt elektronikk",
@@ -367,6 +412,49 @@ const nb: SiteContent = {
 };
 
 const en: SiteContent = {
+  authEmail: {
+    "signupTitle": "Confirm your email",
+    "signupIntro": "Thank you for creating an account at",
+    "signupPrompt": "Confirm your email address:",
+    "signupButton": "Verify email",
+    "signupFooter": "If you did not create an account, you can ignore this email.",
+    "inviteTitle": "You are invited",
+    "inviteIntro": "You are invited to create an account at",
+    "inviteButton": "Accept invitation",
+    "ignore": "If you did not request this, you can ignore this email.",
+    "loginTitle": "Your sign-in link",
+    "loginIntro": "Use the link to sign in to",
+    "loginButton": "Sign in",
+    "recoveryTitle": "Reset your password",
+    "recoveryIntro": "We received a request to reset your password at",
+    "recoveryButton": "Choose a new password",
+    "recoveryFooter": "If you did not request this, ignore this email. Your password will not change.",
+    "changeTitle": "Confirm your new email",
+    "changeIntro": "You requested to change your email address at",
+    "from": "From",
+    "to": "To",
+    "changeButton": "Confirm change",
+    "changeFooter": "If you did not request this change, secure your account immediately.",
+    "codeTitle": "Verify your identity",
+    "codeIntro": "Use this code to verify your identity."
+},
+  chat: {
+    "title": "EMS Mujic · Customer help",
+    "open": "Ask EMS Mujic",
+    "close": "Close chat",
+    "placeholder": "What would you like to know?",
+    "greeting": "Hello! What can we help you with?",
+    "loading": "Looking into your question…",
+    "send": "Send",
+    "stop": "Stop",
+    "reasoning": "Reasoning",
+    "privacy": "Your conversation is sent to AI and is not saved by this website. Avoid sensitive information.",
+    "error": "Chat is unavailable. Contact us by email or phone.",
+    "contact": "Contact us",
+    "services": "Which services do you offer?",
+    "pricing": "What do repairs and IT packages cost?",
+    "repair": "My scooter will not charge. Can you help?"
+},
   nav: {
     home: "Home",
     electronics: "Used electronics",
@@ -653,6 +741,49 @@ const en: SiteContent = {
 };
 
 const bs: SiteContent = {
+  authEmail: {
+    "signupTitle": "Potvrdi email adresu",
+    "signupIntro": "Hvala što ste otvorili račun kod",
+    "signupPrompt": "Potvrdite svoju email adresu:",
+    "signupButton": "Potvrdi email",
+    "signupFooter": "Ako niste otvorili račun, zanemarite ovaj email.",
+    "inviteTitle": "Pozvani ste",
+    "inviteIntro": "Pozvani ste da otvorite račun kod",
+    "inviteButton": "Prihvati poziv",
+    "ignore": "Ako ovo niste tražili, zanemarite email.",
+    "loginTitle": "Vaš link za prijavu",
+    "loginIntro": "Koristite link za prijavu kod",
+    "loginButton": "Prijavi se",
+    "recoveryTitle": "Obnovi lozinku",
+    "recoveryIntro": "Primili smo zahtjev za obnovu vaše lozinke kod",
+    "recoveryButton": "Izaberi novu lozinku",
+    "recoveryFooter": "Ako ovo niste tražili, zanemarite email. Vaša lozinka se neće promijeniti.",
+    "changeTitle": "Potvrdi novu email adresu",
+    "changeIntro": "Zatražili ste promjenu email adrese kod",
+    "from": "Sa",
+    "to": "Na",
+    "changeButton": "Potvrdi promjenu",
+    "changeFooter": "Ako niste tražili promjenu, odmah zaštitite račun.",
+    "codeTitle": "Potvrdi svoj identitet",
+    "codeIntro": "Koristite ovaj kod za potvrdu identiteta."
+},
+  chat: {
+    "title": "EMS Mujic · Pomoć",
+    "open": "Pitaj EMS Mujic",
+    "close": "Zatvori razgovor",
+    "placeholder": "Šta vas zanima?",
+    "greeting": "Zdravo! Kako vam možemo pomoći?",
+    "loading": "Razmatram pitanje…",
+    "send": "Pošalji",
+    "stop": "Zaustavi",
+    "reasoning": "Procjena",
+    "privacy": "Razgovor se šalje AI-u i stranica ga ne čuva. Ne unosite osjetljive podatke.",
+    "error": "Chat trenutno nije dostupan. Kontaktirajte nas emailom ili telefonom.",
+    "contact": "Kontaktirajte nas",
+    "services": "Koje usluge nudite?",
+    "pricing": "Koliko koštaju servis i IT paketi?",
+    "repair": "Skuter mi se ne puni. Možete li pomoći?"
+},
   nav: {
     home: "Početna",
     electronics: "Polovna elektronika",
