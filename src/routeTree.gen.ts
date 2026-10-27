@@ -18,6 +18,7 @@ import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk'
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
+import { Route as ApiPublicCustomerChatRouteImport } from './routes/api/public/customer-chat'
 import { Route as ApiPublicServiceAssistantRouteImport } from './routes/api/public/service-assistant'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
 import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
@@ -67,6 +68,11 @@ const UslugeRoute = UslugeRouteImport.update({
   path: '/usluge',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicCustomerChatRoute = ApiPublicCustomerChatRouteImport.update({
+  id: '/api/public/customer-chat',
+  path: '/api/public/customer-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicServiceAssistantRoute =
   ApiPublicServiceAssistantRouteImport.update({
     id: '/api/public/service-assistant',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
   '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
     | '/lovable/email/auth/webhook'
@@ -182,6 +194,7 @@ export interface RootRouteChildren {
   RetroElektronikkRoute: typeof RetroElektronikkRoute
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
+  ApiPublicCustomerChatRoute: typeof ApiPublicCustomerChatRoute
   ApiPublicServiceAssistantRoute: typeof ApiPublicServiceAssistantRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
   LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
@@ -252,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UslugeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/customer-chat': {
+      id: '/api/public/customer-chat'
+      path: '/api/public/customer-chat'
+      fullPath: '/api/public/customer-chat'
+      preLoaderRoute: typeof ApiPublicCustomerChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/service-assistant': {
       id: '/api/public/service-assistant'
       path: '/api/public/service-assistant'
@@ -286,6 +306,7 @@ const rootRouteChildren: RootRouteChildren = {
   RetroElektronikkRoute: RetroElektronikkRoute,
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
+  ApiPublicCustomerChatRoute: ApiPublicCustomerChatRoute,
   ApiPublicServiceAssistantRoute: ApiPublicServiceAssistantRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
   LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
