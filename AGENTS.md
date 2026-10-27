@@ -17,3 +17,5 @@
 - Gallery menus are non-modal and open on completed touch taps, not touch pointer-down; native vertical swipes must never open a menu or lock page scrolling.
 - AI service assessment uses a public same-origin validated upload endpoint with request-scoped AI Gateway Responses streaming and no retained enquiries or photos; this lets customers prepare an email without accounts.
 - Retro club membership uses an encoded mailto link rather than account storage; membership is handled personally by email.
+- Auth emails use the managed SDK handler and shared email styles; server-rendered copy comes from the trilingual content dictionary, with Norwegian as default.
+- Customer chat uses AI Elements and a same-origin validated streaming endpoint with full in-memory history, no account requirement or transcript persistence; pricing is quote-only until real prices exist.

@@ -18,7 +18,7 @@ const EMAIL_TEMPLATES: Record<string, React.ComponentType<any>> = {
 }
 
 // Configuration
-const SITE_NAME = "Circular Tech Studio"
+const SITE_NAME = "EMS Mujic Smart Solutions"
 const ROOT_DOMAIN = "emsmujic.tech"
 
 // Sample data for preview mode ONLY (not used in actual email sending).
