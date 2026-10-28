@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useRef, type ReactNode } from "react";
 import { LangSwitcher } from "@/components/lang-switcher";
+import { AuthControl } from "@/components/auth-control";
 import { useLang } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -34,7 +35,10 @@ export function Header() {
           EMS <span className="text-primary">Mujic</span>
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>
         </Link>
-        <LangSwitcher />
+        <div className="flex items-center gap-2">
+          <AuthControl />
+          <LangSwitcher />
+        </div>
         <div className="w-full min-w-0 border-t pt-3">
           <div className="flex items-center gap-1">
           <Button variant="ghost" size="icon" className="shrink-0 md:hidden" aria-label={t.assistant.previousNav} onClick={() => moveNav(-1)}><ChevronLeft /></Button>
@@ -59,21 +63,49 @@ export function Header() {
   );
 }
 
+const footerLink = "text-muted-foreground transition hover:text-foreground";
+
 export function Footer() {
   const { t } = useLang();
   return (
     <footer className="mt-24 border-t">
-      <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 text-sm text-muted-foreground sm:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="font-display text-base font-bold text-foreground">EMS Mujic Smart Solutions</p>
-          <p className="mt-2">{t.footer.tagline}</p>
+          <p className="mt-2 text-muted-foreground">{t.footer.tagline}</p>
         </div>
+        <nav aria-label={t.footer.servicesTitle}>
+          <p className="font-semibold text-foreground">{t.footer.servicesTitle}</p>
+          <ul className="mt-3 space-y-2">
+            {nav.map((n) => (
+              <li key={n.to}>
+                <Link to={n.to} className={footerLink}>{t.nav[n.key]}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label={t.footer.companyTitle}>
+          <p className="font-semibold text-foreground">{t.footer.companyTitle}</p>
+          <ul className="mt-3 space-y-2">
+            <li><Link to="/personvern" className={footerLink}>{t.footer.privacy}</Link></li>
+            <li><Link to="/vilkar" className={footerLink}>{t.footer.terms}</Link></li>
+            <li><Link to="/account" className={footerLink}>{t.footer.account}</Link></li>
+          </ul>
+        </nav>
         <div>
-          <p>{CONTACT.phone}</p>
-          <p>{CONTACT.email}</p>
-          <p>{t.footer.locations}</p>
+          <p className="font-semibold text-foreground">{t.footer.contactTitle}</p>
+          <ul className="mt-3 space-y-2 text-muted-foreground">
+            <li><a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className={footerLink}>{CONTACT.phone}</a></li>
+            <li><a href={`mailto:${CONTACT.email}`} className={footerLink}>{CONTACT.email}</a></li>
+            <li>{t.footer.locations}</li>
+          </ul>
         </div>
-        <p className="sm:text-right">© {new Date().getFullYear()} emsmujic.tech</p>
+      </div>
+      <div className="border-t">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} emsmujic.tech — {t.footer.rights}</p>
+          <LangSwitcher />
+        </div>
       </div>
     </footer>
   );

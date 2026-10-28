@@ -13,7 +13,9 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer } from "../components/site";
+import { CustomerChat } from "../components/customer-chat";
 import { LangProvider, useLang } from "../lib/i18n";
+import { supabase } from "../integrations/supabase/client";
 
 function NotFoundComponent() {
   const { t } = useLang();
@@ -111,6 +113,16 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+      void router.invalidate();
+      if (event !== "SIGNED_OUT") void queryClient.invalidateQueries();
+    });
+    return () => sub.subscription.unsubscribe();
+  }, [router, queryClient]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -120,6 +132,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
+        <CustomerChat />
       </LangProvider>
     </QueryClientProvider>
   );
