@@ -1,28 +1,11 @@
-# Roadmap
-- [ ] Set up branded authentication email templates; sending waits for sender-domain verification
-- [ ] Add a service, repair and pricing chatbot and publish on emsmujic.tech; conversation preferences and domain connection required
-- [x] Fix mobile gallery swipes opening service menus and locking page scroll; verify taps and device enquiries still work
-- [x] Verify device reduced-motion settings disable 3D animation, including changes made while the page is open
-- [x] Verify public company name and domain against the supplied invoice; do not publish private invoices or payment details
-- [x] Replace combustion motorcycle icon with a clearly electric motorcycle without exhaust
-- [x] Apply matching 3D icons to all similar service/category tiles across the site, preserving text, links and touch/reduced-motion behaviour
-- [x] Refresh AI/automation/branding page with six generated 3D icons, concise trilingual copy and a redesigned layout
-- [x] Keep every gallery icon visible in a symmetric grid without arrows and make the main menu fully accessible
-- [x] Adapt gallery to touch and reduced motion, and add a device-specific service enquiry button on every tile
-- [x] Add AI service assistant accepting fault descriptions or photos and preparing a service enquiry through AI Gateway
-- [x] Add Retro elektronikk club with email membership; existing clubs found, so no first-club claim
-- [x] Replace PS5 and gallery photographs with unique 3D device icons opening a dropdown of related services
+# Audit roadmap
 
-- [x] Add service/repair page (servis) — electronics, e-scooters, e-bikes, motorcycles
-- [x] Translate the whole site to Norwegian (Norwegian is the default language)
-- [x] Add a language menu in the header corner: Norsk / English / Bosanski, remembered between visits
-- [x] Add IT support for companies as packages — PC and network maintenance, everything remote too
-- [x] Set the company locations to Bergen and Stord, Norway (contact page + footer)
-- [x] Set the contact details to phone +47 973 88 326 and email ems.mujic@gmail.com
-- [x] Write the company name as "Mujic" (no ć) everywhere it appears
-- [x] Add drone services: inspection and filming of hard-to-reach locations
-- [x] Integrate drones into the service grid and add a generated repair gallery with mouse-responsive motion
-- [ ] Add real package prices later (Elvir wants "Be om tilbud" shown for now)
-- [ ] Publish the full website on emsmujic.tech after Domeneshop confirms registration and user completes domain connection confirmation; not a parked domain page
-- [ ] Connect emsmujic.tech — paid Domeneshop receipt received; domain tools report unregistered/no nameservers and registry returns 404; awaiting registrar domain status before connection
-- [ ] Obtain exact project-issued DNS values after registration confirmation; connect root and www through the domain connection card, preserve existing email records, then verify DNS and HTTPS. Do not guess IP addresses or verification tokens; no background monitoring is scheduled.
+- [ ] Security: .env untracked + .gitignore rules + .env.example
+- [ ] Security: HTTP security headers middleware (CSP, Referrer-Policy, nosniff, Permissions-Policy, frame protection)
+- [ ] Auth: enable email auth, /login, /reset-password, /account (protected), header auth control
+- [ ] Footer: full nav, contact links, legal links, language switcher
+- [ ] Legal: /personvern and /vilkar pages (3 languages, conservative copy)
+- [ ] Clickable audit: mount CustomerChat in root shell; footer contact links
+- [ ] A11y: focus-visible styles, labeled auth forms
+- [ ] Tests: extend routing tests, run vitest + eslint, verify build
+- [ ] Report: rotation guidance for tracked .env values

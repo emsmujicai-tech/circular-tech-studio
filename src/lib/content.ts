@@ -14,7 +14,29 @@ export type SiteContent = {
   authEmail: Record<"signupTitle" | "signupIntro" | "signupPrompt" | "signupButton" | "signupFooter" | "inviteTitle" | "inviteIntro" | "inviteButton" | "ignore" | "loginTitle" | "loginIntro" | "loginButton" | "recoveryTitle" | "recoveryIntro" | "recoveryButton" | "recoveryFooter" | "changeTitle" | "changeIntro" | "from" | "to" | "changeButton" | "changeFooter" | "codeTitle" | "codeIntro", string>;
   chat: Record<"title" | "open" | "close" | "placeholder" | "greeting" | "loading" | "send" | "stop" | "reasoning" | "privacy" | "error" | "contact" | "services" | "pricing" | "repair", string>;
   nav: Record<NavKey, string>;
-  footer: { tagline: string; locations: string };
+  footer: { tagline: string; locations: string; servicesTitle: string; companyTitle: string; contactTitle: string; privacy: string; terms: string; account: string; rights: string };
+  auth: {
+    kicker: string; title: string; lead: string;
+    signInTab: string; signUpTab: string; forgotTab: string;
+    email: string; password: string; confirmPassword: string; newPassword: string;
+    signInButton: string; signUpButton: string; sendResetButton: string; resetButton: string;
+    forgotLink: string; backToLogin: string; accountLink: string;
+    minPassword: string; passwordMismatch: string; invalidEmail: string;
+    checkEmail: string; checkEmailText: string;
+    invalidCredentials: string; emailNotConfirmed: string; userExists: string; rateLimited: string; genericError: string;
+    forgotTitle: string; forgotText: string; resetSent: string;
+    resetTitle: string; resetText: string; resetDone: string; resetExpired: string;
+    switchToSignUp: string; switchToSignIn: string;
+  };
+  account: {
+    kicker: string; title: string; lead: string;
+    emailLabel: string; createdLabel: string; unknown: string;
+    signOut: string; securityNote: string;
+  };
+  legal: {
+    privacy: { kicker: string; title: string; lead: string; updated: string; sections: { title: string; text: string }[] };
+    terms: { kicker: string; title: string; lead: string; updated: string; sections: { title: string; text: string }[] };
+  };
   cta: { title: string; text: string; button: string };
   notFound: { title: string; text: string; button: string };
   home: {
