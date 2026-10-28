@@ -14,7 +14,29 @@ export type SiteContent = {
   authEmail: Record<"signupTitle" | "signupIntro" | "signupPrompt" | "signupButton" | "signupFooter" | "inviteTitle" | "inviteIntro" | "inviteButton" | "ignore" | "loginTitle" | "loginIntro" | "loginButton" | "recoveryTitle" | "recoveryIntro" | "recoveryButton" | "recoveryFooter" | "changeTitle" | "changeIntro" | "from" | "to" | "changeButton" | "changeFooter" | "codeTitle" | "codeIntro", string>;
   chat: Record<"title" | "open" | "close" | "placeholder" | "greeting" | "loading" | "send" | "stop" | "reasoning" | "privacy" | "error" | "contact" | "services" | "pricing" | "repair", string>;
   nav: Record<NavKey, string>;
-  footer: { tagline: string; locations: string };
+  footer: { tagline: string; locations: string; servicesTitle: string; companyTitle: string; contactTitle: string; privacy: string; terms: string; account: string; rights: string };
+  auth: {
+    kicker: string; title: string; lead: string;
+    signInTab: string; signUpTab: string; forgotTab: string;
+    email: string; password: string; confirmPassword: string; newPassword: string;
+    signInButton: string; signUpButton: string; sendResetButton: string; resetButton: string;
+    forgotLink: string; backToLogin: string; accountLink: string;
+    minPassword: string; passwordMismatch: string; invalidEmail: string;
+    checkEmail: string; checkEmailText: string;
+    invalidCredentials: string; emailNotConfirmed: string; userExists: string; rateLimited: string; genericError: string;
+    forgotTitle: string; forgotText: string; resetSent: string;
+    resetTitle: string; resetText: string; resetDone: string; resetExpired: string;
+    switchToSignUp: string; switchToSignIn: string;
+  };
+  account: {
+    kicker: string; title: string; lead: string;
+    emailLabel: string; createdLabel: string; unknown: string;
+    signOut: string; securityNote: string;
+  };
+  legal: {
+    privacy: { kicker: string; title: string; lead: string; updated: string; sections: { title: string; text: string }[] };
+    terms: { kicker: string; title: string; lead: string; updated: string; sections: { title: string; text: string }[] };
+  };
   cta: { title: string; text: string; button: string };
   notFound: { title: string; text: string; button: string };
   home: {
@@ -140,6 +162,54 @@ const nb: SiteContent = {
   footer: {
     tagline: "Brukt elektronikk, service og reparasjoner, e-mobilitet, resirkulering og AI-løsninger.",
     locations: "Bergen og Stord, Norge",
+    servicesTitle: "Tjenester", companyTitle: "Selskapet", contactTitle: "Kontakt",
+    privacy: "Personvern", terms: "Vilkår", account: "Min konto", rights: "Alle rettigheter forbeholdt.",
+  },
+  auth: {
+    kicker: "Konto",
+    title: "Logg inn eller opprett konto",
+    lead: "Med en konto kan du se og administrere kontoen din. Du trenger ikke konto for å kontakte oss.",
+    signInTab: "Logg inn", signUpTab: "Registrer deg", forgotTab: "Glemt passord",
+    email: "E-post", password: "Passord", confirmPassword: "Bekreft passord", newPassword: "Nytt passord",
+    signInButton: "Logg inn", signUpButton: "Opprett konto", sendResetButton: "Send tilbakestillingslenke", resetButton: "Lagre nytt passord",
+    forgotLink: "Glemt passordet?", backToLogin: "Tilbake til innlogging", accountLink: "Min konto",
+    minPassword: "Passordet må ha minst 8 tegn.", passwordMismatch: "Passordene er ikke like.", invalidEmail: "Skriv inn en gyldig e-postadresse.",
+    checkEmail: "Sjekk e-posten din", checkEmailText: "Vi har sendt en bekreftelseslenke. Klikk på lenken i e-posten for å aktivere kontoen.",
+    invalidCredentials: "Feil e-post eller passord.", emailNotConfirmed: "E-postadressen er ikke bekreftet ennå. Sjekk innboksen din.", userExists: "Det finnes allerede en konto med denne e-postadressen.", rateLimited: "For mange forsøk. Prøv igjen om litt.", genericError: "Noe gikk galt. Prøv igjen.",
+    forgotTitle: "Glemt passord", forgotText: "Skriv inn e-postadressen din, så sender vi en lenke for å velge nytt passord.", resetSent: "Hvis adressen finnes hos oss, har vi sendt en tilbakestillingslenke. Sjekk e-posten din.",
+    resetTitle: "Velg nytt passord", resetText: "Skriv inn det nye passordet ditt nedenfor.", resetDone: "Passordet er oppdatert. Du kan nå logge inn.", resetExpired: "Lenken er ugyldig eller utløpt. Be om en ny tilbakestillingslenke.",
+    switchToSignUp: "Har du ikke konto? Registrer deg", switchToSignIn: "Har du allerede konto? Logg inn",
+  },
+  account: {
+    kicker: "Konto", title: "Min konto", lead: "Her ser du kontoinformasjonen din.",
+    emailLabel: "E-post", createdLabel: "Kontoen ble opprettet", unknown: "Ukjent",
+    signOut: "Logg ut", securityNote: "Vi lagrer bare e-postadressen du registrerte med. Du kan be oss slette kontoen når som helst.",
+  },
+  legal: {
+    privacy: {
+      kicker: "Personvern", title: "Personvernerklæring",
+      lead: "Slik behandler vi personopplysninger når du bruker emsmujic.tech.",
+      updated: "Sist oppdatert: januar 2026",
+      sections: [
+        { title: "Behandlingsansvarlig", text: "EMS Mujic, med virksomhet i Bergen og Stord, er behandlingsansvarlig for personopplysninger som samles inn via dette nettstedet. Du kan kontakte oss på ems.mujic@gmail.com." },
+        { title: "Hvilke opplysninger vi behandler", text: "Når du kontakter oss på e-post eller telefon, behandler vi navnet ditt, kontaktopplysningene og innholdet i henvendelsen. Hvis du oppretter konto, lagrer vi e-postadressen din og en kryptert versjon av passordet." },
+        { title: "AI-funksjoner", text: "Meldinger du skriver til kundehjelpen, og beskrivelser eller bilder du sender til serviceassistenten, sendes til en ekstern AI-tjeneste for å generere svar. Nettstedet lagrer ikke disse meldingene eller bildene. Unngå å dele sensitive opplysninger." },
+        { title: "Lagring i nettleseren", text: "Nettstedet bruker ikke sporingscookies. Nettleseren din lagrer bare språkvalget ditt og, hvis du logger inn, informasjon som holder deg innlogget." },
+        { title: "Dine rettigheter", text: "Du har rett til innsyn, retting og sletting av personopplysningene dine, og til å klage til Datatilsynet. Kontakt oss for å bruke rettighetene dine." },
+      ],
+    },
+    terms: {
+      kicker: "Vilkår", title: "Vilkår for bruk",
+      lead: "Vilkår for bruk av emsmujic.tech og tjenestene våre.",
+      updated: "Sist oppdatert: januar 2026",
+      sections: [
+        { title: "Om innholdet", text: "Innholdet på nettstedet er generell informasjon om tjenestene våre og utgjør ikke et bindende tilbud." },
+        { title: "Kjøp og salg av brukt utstyr", text: "Alle enheter kontrolleres før salg. For forbrukere gjelder forbrukerkjøpsloven. Betingelsene for hver enkelt avtale avtales direkte med oss." },
+        { title: "Tilbud og priser", text: "Priser og tilgjengelighet endres med lagerstatus. Tilbud er gyldige så lenge de er angitt, og avtales skriftlig før arbeid starter." },
+        { title: "AI-generert innhold", text: "Svar fra AI-funksjonene er veiledende og kan inneholde feil. De erstatter ikke profesjonell vurdering av enheten." },
+        { title: "Ansvar og lovvalg", text: "Vi gjør vårt beste for at informasjonen er korrekt, men kan ikke garantere at den til enhver tid er fullstendig. Norsk lov gjelder." },
+      ],
+    },
   },
   cta: {
     title: "Har du et spørsmål eller en enhet du vil selge?",
@@ -469,6 +539,54 @@ const en: SiteContent = {
   footer: {
     tagline: "Used electronics, service and repairs, e-mobility, recycling and AI solutions.",
     locations: "Bergen and Stord, Norway",
+    servicesTitle: "Services", companyTitle: "Company", contactTitle: "Contact",
+    privacy: "Privacy", terms: "Terms", account: "My account", rights: "All rights reserved.",
+  },
+  auth: {
+    kicker: "Account",
+    title: "Sign in or create an account",
+    lead: "With an account you can view and manage your account details. You do not need an account to contact us.",
+    signInTab: "Sign in", signUpTab: "Register", forgotTab: "Forgot password",
+    email: "Email", password: "Password", confirmPassword: "Confirm password", newPassword: "New password",
+    signInButton: "Sign in", signUpButton: "Create account", sendResetButton: "Send reset link", resetButton: "Save new password",
+    forgotLink: "Forgot your password?", backToLogin: "Back to sign in", accountLink: "My account",
+    minPassword: "The password must be at least 8 characters.", passwordMismatch: "The passwords do not match.", invalidEmail: "Enter a valid email address.",
+    checkEmail: "Check your email", checkEmailText: "We have sent a confirmation link. Click the link in the email to activate your account.",
+    invalidCredentials: "Wrong email or password.", emailNotConfirmed: "The email address is not confirmed yet. Check your inbox.", userExists: "An account with this email address already exists.", rateLimited: "Too many attempts. Please try again shortly.", genericError: "Something went wrong. Please try again.",
+    forgotTitle: "Forgot password", forgotText: "Enter your email address and we will send you a link to choose a new password.", resetSent: "If the address exists with us, we have sent a reset link. Check your email.",
+    resetTitle: "Choose a new password", resetText: "Enter your new password below.", resetDone: "Your password has been updated. You can now sign in.", resetExpired: "The link is invalid or has expired. Request a new reset link.",
+    switchToSignUp: "No account yet? Register", switchToSignIn: "Already have an account? Sign in",
+  },
+  account: {
+    kicker: "Account", title: "My account", lead: "Here you can see your account information.",
+    emailLabel: "Email", createdLabel: "Account created", unknown: "Unknown",
+    signOut: "Sign out", securityNote: "We only store the email address you registered with. You can ask us to delete the account at any time.",
+  },
+  legal: {
+    privacy: {
+      kicker: "Privacy", title: "Privacy policy",
+      lead: "How we process personal data when you use emsmujic.tech.",
+      updated: "Last updated: January 2026",
+      sections: [
+        { title: "Data controller", text: "EMS Mujic, operating in Bergen and Stord, is the controller of personal data collected through this website. You can contact us at ems.mujic@gmail.com." },
+        { title: "What data we process", text: "When you contact us by email or phone, we process your name, contact details and the content of your enquiry. If you create an account, we store your email address and an encrypted version of your password." },
+        { title: "AI features", text: "Messages you write to the customer assistant, and descriptions or photos you send to the service assistant, are sent to an external AI service to generate replies. The website does not store these messages or photos. Avoid sharing sensitive information." },
+        { title: "Browser storage", text: "The website does not use tracking cookies. Your browser only stores your language choice and, if you sign in, information that keeps you signed in." },
+        { title: "Your rights", text: "You have the right to access, correct and delete your personal data, and to lodge a complaint with the Norwegian Data Protection Authority (Datatilsynet). Contact us to exercise your rights." },
+      ],
+    },
+    terms: {
+      kicker: "Terms", title: "Terms of use",
+      lead: "Terms for using emsmujic.tech and our services.",
+      updated: "Last updated: January 2026",
+      sections: [
+        { title: "About the content", text: "The content on this website is general information about our services and does not constitute a binding offer." },
+        { title: "Buying and selling used equipment", text: "All devices are checked before sale. For consumers, the Norwegian Consumer Purchases Act applies. The conditions of each individual agreement are agreed directly with us." },
+        { title: "Quotes and prices", text: "Prices and availability change with stock. Quotes are valid as stated and are agreed in writing before work begins." },
+        { title: "AI-generated content", text: "Replies from the AI features are guidance only and may contain errors. They do not replace a professional assessment of the device." },
+        { title: "Liability and governing law", text: "We do our best to keep the information accurate but cannot guarantee that it is complete at all times. Norwegian law applies." },
+      ],
+    },
   },
   cta: {
     title: "Have a question or a device to sell?",
@@ -798,6 +916,54 @@ const bs: SiteContent = {
   footer: {
     tagline: "Polovna elektronika, servis i popravke, e-mobilnost, reciklaža i AI rješenja.",
     locations: "Bergen i Stord, Norveška",
+    servicesTitle: "Usluge", companyTitle: "Firma", contactTitle: "Kontakt",
+    privacy: "Privatnost", terms: "Uslovi", account: "Moj račun", rights: "Sva prava zadržana.",
+  },
+  auth: {
+    kicker: "Račun",
+    title: "Prijavite se ili otvorite račun",
+    lead: "Uz račun možete pregledati i uređivati svoje podatke. Račun nije potreban da nas kontaktirate.",
+    signInTab: "Prijava", signUpTab: "Registracija", forgotTab: "Zaboravljena lozinka",
+    email: "Email", password: "Lozinka", confirmPassword: "Potvrdite lozinku", newPassword: "Nova lozinka",
+    signInButton: "Prijavi se", signUpButton: "Otvorite račun", sendResetButton: "Pošalji link za reset", resetButton: "Sačuvaj novu lozinku",
+    forgotLink: "Zaboravili ste lozinku?", backToLogin: "Nazad na prijavu", accountLink: "Moj račun",
+    minPassword: "Lozinka mora imati najmanje 8 znakova.", passwordMismatch: "Lozinke se ne poklapaju.", invalidEmail: "Unesite ispravnu email adresu.",
+    checkEmail: "Provjerite email", checkEmailText: "Poslali smo link za potvrdu. Kliknite na link u emailu da aktivirate račun.",
+    invalidCredentials: "Pogrešan email ili lozinka.", emailNotConfirmed: "Email adresa još nije potvrđena. Provjerite poštu.", userExists: "Račun s ovom email adresom već postoji.", rateLimited: "Previše pokušaja. Pokušajte ponovo za koji trenutak.", genericError: "Nešto je pošlo naopako. Pokušajte ponovo.",
+    forgotTitle: "Zaboravljena lozinka", forgotText: "Unesite svoju email adresu i poslat ćemo vam link za odabir nove lozinke.", resetSent: "Ako adresa postoji kod nas, poslali smo link za reset. Provjerite email.",
+    resetTitle: "Odaberite novu lozinku", resetText: "Unesite novu lozinku ispod.", resetDone: "Lozinka je ažurirana. Sada se možete prijaviti.", resetExpired: "Link je nevažeći ili istekao. Zatražite novi link za reset.",
+    switchToSignUp: "Nemate račun? Registrujte se", switchToSignIn: "Već imate račun? Prijavite se",
+  },
+  account: {
+    kicker: "Račun", title: "Moj račun", lead: "Ovdje možete vidjeti podatke svog računa.",
+    emailLabel: "Email", createdLabel: "Račun otvoren", unknown: "Nepoznato",
+    signOut: "Odjavi se", securityNote: "Čuvamo samo email adresu s kojom ste se registrovali. Možete zatražiti brisanje računa u svakom trenutku.",
+  },
+  legal: {
+    privacy: {
+      kicker: "Privatnost", title: "Politika privatnosti",
+      lead: "Kako obrađujemo lične podatke kada koristite emsmujic.tech.",
+      updated: "Posljednje ažuriranje: januar 2026.",
+      sections: [
+        { title: "Rukovalac podacima", text: "EMS Mujic, sa poslovanjem u Bergenu i Stordeu, rukuje ličnim podacima prikupljenim preko ove web stranice. Možete nas kontaktirati na ems.mujic@gmail.com." },
+        { title: "Koje podatke obrađujemo", text: "Kada nas kontaktirate emailom ili telefonom, obrađujemo vaše ime, kontakt podatke i sadržaj upita. Ako otvorite račun, čuvamo vašu email adresu i šifrovanu verziju lozinke." },
+        { title: "AI funkcije", text: "Poruke koje pišete korisničkoj pomoći, te opisi ili fotografije koje pošaljete servisnom asistentu, šalju se vanjskoj AI usluzi radi generisanja odgovora. Stranica ne čuva te poruke ni fotografije. Izbjegavajte dijeljenje osjetljivih podataka." },
+        { title: "Pohrana u pregledniku", text: "Stranica ne koristi kolačiće za praćenje. Vaš preglednik čuva samo odabrani jezik i, ako ste prijavljeni, podatke koji vas drže prijavljenim." },
+        { title: "Vaša prava", text: "Imate pravo na uvid, ispravku i brisanje svojih ličnih podataka, te na pritužbu norveškom organu za zaštitu podataka (Datatilsynet). Kontaktirajte nas za ostvarivanje prava." },
+      ],
+    },
+    terms: {
+      kicker: "Uslovi", title: "Uslovi korištenja",
+      lead: "Uslovi korištenja stranice emsmujic.tech i naših usluga.",
+      updated: "Posljednje ažuriranje: januar 2026.",
+      sections: [
+        { title: "O sadržaju", text: "Sadržaj na stranici je opća informacija o našim uslugama i ne predstavlja obavezujuću ponudu." },
+        { title: "Kupovina i prodaja polovne opreme", text: "Svi uređaji se provjeravaju prije prodaje. Za potrošače važi norveški zakon o kupovini potrošača. Uslovi svakog pojedinačnog dogovora dogovaraju se direktno s nama." },
+        { title: "Ponude i cijene", text: "Cijene i dostupnost se mijenjaju sa stanjem na lageru. Ponude važe dok su navedene i dogovaraju se pismeno prije početka rada." },
+        { title: "AI generisan sadržaj", text: "Odgovori AI funkcija su samo smjernice i mogu sadržavati greške. Ne zamjenjuju stručnu procjenu uređaja." },
+        { title: "Odgovornost i primjenjivo pravo", text: "Trudimo se da informacije budu tačne, ali ne možemo garantovati da su u svakom trenutku potpune. Primjenjuje se norveško pravo." },
+      ],
+    },
   },
   cta: {
     title: "Imate pitanje ili uređaj za prodaju?",

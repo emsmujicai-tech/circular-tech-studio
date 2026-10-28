@@ -26,7 +26,37 @@ const csrfMiddleware = createCsrfMiddleware({
   filter: (ctx) => !new URL(ctx.request.url).pathname.startsWith("/lovable/") && ctx.handlerType === "serverFn",
 });
 
+// Sensible security headers. The strict CSP and frame protection apply only to
+// production builds: the dev server injects inline scripts (HMR) and the editor
+// preview embeds the app in an iframe, both of which those headers would break.
+const securityHeadersMiddleware = createMiddleware().server(async ({ next }) => {
+  const response = await next();
+  const headers = new Headers(response.headers);
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+  if (process.env.NODE_ENV === "production") {
+    headers.set("X-Frame-Options", "DENY");
+    headers.set(
+      "Content-Security-Policy",
+      [
+        "default-src 'self'",
+        "script-src 'self'",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src https://fonts.gstatic.com",
+        "img-src 'self' data: blob:",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://ai.gateway.lovable.dev",
+        "frame-ancestors 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+        "object-src 'none'",
+      ].join("; "),
+    );
+  }
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+});
+
 export const startInstance = createStart(() => ({
   functionMiddleware: [attachSupabaseAuth],
-  requestMiddleware: [errorMiddleware, csrfMiddleware],
+  requestMiddleware: [errorMiddleware, securityHeadersMiddleware, csrfMiddleware],
 }));

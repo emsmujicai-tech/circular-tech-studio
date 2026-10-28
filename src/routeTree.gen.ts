@@ -10,14 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as DroneRouteImport } from './routes/drone'
 import { Route as EOtpadRouteImport } from './routes/e-otpad'
 import { Route as ElektronikaRouteImport } from './routes/elektronika'
 import { Route as ItSupportRouteImport } from './routes/it-support'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PersonvernRouteImport } from './routes/personvern'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk'
 import { Route as ServisRouteImport } from './routes/servis'
 import { Route as UslugeRouteImport } from './routes/usluge'
+import { Route as VilkarRouteImport } from './routes/vilkar'
+import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as ApiPublicCustomerChatRouteImport } from './routes/api/public/customer-chat'
 import { Route as ApiPublicServiceAssistantRouteImport } from './routes/api/public/service-assistant'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
@@ -26,6 +32,10 @@ import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/em
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DroneRoute = DroneRouteImport.update({
@@ -53,6 +63,21 @@ const KontaktRoute = KontaktRouteImport.update({
   path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonvernRoute = PersonvernRouteImport.update({
+  id: '/personvern',
+  path: '/personvern',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RetroElektronikkRoute = RetroElektronikkRouteImport.update({
   id: '/retro-elektronikk',
   path: '/retro-elektronikk',
@@ -67,6 +92,16 @@ const UslugeRoute = UslugeRouteImport.update({
   id: '/usluge',
   path: '/usluge',
   getParentRoute: () => rootRouteImport,
+} as any)
+const VilkarRoute = VilkarRouteImport.update({
+  id: '/vilkar',
+  path: '/vilkar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAccountRoute = AuthenticatedAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const ApiPublicCustomerChatRoute = ApiPublicCustomerChatRouteImport.update({
   id: '/api/public/customer-chat',
@@ -97,9 +132,14 @@ export interface FileRoutesByFullPath {
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/login': typeof LoginRoute
+  '/personvern': typeof PersonvernRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/vilkar': typeof VilkarRoute
+  '/account': typeof AuthenticatedAccountRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -112,9 +152,14 @@ export interface FileRoutesByTo {
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/login': typeof LoginRoute
+  '/personvern': typeof PersonvernRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/vilkar': typeof VilkarRoute
+  '/account': typeof AuthenticatedAccountRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -123,14 +168,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/drone': typeof DroneRoute
   '/e-otpad': typeof EOtpadRoute
   '/elektronika': typeof ElektronikaRoute
   '/it-support': typeof ItSupportRoute
   '/kontakt': typeof KontaktRoute
+  '/login': typeof LoginRoute
+  '/personvern': typeof PersonvernRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
   '/usluge': typeof UslugeRoute
+  '/vilkar': typeof VilkarRoute
+  '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -145,9 +196,14 @@ export interface FileRouteTypes {
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/login'
+    | '/personvern'
+    | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/vilkar'
+    | '/account'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -160,9 +216,14 @@ export interface FileRouteTypes {
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/login'
+    | '/personvern'
+    | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/vilkar'
+    | '/account'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -170,14 +231,20 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/drone'
     | '/e-otpad'
     | '/elektronika'
     | '/it-support'
     | '/kontakt'
+    | '/login'
+    | '/personvern'
+    | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
     | '/usluge'
+    | '/vilkar'
+    | '/_authenticated/account'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -186,14 +253,19 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   DroneRoute: typeof DroneRoute
   EOtpadRoute: typeof EOtpadRoute
   ElektronikaRoute: typeof ElektronikaRoute
   ItSupportRoute: typeof ItSupportRoute
   KontaktRoute: typeof KontaktRoute
+  LoginRoute: typeof LoginRoute
+  PersonvernRoute: typeof PersonvernRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RetroElektronikkRoute: typeof RetroElektronikkRoute
   ServisRoute: typeof ServisRoute
   UslugeRoute: typeof UslugeRoute
+  VilkarRoute: typeof VilkarRoute
   ApiPublicCustomerChatRoute: typeof ApiPublicCustomerChatRoute
   ApiPublicServiceAssistantRoute: typeof ApiPublicServiceAssistantRoute
   LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
@@ -207,6 +279,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/drone': {
@@ -244,6 +323,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personvern': {
+      id: '/personvern'
+      path: '/personvern'
+      fullPath: '/personvern'
+      preLoaderRoute: typeof PersonvernRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/retro-elektronikk': {
       id: '/retro-elektronikk'
       path: '/retro-elektronikk'
@@ -264,6 +364,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/usluge'
       preLoaderRoute: typeof UslugeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/vilkar': {
+      id: '/vilkar'
+      path: '/vilkar'
+      fullPath: '/vilkar'
+      preLoaderRoute: typeof VilkarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/account': {
+      id: '/_authenticated/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AuthenticatedAccountRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/api/public/customer-chat': {
       id: '/api/public/customer-chat'
@@ -296,16 +410,32 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAccountRoute: AuthenticatedAccountRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   DroneRoute: DroneRoute,
   EOtpadRoute: EOtpadRoute,
   ElektronikaRoute: ElektronikaRoute,
   ItSupportRoute: ItSupportRoute,
   KontaktRoute: KontaktRoute,
+  LoginRoute: LoginRoute,
+  PersonvernRoute: PersonvernRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RetroElektronikkRoute: RetroElektronikkRoute,
   ServisRoute: ServisRoute,
   UslugeRoute: UslugeRoute,
+  VilkarRoute: VilkarRoute,
   ApiPublicCustomerChatRoute: ApiPublicCustomerChatRoute,
   ApiPublicServiceAssistantRoute: ApiPublicServiceAssistantRoute,
   LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
