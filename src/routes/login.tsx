@@ -13,7 +13,7 @@ function safeRedirect(value: unknown): string {
 }
 
 export const Route = createFileRoute("/login")({
-  validateSearch: (search: Record<string, unknown>): { redirect: string } => ({
+  validateSearch: (search: Record<string, unknown>): { redirect?: string } => ({
     redirect: safeRedirect(search["redirect"]),
   }),
   head: () => meta(
@@ -39,7 +39,7 @@ function Page() {
   useEffect(() => {
     let active = true;
     void supabase.auth.getUser().then(({ data }) => {
-      if (active && data.user) void navigate({ to: redirect, replace: true });
+      if (active && data.user) void navigate({ to: redirect ?? "/account", replace: true });
     });
     return () => {
       active = false;
@@ -82,7 +82,7 @@ function Page() {
           setError(mapError(err.message));
           return;
         }
-        await navigate({ to: redirect, replace: true });
+        await navigate({ to: redirect ?? "/account", replace: true });
       } else if (mode === "signup") {
         const { data, error: err } = await supabase.auth.signUp({
           email: cleanEmail,
@@ -93,7 +93,7 @@ function Page() {
           setError(mapError(err.message));
           return;
         }
-        if (data.session) await navigate({ to: redirect, replace: true });
+        if (data.session) await navigate({ to: redirect ?? "/account", replace: true });
         else setNotice(a.checkEmailText);
       } else {
         const { error: err } = await supabase.auth.resetPasswordForEmail(cleanEmail, {

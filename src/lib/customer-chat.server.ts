@@ -15,7 +15,7 @@ export async function handleCustomerChat(request: Request) {
   if (!parsed.success) return Response.json({ error: content.nb.assistant.invalid }, { status: 400 });
   const { lang } = parsed.data;
   const messages = parsed.data.messages as UIMessage[];
-  const key = process.env.LOVABLE_API_KEY;
+  const key = process.env['LOVABLE_API_KEY'];
   if (!key) return Response.json({ error: content[lang].chat.error }, { status: 503 });
   const gateway = createLovableAiGatewayRunIdFetch();
   let status = 200;

@@ -16,7 +16,8 @@
   "overrides": {
     "rolldown": "1.2.1",
     "@ai-sdk/provider": "4.0.31",
-    "@ai-sdk/provider-utils": "5.0.65"
+    "@ai-sdk/provider-utils": "5.0.65",
+    "ai": "7.0.148"
   },
   "dependencies": {
     "@ai-sdk/openai": "4.0.99",
