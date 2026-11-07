@@ -13,7 +13,7 @@ function safeRedirect(value: unknown): string {
 }
 
 export const Route = createFileRoute("/login")({
-  validateSearch: (search: Record<string, unknown>): { redirect: string } => ({
+  validateSearch: (search: Record<string, unknown>): { redirect?: string } => ({
     redirect: safeRedirect(search["redirect"]),
   }),
   head: () => meta(
