@@ -30,12 +30,13 @@ const csrfMiddleware = createCsrfMiddleware({
 // production builds: the dev server injects inline scripts (HMR) and the editor
 // preview embeds the app in an iframe, both of which those headers would break.
 const securityHeadersMiddleware = createMiddleware().server(async ({ next }) => {
-  const response = await next();
+  const result = await next();
+  const response = result.response;
   const headers = new Headers(response.headers);
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
-  if (process.env.NODE_ENV === "production") {
+  if (process.env["NODE_ENV"] === "production") {
     headers.set("X-Frame-Options", "DENY");
     headers.set(
       "Content-Security-Policy",
@@ -53,7 +54,7 @@ const securityHeadersMiddleware = createMiddleware().server(async ({ next }) => 
       ].join("; "),
     );
   }
-  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  return { ...result, response: new Response(response.body, { status: response.status, statusText: response.statusText, headers }) };
 });
 
 export const startInstance = createStart(() => ({
