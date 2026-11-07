@@ -8,7 +8,7 @@ export const Route = createFileRoute("/drone")({
   head: () => meta(
     "Drone-inspeksjon og filming — EMS Mujic",
     "Drone-inspeksjon av tak, fasader og utilgjengelige steder, luftopptak til eiendom, prosjekter og markedsføring. Bergen og Stord.",
-  , "/drone"),
+  "/drone"),
   component: Page,
 });
 

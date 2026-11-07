@@ -10,7 +10,7 @@ export const Route = createFileRoute("/servis")({
   head: () => meta(
     "Service av elektronikk, elsykler, sparkesykler og motorsykler — EMS Mujic",
     "Feilsøking og reparasjon av bærbare PC-er, stasjonære PC-er, nettbrett og mobiltelefoner, samt service av elektriske sparkesykler, sykler og motorsykler.",
-  , "/servis"),
+  "/servis"),
   component: Page,
 });
 

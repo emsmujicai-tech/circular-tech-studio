@@ -6,7 +6,7 @@ export const Route = createFileRoute("/kontakt")({
   head: () => meta(
     "Kontakt — EMS Mujic Smart Solutions",
     "Kontakt EMS Mujic i Bergen og Stord for kjøp av brukt elektronikk, service, oppkjøp av elektronavfall eller AI- og designløsninger.",
-  , "/kontakt"),
+  "/kontakt"),
   component: Page,
 });
 
