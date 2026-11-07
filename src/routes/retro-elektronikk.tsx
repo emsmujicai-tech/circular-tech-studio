@@ -9,7 +9,7 @@ import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { content } from "@/lib/content";
 
 export const Route = createFileRoute("/retro-elektronikk")({
-  head: () => meta(`${content.nb.retro.title} — EMS Mujic`, content.nb.retro.lead),
+  head: () => meta(`${content.nb.retro.title} — EMS Mujic`, content.nb.retro.lead, "/retro-elektronikk"),
   component: RetroClub,
 });
 

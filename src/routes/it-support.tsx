@@ -8,7 +8,7 @@ export const Route = createFileRoute("/it-support")({
   head: () => meta(
     "IT-support for bedrifter — EMS Mujic",
     "Fast vedlikehold av PC-er og servere, nettverk, sikkerhet og fjernsupport for bedrifter i Bergen og Stord.",
-  ),
+  , "/it-support"),
   component: Page,
 });
 

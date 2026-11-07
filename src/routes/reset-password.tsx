@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { PageHead, meta } from "@/components/site";
 
 export const Route = createFileRoute("/reset-password")({
-  head: () => meta(
+  head: () => { const h = meta(
     "Nytt passord — EMS Mujic Smart Solutions",
     "Velg et nytt passord for kontoen din hos EMS Mujic.",
-  ),
+  ); return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] }; },
   component: Page,
 });
 

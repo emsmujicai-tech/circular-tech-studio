@@ -148,9 +148,15 @@ export function CTA() {
   );
 }
 
-export function meta(title: string, description: string) {
+export const SITE_URL = "https://emsmujic.tech";
+export function meta(title: string, description: string, path?: string) {
+  const url = path === undefined ? undefined : `${SITE_URL}${path}`;
   return {
+    ...(url ? { links: [{ rel: "canonical", href: url }] } : {}),
     meta: [
+      ...(url ? [{ property: "og:url", content: url }] : []),
+      { property: "og:site_name", content: "EMS Mujic Smart Solutions" },
+      { property: "og:locale", content: "nb_NO" },
       { title },
       { name: "description", content: description },
       { property: "og:title", content: title },

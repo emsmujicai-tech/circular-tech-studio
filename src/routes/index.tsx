@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
   head: () => meta(
     "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
     "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
-  ),
+  , "/"),
   component: Index,
 });
 
