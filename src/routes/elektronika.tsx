@@ -8,7 +8,7 @@ export const Route = createFileRoute("/elektronika")({
   head: () => meta(
     "Brukt elektronikk og e-voziler — EMS Mujic",
     "Brukte bærbare PC-er, stasjonære PC-er, nettbrett, mobiltelefoner, elektriske sparkesykler og sykler til svært gunstige priser.",
-  ),
+  "/elektronika"),
   component: Page,
 });
 

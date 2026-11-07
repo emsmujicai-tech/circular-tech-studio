@@ -15,7 +15,7 @@ export const Route = createFileRoute("/usluge")({
   head: () => meta(
     "AI, automatisering og branding — EMS Mujic",
     "AI-botter, AI-resepsjonister, forretningsautomatisering, logo, 3D-design og AI-visualisering.",
-  ),
+  "/usluge"),
   component: Page,
 });
 

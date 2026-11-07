@@ -21,6 +21,7 @@ import { Route as PersonvernRouteImport } from './routes/personvern'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RetroElektronikkRouteImport } from './routes/retro-elektronikk'
 import { Route as ServisRouteImport } from './routes/servis'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UslugeRouteImport } from './routes/usluge'
 import { Route as VilkarRouteImport } from './routes/vilkar'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
@@ -88,6 +89,11 @@ const ServisRoute = ServisRouteImport.update({
   path: '/servis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UslugeRoute = UslugeRouteImport.update({
   id: '/usluge',
   path: '/usluge',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/account': typeof AuthenticatedAccountRoute
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/account': typeof AuthenticatedAccountRoute
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/retro-elektronikk': typeof RetroElektronikkRoute
   '/servis': typeof ServisRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
@@ -201,6 +210,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
+    | '/sitemap.xml'
     | '/usluge'
     | '/vilkar'
     | '/account'
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
+    | '/sitemap.xml'
     | '/usluge'
     | '/vilkar'
     | '/account'
@@ -242,6 +253,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/retro-elektronikk'
     | '/servis'
+    | '/sitemap.xml'
     | '/usluge'
     | '/vilkar'
     | '/_authenticated/account'
@@ -264,6 +276,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   RetroElektronikkRoute: typeof RetroElektronikkRoute
   ServisRoute: typeof ServisRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UslugeRoute: typeof UslugeRoute
   VilkarRoute: typeof VilkarRoute
   ApiPublicCustomerChatRoute: typeof ApiPublicCustomerChatRoute
@@ -358,6 +371,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/usluge': {
       id: '/usluge'
       path: '/usluge'
@@ -434,6 +454,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   RetroElektronikkRoute: RetroElektronikkRoute,
   ServisRoute: ServisRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UslugeRoute: UslugeRoute,
   VilkarRoute: VilkarRoute,
   ApiPublicCustomerChatRoute: ApiPublicCustomerChatRoute,

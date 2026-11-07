@@ -13,13 +13,11 @@ function safeRedirect(value: unknown): string {
 }
 
 export const Route = createFileRoute("/login")({
-  validateSearch: (search: Record<string, unknown>): { redirect?: string } => ({
-    redirect: safeRedirect(search["redirect"]),
-  }),
-  head: () => meta(
+  validateSearch: (search: Record<string, unknown>): { redirect?: string } => (search["redirect"] === undefined ? {} : { redirect: safeRedirect(search["redirect"]) }),
+  head: () => { const h = meta(
     "Logg inn — EMS Mujic Smart Solutions",
     "Logg inn på kontoen din, opprett en ny konto eller tilbakestill passordet hos EMS Mujic.",
-  ),
+  ); return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] }; },
   component: Page,
 });
 

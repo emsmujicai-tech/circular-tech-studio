@@ -7,7 +7,7 @@ export const Route = createFileRoute("/personvern")({
   head: () => meta(
     "Personvernerklæring — EMS Mujic Smart Solutions",
     "Slik behandler EMS Mujic personopplysninger når du bruker emsmujic.tech.",
-  ),
+  "/personvern"),
   component: Page,
 });
 
