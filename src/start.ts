@@ -23,7 +23,8 @@ const errorMiddleware = createMiddleware().server(async ({ request, next }) => {
 // file opts out, so re-add it explicitly to keep server functions protected
 // from cross-site requests.
 const csrfMiddleware = createCsrfMiddleware({
-  filter: (ctx) => !new URL(ctx.request.url).pathname.startsWith("/lovable/") && ctx.handlerType === "serverFn",
+  filter: (ctx) =>
+    !new URL(ctx.request.url).pathname.startsWith("/lovable/") && ctx.handlerType === "serverFn",
 });
 
 // Sensible security headers. The strict CSP and frame protection apply only to
@@ -54,7 +55,14 @@ const securityHeadersMiddleware = createMiddleware().server(async ({ next }) => 
       ].join("; "),
     );
   }
-  return { ...result, response: new Response(response.body, { status: response.status, statusText: response.statusText, headers }) };
+  return {
+    ...result,
+    response: new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    }),
+  };
 });
 
 export const startInstance = createStart(() => ({

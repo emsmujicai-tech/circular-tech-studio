@@ -3,10 +3,12 @@ import { CONTACT, PageHead, meta } from "@/components/site";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/kontakt")({
-  head: () => meta(
-    "Kontakt — EMS Mujic Smart Solutions",
-    "Kontakt EMS Mujic i Bergen og Stord for kjøp av brukt elektronikk, service, oppkjøp av elektronavfall eller AI- og designløsninger.",
-  "/kontakt"),
+  head: () =>
+    meta(
+      "Kontakt — EMS Mujic Smart Solutions",
+      "Kontakt EMS Mujic i Bergen og Stord for kjøp av brukt elektronikk, service, oppkjøp av elektronavfall eller AI- og designløsninger.",
+      "/kontakt",
+    ),
   component: Page,
 });
 
@@ -22,13 +24,17 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={k.kicker} title={k.title}>{k.lead}</PageHead>
+      <PageHead kicker={k.kicker} title={k.title}>
+        {k.lead}
+      </PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">
         {items.map(([label, value, href]) => (
           <div key={label} className="rounded-xl border bg-card p-6">
             <p className="text-sm uppercase tracking-wider text-muted-foreground">{label}</p>
             {href ? (
-              <a href={href} className="mt-2 block text-xl font-semibold text-primary">{value}</a>
+              <a href={href} className="mt-2 block text-xl font-semibold text-primary">
+                {value}
+              </a>
             ) : (
               <p className="mt-2 text-xl font-semibold">{value}</p>
             )}

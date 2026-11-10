@@ -82,13 +82,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "EMS Mujic Smart Solutions" },
-      { name: "description", content: "Brukt elektronikk, service og reparasjoner, e-mobilitet, resirkulering av elektronavfall og AI-løsninger. Bergen og Stord, Norge." },
+      {
+        name: "description",
+        content:
+          "Brukt elektronikk, service og reparasjoner, e-mobilitet, resirkulering av elektronavfall og AI-løsninger. Bergen og Stord, Norge.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

@@ -6,10 +6,12 @@ import { useLang } from "@/lib/i18n";
 import { RetroTeaser } from "@/components/retro-teaser";
 
 export const Route = createFileRoute("/e-otpad")({
-  head: () => meta(
-    "Oppkjøp og resirkulering av elektronavfall — EMS Mujic",
-    "Vi kjøper opp gammel og defekt elektronikk, sorterer den og resirkulerer den ansvarlig.",
-  "/e-otpad"),
+  head: () =>
+    meta(
+      "Oppkjøp og resirkulering av elektronavfall — EMS Mujic",
+      "Vi kjøper opp gammel og defekt elektronikk, sorterer den og resirkulerer den ansvarlig.",
+      "/e-otpad",
+    ),
   component: Page,
 });
 
@@ -21,7 +23,9 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={e.kicker} title={e.title}>{e.lead}</PageHead>
+      <PageHead kicker={e.kicker} title={e.title}>
+        {e.lead}
+      </PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
         {e.steps.map(([title, desc], i) => (
           <MotionSurface key={title} className="rounded-lg border bg-card p-6">

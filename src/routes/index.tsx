@@ -10,10 +10,12 @@ import { ServiceIcon, type ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
-  head: () => meta(
-    "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
-    "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
-  "/"),
+  head: () =>
+    meta(
+      "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
+      "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
+      "/",
+    ),
   component: Index,
 });
 
@@ -42,15 +44,27 @@ function Index() {
           </h1>
           <p className="mt-5 text-lg text-muted-foreground">{h.lead}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/elektronika" className="rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
+            <Link
+              to="/elektronika"
+              className="rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
+            >
               {h.primary}
             </Link>
-            <Link to="/e-otpad" className="rounded-lg border px-5 py-3 font-semibold hover:bg-secondary">
+            <Link
+              to="/e-otpad"
+              className="rounded-lg border px-5 py-3 font-semibold hover:bg-secondary"
+            >
               {h.secondary}
             </Link>
           </div>
         </div>
-        <img src={hero} alt={h.heroAlt} className="aspect-[16/10] w-full rounded-2xl border object-cover" width={1600} height={1000} />
+        <img
+          src={hero}
+          alt={h.heroAlt}
+          className="aspect-[16/10] w-full rounded-2xl border object-cover"
+          width={1600}
+          height={1000}
+        />
       </section>
 
       <RepairGallery />
@@ -60,12 +74,23 @@ function Index() {
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tiles.map((tile) => (
             <MotionSurface key={tile.title} className="rounded-lg border bg-card">
-              <Button asChild variant="ghost" className="block h-full min-h-64 whitespace-normal rounded-lg p-6 text-left hover:bg-transparent hover:text-foreground">
+              <Button
+                asChild
+                variant="ghost"
+                className="block h-full min-h-64 whitespace-normal rounded-lg p-6 text-left hover:bg-transparent hover:text-foreground"
+              >
                 <Link to={tile.to}>
-                  <span className="mb-6 flex items-center justify-between"><span className="text-xs font-medium uppercase tracking-wider text-accent">{tile.tag}</span><ArrowUpRight className="size-4 text-muted-foreground" /></span>
+                  <span className="mb-6 flex items-center justify-between">
+                    <span className="text-xs font-medium uppercase tracking-wider text-accent">
+                      {tile.tag}
+                    </span>
+                    <ArrowUpRight className="size-4 text-muted-foreground" />
+                  </span>
                   <ServiceIcon name={tile.icon} />
                   <h3 className="mt-2 text-xl font-semibold">{tile.title}</h3>
-                  <p className="mt-3 text-sm font-normal leading-relaxed text-muted-foreground">{tile.text}</p>
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-muted-foreground">
+                    {tile.text}
+                  </p>
                 </Link>
               </Button>
             </MotionSurface>

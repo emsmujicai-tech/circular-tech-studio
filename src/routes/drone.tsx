@@ -5,10 +5,12 @@ import type { ServiceIconName } from "@/components/service-icons";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/drone")({
-  head: () => meta(
-    "Drone-inspeksjon og filming — EMS Mujic",
-    "Drone-inspeksjon av tak, fasader og utilgjengelige steder, luftopptak til eiendom, prosjekter og markedsføring. Bergen og Stord.",
-  "/drone"),
+  head: () =>
+    meta(
+      "Drone-inspeksjon og filming — EMS Mujic",
+      "Drone-inspeksjon av tak, fasader og utilgjengelige steder, luftopptak til eiendom, prosjekter og markedsføring. Bergen og Stord.",
+      "/drone",
+    ),
   component: Page,
 });
 
@@ -20,16 +22,22 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={d.kicker} title={d.title}>{d.lead}</PageHead>
+      <PageHead kicker={d.kicker} title={d.title}>
+        {d.lead}
+      </PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-3">
         {d.services.map(([title, text], index) => (
-          <IconCard key={title} title={title} icon={icons[index] ?? "drone"}>{text}</IconCard>
+          <IconCard key={title} title={title} icon={icons[index] ?? "drone"}>
+            {text}
+          </IconCard>
         ))}
       </section>
       <section className="mx-auto mt-16 max-w-6xl px-5">
         <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {d.points.map((p) => (
-            <li key={p} className="rounded-lg border bg-secondary px-4 py-3 text-sm font-medium">{p}</li>
+            <li key={p} className="rounded-lg border bg-secondary px-4 py-3 text-sm font-medium">
+              {p}
+            </li>
           ))}
         </ul>
       </section>
@@ -37,7 +45,10 @@ function Page() {
         <div className="rounded-2xl border border-primary/40 bg-card p-8">
           <h2 className="text-2xl font-bold">{d.quote.title}</h2>
           <p className="mt-2 max-w-2xl text-muted-foreground">{d.quote.text}</p>
-          <Link to="/kontakt" className="mt-5 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
+          <Link
+            to="/kontakt"
+            className="mt-5 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
+          >
             {d.quote.button}
           </Link>
         </div>

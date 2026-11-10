@@ -7,7 +7,19 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { NavKey } from "@/lib/content";
 
-const nav: { to: "/" | "/elektronika" | "/servis" | "/it-support" | "/e-otpad" | "/usluge" | "/drone" | "/retro-elektronikk" | "/kontakt"; key: NavKey }[] = [
+const nav: {
+  to:
+    | "/"
+    | "/elektronika"
+    | "/servis"
+    | "/it-support"
+    | "/e-otpad"
+    | "/usluge"
+    | "/drone"
+    | "/retro-elektronikk"
+    | "/kontakt";
+  key: NavKey;
+}[] = [
   { to: "/", key: "home" },
   { to: "/elektronika", key: "electronics" },
   { to: "/servis", key: "service" },
@@ -27,13 +39,21 @@ export const CONTACT = {
 export function Header() {
   const { t } = useLang();
   const navRef = useRef<HTMLElement>(null);
-  const moveNav = (direction: number) => navRef.current?.scrollBy({ left: direction * 240, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  const moveNav = (direction: number) =>
+    navRef.current?.scrollBy({
+      left: direction * 240,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
   return (
     <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
         <Link to="/" className="font-display text-lg font-bold">
           EMS <span className="text-primary">Mujic</span>
-          <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">Smart Solutions</span>
+          <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">
+            Smart Solutions
+          </span>
         </Link>
         <div className="flex items-center gap-2">
           <AuthControl />
@@ -41,21 +61,40 @@ export function Header() {
         </div>
         <div className="w-full min-w-0 border-t pt-3">
           <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="shrink-0 md:hidden" aria-label={t.assistant.previousNav} onClick={() => moveNav(-1)}><ChevronLeft /></Button>
-          <nav ref={navRef} className="flex min-w-0 flex-1 gap-1 overflow-x-auto text-sm md:justify-center">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                activeOptions={{ exact: true }}
-                className="shrink-0 whitespace-nowrap rounded-md px-3 py-2 text-muted-foreground transition hover:text-foreground"
-                activeProps={{ className: "bg-secondary text-foreground" }}
-              >
-                {t.nav[n.key]}
-              </Link>
-            ))}
-          </nav>
-          <Button variant="ghost" size="icon" className="shrink-0 md:hidden" aria-label={t.assistant.nextNav} onClick={() => moveNav(1)}><ChevronRight /></Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="shrink-0 md:hidden"
+              aria-label={t.assistant.previousNav}
+              onClick={() => moveNav(-1)}
+            >
+              <ChevronLeft />
+            </Button>
+            <nav
+              ref={navRef}
+              className="flex min-w-0 flex-1 gap-1 overflow-x-auto text-sm md:justify-center"
+            >
+              {nav.map((n) => (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  activeOptions={{ exact: true }}
+                  className="shrink-0 whitespace-nowrap rounded-md px-3 py-2 text-muted-foreground transition hover:text-foreground"
+                  activeProps={{ className: "bg-secondary text-foreground" }}
+                >
+                  {t.nav[n.key]}
+                </Link>
+              ))}
+            </nav>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="shrink-0 md:hidden"
+              aria-label={t.assistant.nextNav}
+              onClick={() => moveNav(1)}
+            >
+              <ChevronRight />
+            </Button>
           </div>
         </div>
       </div>
@@ -71,7 +110,9 @@ export function Footer() {
     <footer className="mt-24 border-t">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-display text-base font-bold text-foreground">EMS Mujic Smart Solutions</p>
+          <p className="font-display text-base font-bold text-foreground">
+            EMS Mujic Smart Solutions
+          </p>
           <p className="mt-2 text-muted-foreground">{t.footer.tagline}</p>
         </div>
         <nav aria-label={t.footer.servicesTitle}>
@@ -79,7 +120,9 @@ export function Footer() {
           <ul className="mt-3 space-y-2">
             {nav.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className={footerLink}>{t.nav[n.key]}</Link>
+                <Link to={n.to} className={footerLink}>
+                  {t.nav[n.key]}
+                </Link>
               </li>
             ))}
           </ul>
@@ -87,23 +130,45 @@ export function Footer() {
         <nav aria-label={t.footer.companyTitle}>
           <p className="font-semibold text-foreground">{t.footer.companyTitle}</p>
           <ul className="mt-3 space-y-2">
-            <li><Link to="/personvern" className={footerLink}>{t.footer.privacy}</Link></li>
-            <li><Link to="/vilkar" className={footerLink}>{t.footer.terms}</Link></li>
-            <li><Link to="/account" className={footerLink}>{t.footer.account}</Link></li>
+            <li>
+              <Link to="/personvern" className={footerLink}>
+                {t.footer.privacy}
+              </Link>
+            </li>
+            <li>
+              <Link to="/vilkar" className={footerLink}>
+                {t.footer.terms}
+              </Link>
+            </li>
+            <li>
+              <Link to="/account" className={footerLink}>
+                {t.footer.account}
+              </Link>
+            </li>
           </ul>
         </nav>
         <div>
           <p className="font-semibold text-foreground">{t.footer.contactTitle}</p>
           <ul className="mt-3 space-y-2 text-muted-foreground">
-            <li><a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className={footerLink}>{CONTACT.phone}</a></li>
-            <li><a href={`mailto:${CONTACT.email}`} className={footerLink}>{CONTACT.email}</a></li>
+            <li>
+              <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className={footerLink}>
+                {CONTACT.phone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${CONTACT.email}`} className={footerLink}>
+                {CONTACT.email}
+              </a>
+            </li>
             <li>{t.footer.locations}</li>
           </ul>
         </div>
       </div>
       <div className="border-t">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} emsmujic.tech — {t.footer.rights}</p>
+          <p>
+            © {new Date().getFullYear()} emsmujic.tech — {t.footer.rights}
+          </p>
           <LangSwitcher />
         </div>
       </div>
@@ -111,7 +176,15 @@ export function Footer() {
   );
 }
 
-export function PageHead({ kicker, title, children }: { kicker: string; title: string; children?: ReactNode }) {
+export function PageHead({
+  kicker,
+  title,
+  children,
+}: {
+  kicker: string;
+  title: string;
+  children?: ReactNode;
+}) {
   return (
     <section className="mx-auto max-w-6xl px-5 pb-10 pt-16">
       <p className="text-sm font-medium uppercase tracking-widest text-primary">{kicker}</p>
@@ -121,10 +194,26 @@ export function PageHead({ kicker, title, children }: { kicker: string; title: s
   );
 }
 
-export function Card({ title, children, tag, className }: { title: string; children: ReactNode; tag?: string; className?: string }) {
+export function Card({
+  title,
+  children,
+  tag,
+  className,
+}: {
+  title: string;
+  children: ReactNode;
+  tag?: string;
+  className?: string;
+}) {
   return (
-    <div className={["rounded-xl border bg-card p-6 transition hover:border-primary/60", className].filter(Boolean).join(" ")}>
-      {tag && <span className="text-xs font-medium uppercase tracking-wider text-accent">{tag}</span>}
+    <div
+      className={["rounded-xl border bg-card p-6 transition hover:border-primary/60", className]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      {tag && (
+        <span className="text-xs font-medium uppercase tracking-wider text-accent">{tag}</span>
+      )}
       <h3 className="mt-1 text-xl font-semibold">{title}</h3>
       <p className="mt-2 text-muted-foreground">{children}</p>
     </div>
@@ -140,7 +229,10 @@ export function CTA() {
           <h2 className="text-2xl font-bold">{t.cta.title}</h2>
           <p className="text-muted-foreground">{t.cta.text}</p>
         </div>
-        <Link to="/kontakt" className="rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
+        <Link
+          to="/kontakt"
+          className="rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
+        >
           {t.cta.button}
         </Link>
       </div>

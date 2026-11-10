@@ -5,10 +5,12 @@ import { MotionSurface } from "@/components/motion-surface";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/it-support")({
-  head: () => meta(
-    "IT-support for bedrifter — EMS Mujic",
-    "Fast vedlikehold av PC-er og servere, nettverk, sikkerhet og fjernsupport for bedrifter i Bergen og Stord.",
-  "/it-support"),
+  head: () =>
+    meta(
+      "IT-support for bedrifter — EMS Mujic",
+      "Fast vedlikehold av PC-er og servere, nettverk, sikkerhet og fjernsupport for bedrifter i Bergen og Stord.",
+      "/it-support",
+    ),
   component: Page,
 });
 
@@ -20,7 +22,9 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={i.kicker} title={i.title}>{i.lead}</PageHead>
+      <PageHead kicker={i.kicker} title={i.title}>
+        {i.lead}
+      </PageHead>
       <section className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">
         {i.packages.map((p, index) => (
           <MotionSurface key={p.name} className="flex flex-col rounded-lg border bg-card p-6">
@@ -35,7 +39,10 @@ function Page() {
                 </li>
               ))}
             </ul>
-            <Link to="/kontakt" className="mt-6 inline-block self-start rounded-lg border px-4 py-2 text-sm font-semibold transition hover:bg-secondary">
+            <Link
+              to="/kontakt"
+              className="mt-6 inline-block self-start rounded-lg border px-4 py-2 text-sm font-semibold transition hover:bg-secondary"
+            >
               {p.cta}
             </Link>
           </MotionSurface>
@@ -49,7 +56,9 @@ function Page() {
           </div>
           <ul className="grid gap-2 self-center sm:grid-cols-2">
             {i.remote.points.map((pt) => (
-              <li key={pt} className="rounded-lg bg-background px-4 py-2 text-sm font-medium">{pt}</li>
+              <li key={pt} className="rounded-lg bg-background px-4 py-2 text-sm font-medium">
+                {pt}
+              </li>
             ))}
           </ul>
         </div>
@@ -58,7 +67,10 @@ function Page() {
         <div className="rounded-2xl border border-primary/40 bg-card p-8">
           <h2 className="text-2xl font-bold">{i.quote.title}</h2>
           <p className="mt-2 max-w-2xl text-muted-foreground">{i.quote.text}</p>
-          <Link to="/kontakt" className="mt-5 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90">
+          <Link
+            to="/kontakt"
+            className="mt-5 inline-block rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground hover:opacity-90"
+          >
             {i.quote.button}
           </Link>
         </div>
