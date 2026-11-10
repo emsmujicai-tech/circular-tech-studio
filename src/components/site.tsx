@@ -241,7 +241,8 @@ export function CTA() {
 }
 
 export const SITE_URL = "https://emsmujic.tech";
-export function meta(title: string, description: string, path?: string) {
+export function meta(title: string, description: string, path?: string, image?: string) {
+  const img = image ? `${SITE_URL}${image}` : undefined;
   const url = path === undefined ? undefined : `${SITE_URL}${path}`;
   return {
     ...(url ? { links: [{ rel: "canonical", href: url }] } : {}),
@@ -255,6 +256,14 @@ export function meta(title: string, description: string, path?: string) {
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      ...(img
+        ? [
+            { property: "og:image", content: img },
+            { property: "og:image:width", content: "1200" },
+            { property: "og:image:height", content: "630" },
+            { name: "twitter:image", content: img },
+          ]
+        : []),
     ],
   };
 }

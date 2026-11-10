@@ -9,7 +9,7 @@ export const Route = createFileRoute("/e-otpad")({
   head: () =>
     meta(
       "Oppkjøp og resirkulering av elektronavfall — EMS Mujic",
-      "Vi kjøper opp gammel og defekt elektronikk, sorterer den og resirkulerer den ansvarlig.",
+      "Vi kjøper opp gammel og defekt elektronikk i Bergen og Stord, sorterer den og resirkulerer den ansvarlig. Få et tilbud på utstyret ditt.",
       "/e-otpad",
     ),
   component: Page,

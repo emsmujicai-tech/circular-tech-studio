@@ -7,8 +7,8 @@ import { useLang } from "@/lib/i18n";
 export const Route = createFileRoute("/elektronika")({
   head: () =>
     meta(
-      "Brukt elektronikk og e-voziler — EMS Mujic",
-      "Brukte bærbare PC-er, stasjonære PC-er, nettbrett, mobiltelefoner, elektriske sparkesykler og sykler til svært gunstige priser.",
+      "Brukt elektronikk og elektriske kjøretøy Bergen — EMS Mujic",
+      "Kjøp brukte PC-er, nettbrett, mobiler, elektriske sparkesykler og elsykler til gunstige priser. Testet og klart til bruk – Bergen og Stord.",
       "/elektronika",
     ),
   component: Page,

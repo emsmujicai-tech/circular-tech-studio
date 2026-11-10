@@ -7,8 +7,8 @@ import { useLang } from "@/lib/i18n";
 export const Route = createFileRoute("/it-support")({
   head: () =>
     meta(
-      "IT-support for bedrifter — EMS Mujic",
-      "Fast vedlikehold av PC-er og servere, nettverk, sikkerhet og fjernsupport for bedrifter i Bergen og Stord.",
+      "IT-support for bedrifter i Bergen og Stord — EMS Mujic",
+      "IT-support og fjernsupport for små bedrifter: vedlikehold av PC-er, nettverk og sikkerhet i faste pakker. Be om tilbud fra EMS Mujic.",
       "/it-support",
     ),
   component: Page,

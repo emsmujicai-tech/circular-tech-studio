@@ -10,7 +10,7 @@ import { content } from "@/lib/content";
 
 export const Route = createFileRoute("/retro-elektronikk")({
   head: () =>
-    meta(`${content.nb.retro.title} — EMS Mujic`, content.nb.retro.lead, "/retro-elektronikk"),
+    meta(`${content.nb.retro.title} — EMS Mujic`, content.nb.retro.lead, "/retro-elektronikk", "/og/retro.jpg"),
   component: RetroClub,
 });
 

@@ -14,8 +14,8 @@ const icons = [chatbot, receptionist, automation, branding, modelling, visualisa
 export const Route = createFileRoute("/usluge")({
   head: () =>
     meta(
-      "AI, automatisering og branding — EMS Mujic",
-      "AI-botter, AI-resepsjonister, forretningsautomatisering, logo, 3D-design og AI-visualisering.",
+      "Smart Solutions: AI-botter, automatisering og branding — EMS Mujic",
+      "AI-chatbotter, AI-resepsjonister, automatisering av arbeidsflyt, logo, 3D-design og AI-visualisering for bedrifter i Norge.",
       "/usluge",
     ),
   component: Page,
