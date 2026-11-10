@@ -7,10 +7,8 @@ import { Button } from "@/components/ui/button";
 import { PageHead, meta } from "@/components/site";
 
 export const Route = createFileRoute("/_authenticated/account")({
-  head: () => meta(
-    "Min konto — EMS Mujic Smart Solutions",
-    "Se kontoinformasjonen din hos EMS Mujic.",
-  ),
+  head: () =>
+    meta("Min konto — EMS Mujic Smart Solutions", "Se kontoinformasjonen din hos EMS Mujic."),
   component: Page,
 });
 
@@ -29,12 +27,18 @@ function Page() {
   }
 
   const created = user.created_at
-    ? new Date(user.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })
+    ? new Date(user.created_at).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
     : a.unknown;
 
   return (
     <>
-      <PageHead kicker={a.kicker} title={a.title}>{a.lead}</PageHead>
+      <PageHead kicker={a.kicker} title={a.title}>
+        {a.lead}
+      </PageHead>
       <section className="mx-auto max-w-md px-5 pb-16">
         <div className="rounded-xl border bg-card p-6">
           <dl className="space-y-4 text-sm">

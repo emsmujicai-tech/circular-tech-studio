@@ -7,10 +7,13 @@ import { Button } from "@/components/ui/button";
 import { PageHead, meta } from "@/components/site";
 
 export const Route = createFileRoute("/reset-password")({
-  head: () => { const h = meta(
-    "Nytt passord — EMS Mujic Smart Solutions",
-    "Velg et nytt passord for kontoen din hos EMS Mujic.",
-  ); return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] }; },
+  head: () => {
+    const h = meta(
+      "Nytt passord — EMS Mujic Smart Solutions",
+      "Velg et nytt passord for kontoen din hos EMS Mujic.",
+    );
+    return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] };
+  },
   component: Page,
 });
 
@@ -28,7 +31,8 @@ function Page() {
     const { data: sub } = supabase.auth.onAuthStateChange((event) => {
       if (event === "PASSWORD_RECOVERY") setReady(true);
     });
-    if (typeof window !== "undefined" && window.location.hash.includes("type=recovery")) setReady(true);
+    if (typeof window !== "undefined" && window.location.hash.includes("type=recovery"))
+      setReady(true);
     return () => sub.subscription.unsubscribe();
   }, []);
 
@@ -60,7 +64,9 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={a.kicker} title={a.resetTitle}>{a.resetText}</PageHead>
+      <PageHead kicker={a.kicker} title={a.resetTitle}>
+        {a.resetText}
+      </PageHead>
       <section className="mx-auto max-w-md px-5 pb-16">
         <div className="rounded-xl border bg-card p-6">
           {done ? (

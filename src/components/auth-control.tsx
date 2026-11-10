@@ -58,7 +58,12 @@ export function AuthControl() {
           <span className="max-w-40 truncate">{user.email}</span>
         </Link>
       </Button>
-      <Button variant="ghost" size="icon" aria-label={t.account.signOut} onClick={() => void signOut()}>
+      <Button
+        variant="ghost"
+        size="icon"
+        aria-label={t.account.signOut}
+        onClick={() => void signOut()}
+      >
         <LogOut />
       </Button>
     </div>

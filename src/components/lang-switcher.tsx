@@ -30,16 +30,27 @@ export function LangSwitcher() {
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={lang === "nb" ? "Velg språk" : lang === "en" ? "Choose language" : "Odaberi jezik"}
+        aria-label={
+          lang === "nb" ? "Velg språk" : lang === "en" ? "Choose language" : "Odaberi jezik"
+        }
         onClick={() => setOpen((o) => !o)}
         className="flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm transition hover:bg-secondary"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-4" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.7"
+          className="size-4"
+          aria-hidden
+        >
           <circle cx="12" cy="12" r="9" />
           <path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" />
         </svg>
         <span className="font-semibold">{current?.short ?? lang.toUpperCase()}</span>
-        <span aria-hidden className="text-xs text-muted-foreground">▾</span>
+        <span aria-hidden className="text-xs text-muted-foreground">
+          ▾
+        </span>
       </button>
       {open && (
         <ul

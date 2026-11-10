@@ -9,15 +9,21 @@ import { PageHead, meta } from "@/components/site";
 type Mode = "signin" | "signup" | "forgot";
 
 function safeRedirect(value: unknown): string {
-  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//") ? value : "/account";
+  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//")
+    ? value
+    : "/account";
 }
 
 export const Route = createFileRoute("/login")({
-  validateSearch: (search: Record<string, unknown>): { redirect?: string } => (search["redirect"] === undefined ? {} : { redirect: safeRedirect(search["redirect"]) }),
-  head: () => { const h = meta(
-    "Logg inn — EMS Mujic Smart Solutions",
-    "Logg inn på kontoen din, opprett en ny konto eller tilbakestill passordet hos EMS Mujic.",
-  ); return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] }; },
+  validateSearch: (search: Record<string, unknown>): { redirect?: string } =>
+    search["redirect"] === undefined ? {} : { redirect: safeRedirect(search["redirect"]) },
+  head: () => {
+    const h = meta(
+      "Logg inn — EMS Mujic Smart Solutions",
+      "Logg inn på kontoen din, opprett en ny konto eller tilbakestill passordet hos EMS Mujic.",
+    );
+    return { ...h, meta: [...h.meta, { name: "robots", content: "noindex" }] };
+  },
   component: Page,
 });
 
@@ -48,7 +54,8 @@ function Page() {
     const m = (message ?? "").toLowerCase();
     if (m.includes("invalid login")) return a.invalidCredentials;
     if (m.includes("email not confirmed")) return a.emailNotConfirmed;
-    if (m.includes("already registered") || m.includes("already been registered")) return a.userExists;
+    if (m.includes("already registered") || m.includes("already been registered"))
+      return a.userExists;
     if (m.includes("rate limit") || m.includes("too many")) return a.rateLimited;
     return a.genericError;
   }
@@ -75,7 +82,10 @@ function Page() {
     setBusy(true);
     try {
       if (mode === "signin") {
-        const { error: err } = await supabase.auth.signInWithPassword({ email: cleanEmail, password });
+        const { error: err } = await supabase.auth.signInWithPassword({
+          email: cleanEmail,
+          password,
+        });
         if (err) {
           setError(mapError(err.message));
           return;
@@ -120,7 +130,9 @@ function Page() {
 
   return (
     <>
-      <PageHead kicker={a.kicker} title={a.title}>{a.lead}</PageHead>
+      <PageHead kicker={a.kicker} title={a.title}>
+        {a.lead}
+      </PageHead>
       <section className="mx-auto max-w-md px-5 pb-16">
         <div className="rounded-xl border bg-card p-6">
           <div className="flex gap-1 rounded-lg border p-1" role="tablist" aria-label={a.kicker}>
@@ -185,7 +197,9 @@ function Page() {
                   aria-describedby={error || notice ? "auth-feedback" : undefined}
                   className="mt-1.5 block w-full rounded-md border bg-background px-3 py-2.5"
                 />
-                {mode === "signup" && <p className="mt-1.5 text-xs text-muted-foreground">{a.minPassword}</p>}
+                {mode === "signup" && (
+                  <p className="mt-1.5 text-xs text-muted-foreground">{a.minPassword}</p>
+                )}
               </div>
             )}
 
@@ -219,17 +233,29 @@ function Page() {
 
             <Button type="submit" className="w-full" disabled={busy}>
               {busy && <LoaderCircle className="animate-spin motion-reduce:animate-none" />}
-              {mode === "signin" ? a.signInButton : mode === "signup" ? a.signUpButton : a.sendResetButton}
+              {mode === "signin"
+                ? a.signInButton
+                : mode === "signup"
+                  ? a.signUpButton
+                  : a.sendResetButton}
             </Button>
           </form>
 
           <p className="mt-5 text-sm text-muted-foreground">
             {mode === "signin" ? (
-              <button type="button" className="underline hover:text-foreground" onClick={() => setMode("signup")}>
+              <button
+                type="button"
+                className="underline hover:text-foreground"
+                onClick={() => setMode("signup")}
+              >
                 {a.switchToSignUp}
               </button>
             ) : (
-              <button type="button" className="underline hover:text-foreground" onClick={() => setMode("signin")}>
+              <button
+                type="button"
+                className="underline hover:text-foreground"
+                onClick={() => setMode("signin")}
+              >
                 {a.switchToSignIn}
               </button>
             )}

@@ -1,7 +1,13 @@
 import { useEffect, useRef, type ReactNode, type PointerEvent } from "react";
 import { cn } from "@/lib/utils";
 
-export function MotionSurface({ children, className }: { children: ReactNode; className?: string }) {
+export function MotionSurface({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const frame = useRef<number | null>(null);
   const surface = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -19,7 +25,11 @@ export function MotionSurface({ children, className }: { children: ReactNode; cl
     };
   }, []);
   function move(event: PointerEvent<HTMLDivElement>) {
-    if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (
+      event.pointerType !== "mouse" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
     const element = event.currentTarget;
     const rect = element.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width;
@@ -39,5 +49,14 @@ export function MotionSurface({ children, className }: { children: ReactNode; cl
     event.currentTarget.style.setProperty("--tilt-x", "0deg");
     event.currentTarget.style.setProperty("--tilt-y", "0deg");
   }
-  return <div ref={surface} className={cn("motion-surface", className)} onPointerMove={move} onPointerLeave={reset}>{children}</div>;
+  return (
+    <div
+      ref={surface}
+      className={cn("motion-surface", className)}
+      onPointerMove={move}
+      onPointerLeave={reset}
+    >
+      {children}
+    </div>
+  );
 }

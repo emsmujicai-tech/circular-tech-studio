@@ -4,10 +4,12 @@ import { meta } from "@/components/site";
 import { useLang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/personvern")({
-  head: () => meta(
-    "Personvernerklæring — EMS Mujic Smart Solutions",
-    "Slik behandler EMS Mujic personopplysninger når du bruker emsmujic.tech.",
-  "/personvern"),
+  head: () =>
+    meta(
+      "Personvernerklæring — EMS Mujic Smart Solutions",
+      "Slik behandler EMS Mujic personopplysninger når du bruker emsmujic.tech.",
+      "/personvern",
+    ),
   component: Page,
 });
 

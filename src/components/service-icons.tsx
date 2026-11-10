@@ -19,9 +19,47 @@ import branding from "@/assets/smart-branding.png";
 import modelling from "@/assets/smart-3d.png";
 import visualisation from "@/assets/smart-visualisation.png";
 
-export const serviceIcons = { laptop, desktop, tablet, phone, scooter, ebike, audio, drone, repair, network, recycling, motorcycle, retro, community, chatbot, receptionist, automation, branding, modelling, visualisation };
+export const serviceIcons = {
+  laptop,
+  desktop,
+  tablet,
+  phone,
+  scooter,
+  ebike,
+  audio,
+  drone,
+  repair,
+  network,
+  recycling,
+  motorcycle,
+  retro,
+  community,
+  chatbot,
+  receptionist,
+  automation,
+  branding,
+  modelling,
+  visualisation,
+};
 export type ServiceIconName = keyof typeof serviceIcons;
 
-export function ServiceIcon({ name, compact = false }: { name: ServiceIconName; compact?: boolean }) {
-  return <div className={`flex items-center justify-center py-3 ${compact ? "h-28" : "h-44"}`}><img src={serviceIcons[name]} alt="" loading="lazy" width={816} height={816} className="service-icon h-full w-auto max-w-full object-contain" /></div>;
+export function ServiceIcon({
+  name,
+  compact = false,
+}: {
+  name: ServiceIconName;
+  compact?: boolean;
+}) {
+  return (
+    <div className={`flex items-center justify-center py-3 ${compact ? "h-28" : "h-44"}`}>
+      <img
+        src={serviceIcons[name]}
+        alt=""
+        loading="lazy"
+        width={816}
+        height={816}
+        className="service-icon h-full w-auto max-w-full object-contain"
+      />
+    </div>
+  );
 }

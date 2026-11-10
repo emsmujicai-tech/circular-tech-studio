@@ -11,7 +11,9 @@ type LegalSection = {
 export function LegalPage({ section }: { section: LegalSection }) {
   return (
     <>
-      <PageHead kicker={section.kicker} title={section.title}>{section.lead}</PageHead>
+      <PageHead kicker={section.kicker} title={section.title}>
+        {section.lead}
+      </PageHead>
       <section className="mx-auto max-w-3xl px-5 pb-16">
         <p className="text-sm text-muted-foreground">{section.updated}</p>
         <div className="mt-8 space-y-8">
