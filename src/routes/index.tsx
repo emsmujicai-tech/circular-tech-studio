@@ -12,9 +12,10 @@ import { useLang } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () =>
     meta(
-      "EMS Mujic Smart Solutions — brukt elektronikk, service og AI-løsninger",
-      "Brukt elektronikk til svært gunstige priser, elektriske sparkesykler og sykler, oppkjøp og resirkulering av elektronavfall, AI-botter, automatisering og branding.",
+      "EMS Mujic Smart Solutions — IT-support, elektronikk og elkjøretøy",
+      "Smart Solutions i Bergen og Stord: brukt elektronikk, IT-support for bedrifter, service av elsparkesykler og elsykler, resirkulering og AI-løsninger.",
       "/",
+      "/og/home.jpg",
     ),
   component: Index,
 });
