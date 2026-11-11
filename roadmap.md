@@ -16,3 +16,6 @@
 - [ ] Add TXT record `_lovable.www` in Domeneshop so www.emsmujic.tech verifies
 - [ ] Run full security scan, then publish
 - [ ] Real prices for IT packages (currently "Be om tilbud")
+
+- [ ] Support chat: answer from help docs + order data, hand over to a person when unsure (waiting on: where docs/orders come from)
+- [ ] www.emsmujic.tech: TXT _lovable.www missing in Domeneshop (user must add)
