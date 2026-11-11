@@ -18,4 +18,5 @@
 - AI service assessment uses a public same-origin validated upload endpoint with request-scoped AI Gateway Responses streaming and no retained enquiries or photos; this lets customers prepare an email without accounts.
 - Retro club membership uses an encoded mailto link rather than account storage; membership is handled personally by email.
 - Auth emails use the managed SDK handler and shared email styles; server-rendered copy comes from the trilingual content dictionary, with Norwegian as default.
-- Customer chat uses AI Elements and a same-origin validated streaming endpoint with full in-memory history, no account requirement or transcript persistence; pricing is quote-only until real prices exist.
+- Customer chat uses AI Elements and a same-origin validated streaming endpoint with in-memory history and no transcript persistence; it reads service orders only through a server tool requiring order number plus email, and hands over via a mailto transcript so it works without app email.
+- Admin rights live in user_roles, granted by trigger only to the owner's verified email; service orders are admin-only under RLS.

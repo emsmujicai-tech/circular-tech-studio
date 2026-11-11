@@ -17,5 +17,7 @@
 - [ ] Run full security scan, then publish
 - [ ] Real prices for IT packages (currently "Be om tilbud")
 
-- [ ] Support chat: answer from help docs + order data, hand over to a person when unsure (waiting on: where docs/orders come from)
+- [x] Support chat answers from site text + service orders, hands over by email
+- [x] SEO titles, descriptions and share images
 - [ ] www.emsmujic.tech: TXT _lovable.www missing in Domeneshop (user must add)
+- [ ] Email domain notify.emsmujic.tech failing DNS check (user: More → Emails) — then handover can send automatically

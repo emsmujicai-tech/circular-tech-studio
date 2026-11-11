@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { Mail, X } from "lucide-react";
+import { Mail, UserRound, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Conversation,
@@ -30,6 +30,19 @@ export function CustomerChat() {
     [lang],
   );
   const { messages, sendMessage, status, stop, error } = useChat({ transport });
+  const s = t.support;
+  const transcript = messages
+    .map(
+      (m) =>
+        `${m.role === "user" ? "Kunde" : "Chat"}: ${m.parts
+          .map((p) => (p.type === "text" ? p.text : ""))
+          .join("")}`,
+    )
+    .join("\n\n")
+    .slice(-1800);
+  const handoverHref = `mailto:ems.mujic@gmail.com?subject=${encodeURIComponent(
+    `${s.handoverTitle} — EMS Mujic`,
+  )}&body=${encodeURIComponent(transcript)}`;
   const busy = status === "submitted" || status === "streaming";
   useEffect(() => {
     if (open && !busy) textarea.current?.focus();
@@ -99,6 +112,19 @@ export function CustomerChat() {
                           <ReasoningTrigger>{a.reasoning}</ReasoningTrigger>
                           <ReasoningContent>{part.text}</ReasoningContent>
                         </Reasoning>
+                      ) : part.type === "tool-request_handover" &&
+                        part.state === "output-available" ? (
+                        <div key={i} className="rounded-lg border border-primary/40 bg-secondary p-4">
+                          <p className="flex items-center gap-2 font-semibold">
+                            <UserRound className="size-4 text-primary" /> {s.handoverTitle}
+                          </p>
+                          <p className="mt-1 text-sm text-muted-foreground">{s.handoverText}</p>
+                          <Button asChild size="sm" className="mt-3">
+                            <a href={handoverHref}>
+                              <Mail /> {s.handoverButton}
+                            </a>
+                          </Button>
+                        </div>
                       ) : null,
                     )}
                   </MessageContent>
