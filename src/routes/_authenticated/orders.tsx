@@ -63,7 +63,10 @@ function Page() {
       customer_note: String(f.get("customer_note") ?? "").trim(),
     });
     setBusy(false);
-    if (error) return toast.error(s.failed);
+    if (error) {
+      toast.error(s.failed);
+      return;
+    }
     form.reset();
     toast.success(s.saved);
     void qc.invalidateQueries({ queryKey: ordersQuery.queryKey });
@@ -74,7 +77,10 @@ function Page() {
       .from("service_orders")
       .update({ ...patch, updated_at: new Date().toISOString() })
       .eq("id", id);
-    if (error) return toast.error(s.failed);
+    if (error) {
+      toast.error(s.failed);
+      return;
+    }
     toast.success(s.saved);
     void qc.invalidateQueries({ queryKey: ordersQuery.queryKey });
   }
