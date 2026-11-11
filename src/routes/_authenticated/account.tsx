@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -52,7 +52,10 @@ function Page() {
             </div>
           </dl>
           <p className="mt-6 text-xs leading-relaxed text-muted-foreground">{a.securityNote}</p>
-          <Button variant="outline" className="mt-6 w-full" onClick={() => void signOut()}>
+          <Button asChild variant="secondary" className="mt-6 w-full">
+            <Link to="/orders">{t.support.ordersLink}</Link>
+          </Button>
+          <Button variant="outline" className="mt-3 w-full" onClick={() => void signOut()}>
             <LogOut />
             {a.signOut}
           </Button>

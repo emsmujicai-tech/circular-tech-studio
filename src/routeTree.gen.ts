@@ -25,6 +25,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as UslugeRouteImport } from './routes/usluge'
 import { Route as VilkarRouteImport } from './routes/vilkar'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
+import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
 import { Route as ApiPublicCustomerChatRouteImport } from './routes/api/public/customer-chat'
 import { Route as ApiPublicServiceAssistantRouteImport } from './routes/api/public/service-assistant'
 import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
@@ -109,6 +110,11 @@ const AuthenticatedAccountRoute = AuthenticatedAccountRouteImport.update({
   path: '/account',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedOrdersRoute = AuthenticatedOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const ApiPublicCustomerChatRoute = ApiPublicCustomerChatRouteImport.update({
   id: '/api/public/customer-chat',
   path: '/api/public/customer-chat',
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/account': typeof AuthenticatedAccountRoute
+  '/orders': typeof AuthenticatedOrdersRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -168,6 +175,7 @@ export interface FileRoutesByTo {
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/account': typeof AuthenticatedAccountRoute
+  '/orders': typeof AuthenticatedOrdersRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -191,6 +199,7 @@ export interface FileRoutesById {
   '/usluge': typeof UslugeRoute
   '/vilkar': typeof VilkarRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
+  '/_authenticated/orders': typeof AuthenticatedOrdersRoute
   '/api/public/customer-chat': typeof ApiPublicCustomerChatRoute
   '/api/public/service-assistant': typeof ApiPublicServiceAssistantRoute
   '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/usluge'
     | '/vilkar'
     | '/account'
+    | '/orders'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/usluge'
     | '/vilkar'
     | '/account'
+    | '/orders'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/usluge'
     | '/vilkar'
     | '/_authenticated/account'
+    | '/_authenticated/orders'
     | '/api/public/customer-chat'
     | '/api/public/service-assistant'
     | '/lovable/email/auth/preview'
@@ -399,6 +411,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAccountRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/orders': {
+      id: '/_authenticated/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof AuthenticatedOrdersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/customer-chat': {
       id: '/api/public/customer-chat'
       path: '/api/public/customer-chat'
@@ -432,10 +451,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
+  AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAccountRoute: AuthenticatedAccountRoute,
+  AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

@@ -16,6 +16,7 @@ import { Header, Footer } from "../components/site";
 import { CustomerChat } from "../components/customer-chat";
 import { LangProvider, useLang } from "../lib/i18n";
 import { supabase } from "../integrations/supabase/client";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   const { t } = useLang();
@@ -140,6 +141,7 @@ function RootComponent() {
         </main>
         <Footer />
         <CustomerChat />
+        <Toaster />
       </LangProvider>
     </QueryClientProvider>
   );
