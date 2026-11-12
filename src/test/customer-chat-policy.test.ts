@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { customerChatPolicy } from "../lib/customer-chat-policy";
 describe("customer chatbot business rules", () => {
+  it("uses the restored business phone number", () => {
+    expect(customerChatPolicy.phone).toBe("+47 90 626 626");
+  });
   it("uses quote-only pricing until prices are supplied", () => {
     expect(customerChatPolicy.numericPrices).toBeNull();
     expect(customerChatPolicy.quoteLabel).toBe("Be om tilbud");

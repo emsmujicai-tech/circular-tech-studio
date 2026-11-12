@@ -1,5 +1,10 @@
 # Audit roadmap
 
+## Current request
+- [ ] Replace the old phone number everywhere with +47 90 626 626 and verify contact links and chat facts.
+- [ ] Research communities, forums and directories and draft Norwegian posts, prioritizing electric scooters and e-bikes.
+- [ ] Connect Google Search Console, submit the live sitemap and report measured rankings where available.
+
 ## Done
 - [x] Security: .gitignore ignores .env / .env.* (keeps .env.example); safe .env.example added
 - [x] Security: response headers (nosniff, Referrer-Policy, Permissions-Policy; CSP + frame protection in production)

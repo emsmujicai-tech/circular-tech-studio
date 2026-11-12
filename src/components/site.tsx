@@ -32,7 +32,7 @@ const nav: {
 ];
 
 export const CONTACT = {
-  phone: "+47 973 88 326",
+  phone: "+47 90 626 626",
   email: "ems.mujic@gmail.com",
 };
 
