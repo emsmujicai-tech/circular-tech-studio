@@ -12,6 +12,7 @@ export type NavKey =
 type Pair = [string, string];
 
 export type SiteContent = {
+  petition: Record<"kicker" | "title" | "text" | "button" | "share", string>;
   authEmail: Record<
     | "signupTitle"
     | "signupIntro"
@@ -257,6 +258,7 @@ export type SiteContent = {
 };
 
 const nb: SiteContent = {
+  petition: {kicker:"Underskriftskampanje",title:"Gjør elsparkesykler tryggere",text:"Vi foreslår intelligent lydvarsling på elsparkesykler, slik at fotgjengere – særlig blinde, eldre og barn – hører dem komme. Støtt forslaget med din underskrift.",button:"Signer underskriftskampanjen",share:"Del gjerne lenken med venner og familie."},
   authEmail: {
     signupTitle: "Bekreft e-postadressen",
     signupIntro: "Takk for at du opprettet en konto hos",
@@ -843,6 +845,7 @@ const nb: SiteContent = {
 };
 
 const en: SiteContent = {
+  petition: {kicker:"Petition",title:"Make e-scooters safer",text:"We propose intelligent sound alerts on e-scooters so pedestrians – especially blind people, the elderly and children – can hear them coming. Support the proposal with your signature.",button:"Sign the petition",share:"Please share the link with friends and family."},
   authEmail: {
     signupTitle: "Confirm your email",
     signupIntro: "Thank you for creating an account at",
@@ -1428,6 +1431,7 @@ const en: SiteContent = {
 };
 
 const bs: SiteContent = {
+  petition: {kicker:"Peticija",title:"Učinimo električne skutere sigurnijim",text:"Predlažemo inteligentno zvučno upozorenje na električnim skuterima kako bi ih pješaci – posebno slijepe osobe, stariji i djeca – čuli kada dolaze. Podrži prijedlog svojim potpisom.",button:"Potpiši peticiju",share:"Podijeli link s prijateljima i porodicom."},
   authEmail: {
     signupTitle: "Potvrdi email adresu",
     signupIntro: "Hvala što ste otvorili račun kod",
