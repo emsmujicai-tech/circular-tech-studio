@@ -38,17 +38,16 @@ const securityHeadersMiddleware = createMiddleware().server(async ({ next }) => 
   headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
   headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
   if (process.env["NODE_ENV"] === "production") {
-    headers.set("X-Frame-Options", "DENY");
     headers.set(
       "Content-Security-Policy",
       [
         "default-src 'self'",
-        "script-src 'self'",
+        "script-src 'self' 'unsafe-inline'",
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
         "font-src https://fonts.gstatic.com",
         "img-src 'self' data: blob:",
         "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://ai.gateway.lovable.dev",
-        "frame-ancestors 'none'",
+        "frame-ancestors 'self' https://lovable.dev https://*.lovable.dev",
         "base-uri 'self'",
         "form-action 'self'",
         "object-src 'none'",
