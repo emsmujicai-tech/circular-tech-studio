@@ -1,7 +1,7 @@
 import { content, type Lang } from "./content";
 export const customerChatPolicy = {
   businessName: "EMS Mujic Smart Solutions",
-  phone: "+47 973 88 326",
+  phone: "+47 90 626 626",
   email: "ems.mujic@gmail.com",
   locations: ["Bergen", "Stord"],
   numericPrices: null,
