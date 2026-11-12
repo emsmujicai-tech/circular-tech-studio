@@ -3,6 +3,7 @@ import hero from "@/assets/hero.jpg";
 import { CTA, meta } from "@/components/site";
 import { RepairGallery } from "@/components/repair-gallery";
 import { RetroTeaser } from "@/components/retro-teaser";
+import { PetitionBanner } from "@/components/petition-banner";
 import { MotionSurface } from "@/components/motion-surface";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
@@ -98,6 +99,7 @@ function Index() {
           ))}
         </div>
       </section>
+      <PetitionBanner />
       <RetroTeaser />
       <CTA />
     </>
