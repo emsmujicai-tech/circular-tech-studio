@@ -1,9 +1,9 @@
 # Audit roadmap
 
 ## Current request
-- [ ] Replace the old phone number everywhere with +47 90 626 626 and verify contact links and chat facts.
-- [ ] Research communities, forums and directories and draft Norwegian posts, prioritizing electric scooters and e-bikes.
-- [ ] Connect Google Search Console, submit the live sitemap and report measured rankings where available.
+- [x] Replace the old phone number with +47 90 626 626 in site and chat facts; tested desktop/mobile links, all 17 tests pass, live site verified.
+- [x] Research eight communities, forums and directories and draft Norwegian posts, prioritizing electric scooters and e-bikes; saved sourced report in Files. No external posts submitted.
+- [x] Connect Google Search Console, verify the root property, submit the live sitemap; Google confirms homepage indexed. No query rows for 2026-10-15 through 2026-11-11, so keyword positions are not yet available.
 
 ## Done
 - [x] Security: .gitignore ignores .env / .env.* (keeps .env.example); safe .env.example added
